@@ -54,6 +54,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Artikli\ElektricnaGitara.cs" />
+    <Compile Include="Models\Artikli\Gitara.cs" />
+    <Compile Include="Models\Artikli\KlasicnaGitara.cs" />
+    <Compile Include="Models\Artikli\Klavijatura.cs" />
+    <Compile Include="Models\Artikli\Specifikacije\SpecElektricna.cs" />
+    <Compile Include="Models\Artikli\Specifikacije\SpecGitara.cs" />
+    <Compile Include="Models\Artikli\Specifikacije\SpecKlasicna.cs" />
+    <Compile Include="Models\Artikli\Specifikacije\SpecKlavijatura.cs" />
+    <Compile Include="Models\Artikli\Specifikacije\SpecPojacalo.cs" />
+    <Compile Include="Models\Sistem\Inventory.cs" />
+    <Compile Include="Models\Sistem\KreditnaKartica.cs" />
+    <Compile Include="Models\Osobe\Klijent.cs" />
+    <Compile Include="Models\Sistem\Narudzba.cs" />
+    <Compile Include="Models\Osobe\Osoba.cs" />
+    <Compile Include="Models\Artikli\Pojacalo.cs" />
+    <Compile Include="Models\Sistem\Sastanak.cs" />
+    <Compile Include="Models\Artikli\Specifikacije\Specifikacija.cs" />
+    <Compile Include="Models\Osobe\Uposlenik.cs" />
+    <Compile Include="Models\Osobe\Vlasnik.cs" />
+    <Compile Include="ViewModels\KarticaViewModel.cs" />
+    <Compile Include="Views\KarticaWindow.xaml.cs">
+      <DependentUpon>KarticaWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -66,8 +89,13 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\KarticaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Artikli\Artikal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -93,6 +121,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
