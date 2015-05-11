@@ -4,27 +4,38 @@ Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
     Renderer: Intel(R) HD Graphics Family (ID=0xa16)
     Vendor:   Intel
-    VRAM:     128 MB
+    VRAM:     480 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: E:\OOAD\MuzickiStudio\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading E:\OOAD\MuzickiStudio\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: E:\OOAD\MuzickiStudio\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading E:\OOAD\MuzickiStudio\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: E:\OOAD\MuzickiStudio\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading E:\OOAD\MuzickiStudio\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.116 seconds
-desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+Platform assembly: C:\Users\Adnan\Desktop\C#\OOAD\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Adnan\Desktop\C#\OOAD\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Adnan\Desktop\C#\OOAD\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Adnan\Desktop\C#\OOAD\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Adnan\Desktop\C#\OOAD\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Adnan\Desktop\C#\OOAD\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.068 seconds
+desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
 <RI> Initializing input.
-XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
 <RI> Initialized touch support.
-Platform assembly: E:\OOAD\MuzickiStudio\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: E:\OOAD\MuzickiStudio\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\Adnan\Desktop\C#\OOAD\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Adnan\Desktop\C#\OOAD\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\System.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 450 -> priority: 1 
+  Thread -> id: 189c -> priority: 1 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 6.555500 ms
+UnloadTime: 5.781638 ms
 
 Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 344.
-Total: 0.356815 ms (FindLiveObjects: 0.042262 ms CreateObjectMapping: 0.030187 ms MarkObjects: 0.271686 ms  DeleteObjects: 0.012074 ms)
+Total: 0.390416 ms (FindLiveObjects: 0.054871 ms CreateObjectMapping: 0.031975 ms MarkObjects: 0.288568 ms  DeleteObjects: 0.014211 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.905576 ms
+
+Unloading 116 unused Assets to reduce memory usage. Loaded Objects now: 229.
+Total: 0.984133 ms (FindLiveObjects: 0.031185 ms CreateObjectMapping: 0.028422 ms MarkObjects: 0.313438 ms  DeleteObjects: 0.609112 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.565294 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 378.
+Total: 0.442919 ms (FindLiveObjects: 0.035528 ms CreateObjectMapping: 0.026843 ms MarkObjects: 0.362388 ms  DeleteObjects: 0.017369 ms)
 
