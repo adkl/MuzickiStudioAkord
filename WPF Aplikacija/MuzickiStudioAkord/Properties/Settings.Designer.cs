@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MSA.WPF.Properties
+namespace MuzickiStudioAkord.Properties
 {
 
 

@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
 
-  <Identity Name="ae05a7ac-0de0-4a75-abbe-1449dd885ad5"
+  <Identity Name="1832c9b4-a513-49ce-975c-cb2091aee07d"
             Publisher="CN=Adnan"
             Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="ae05a7ac-0de0-4a75-abbe-1449dd885ad5" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="1832c9b4-a513-49ce-975c-cb2091aee07d" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>MSA.WINDOWS_PHONE</DisplayName>
+    <DisplayName>MuzickiStudioAkord</DisplayName>
     <PublisherDisplayName>Adnan</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -25,12 +25,12 @@
   <Applications>
     <Application Id="App"
         Executable="$targetnametoken$.exe"
-        EntryPoint="MSA.WINDOWS_PHONE.App">
+        EntryPoint="MuzickiStudioAkord.App">
         <m3:VisualElements
-            DisplayName="MSA.WINDOWS_PHONE"
+            DisplayName="MuzickiStudioAkord"
             Square150x150Logo="Assets\Logo.png"
             Square44x44Logo="Assets\SmallLogo.png"
-            Description="MSA.WINDOWS_PHONE"
+            Description="MuzickiStudioAkord"
             ForegroundText="light"
             BackgroundColor="transparent">
             <m3:DefaultTile Wide310x150Logo="Assets\WideLogo.png" Square71x71Logo="Assets\Square71x71Logo.png"/>
