@@ -8,5 +8,6 @@ namespace MuzickiStudioAkord.Models
 {
     public class Specifikacija
     {
+
     }
 }
