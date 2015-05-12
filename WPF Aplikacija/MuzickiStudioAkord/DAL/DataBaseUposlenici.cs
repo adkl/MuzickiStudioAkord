@@ -27,7 +27,7 @@ namespace MuzickiStudioAkord.DAL
                 MySqlDataReader r = upit.ExecuteReader();
                 while (r.Read())
                 {
-                    uposlenici.Add(new Uposlenik(r.GetString("Ime"), r.GetString("Prezime"), r.GetString("JMBG"), r.GetString("Broj_telefona"), r.GetString("Username"), r.GetString("Password")));
+                    uposlenici.Add(new Uposlenik(r.GetString("Ime"), r.GetString("Prezime"), r.GetString("JMBG"), r.GetString("Adresa"),r.GetString("Broj_telefona"), r.GetString("Username"), r.GetString("Password")));
                 }
                
             }
@@ -42,18 +42,18 @@ namespace MuzickiStudioAkord.DAL
         public Uposlenik dajPoID(int id)
         {
             Uposlenik uposlenik = null;
-            connection.Open();
+           
             try
             {
-                
+                connection.Open();
                 MySqlCommand upit = new MySqlCommand();
                 upit.Connection = connection;
-                upit.CommandText = "select * from Uposlenici where JMBG = @id";
-                upit.Parameters.AddWithValue("@id", id);
+                upit.CommandText = "select * from osobe where JMBG = @id";
+                upit.Parameters.AddWithValue("@id", id.ToString());
                 MySqlDataReader r = upit.ExecuteReader();
                 while (r.Read())
                 {
-                    uposlenik = new Uposlenik(r.GetString("Ime"), r.GetString("Prezime"), r.GetString("JMBG"), r.GetString("Broj_telefona"), r.GetString("Username"), r.GetString("Password"));
+                    uposlenik = new Uposlenik(r.GetString("Ime"), r.GetString("Prezime"), r.GetString("JMBG"), r.GetString("Adresa"),r.GetString("Broj_telefona"), r.GetString("Username"), r.GetString("Password"));
                 }
                 connection.Close();
             }
@@ -61,24 +61,27 @@ namespace MuzickiStudioAkord.DAL
             {
                 connection.Close();
             }
-            if (uposlenik == null) uposlenik = new Uposlenik("Unknown", "Unknown", "Unknown", "Unknown", "Unknown", "Unknown");
+            if (uposlenik == null) uposlenik = new Uposlenik("Unknown", "Unknown", "Unknown", "Unknown", "Unknown", "Unknown", "Unknown");
             return uposlenik;
         }
 
         public bool dodaj(Uposlenik objekat)
         {
-            connection.Open();
+           
             try
             {
+                connection.Open();
                 MySqlCommand upit = new MySqlCommand();
                 upit.Connection = connection;
-                upit.CommandText = "insert into Uposlenici values(@JMBG, @Ime, @Prezime, @Broj_telefona, @Username, @Password)";
+                upit.CommandText = "insert into osobe values(@JMBG, @Ime, @Prezime, @Adresa, @Broj_telefona, @Username, @Password, @Uposlenik)";
                 upit.Parameters.AddWithValue("@Ime", objekat.Ime);
                 upit.Parameters.AddWithValue("@Prezime", objekat.Prezime);
                 upit.Parameters.AddWithValue("@JMBG", objekat.Jmbg);
                 upit.Parameters.AddWithValue("@Broj_telefona", objekat.BrojTelefona);
                 upit.Parameters.AddWithValue("@Username", objekat.Username);
                 upit.Parameters.AddWithValue("@Password", objekat.Password);
+                upit.Parameters.AddWithValue("@Adresa", objekat.Adresa);
+                upit.Parameters.AddWithValue("@Uposlenik", 1);
                 upit.ExecuteNonQuery();
                 connection.Close();
                 return true;
@@ -92,18 +95,14 @@ namespace MuzickiStudioAkord.DAL
 
         public bool obrisi(Uposlenik objekat)
         {
-            connection.Open();
+          
             try
             {
+                connection.Open();
                 MySqlCommand upit = new MySqlCommand();
                 upit.Connection = connection;
-                upit.CommandText = "delete from Uposlenici where Ime = @Ime and prezime = @Prezime and JMBG = @JMBG and Broj_telefona = @Broj_telefona and username = @Username and password = @Password";
-                upit.Parameters.AddWithValue("@Ime", objekat.Ime);
-                upit.Parameters.AddWithValue("@Prezime", objekat.Prezime);
+                upit.CommandText = "delete from osobe where JMBG = @JMBG";
                 upit.Parameters.AddWithValue("@JMBG", objekat.Jmbg);
-                upit.Parameters.AddWithValue("@Broj_telefona", objekat.BrojTelefona);
-                upit.Parameters.AddWithValue("@Username", objekat.Username);
-                upit.Parameters.AddWithValue("@Password", objekat.Password);
                 if (upit.ExecuteNonQuery() == 1) {
                     return true;
                 }
@@ -119,18 +118,14 @@ namespace MuzickiStudioAkord.DAL
 
         public bool daLiPostoji(Uposlenik objekat)
         {
-            connection.Open();
+            
             try
             {
+                connection.Open();
                 MySqlCommand upit = new MySqlCommand();
                 upit.Connection = connection;
-                upit.CommandText = "select * from Uposlenici where Ime = @Ime and Prezime = @Prezime and JMBG = @JMBG and Broj_telefona = @Broj_telefona and Username = @Username and Password = @Password";
-                upit.Parameters.AddWithValue("@Ime", objekat.Ime);
-                upit.Parameters.AddWithValue("@Prezime", objekat.Prezime);
+                upit.CommandText = "select * from osobe where JMBG = @JMBG";
                 upit.Parameters.AddWithValue("@JMBG", objekat.Jmbg);
-                upit.Parameters.AddWithValue("@Broj_telefona", objekat.BrojTelefona);
-                upit.Parameters.AddWithValue("@Username", objekat.Username);
-                upit.Parameters.AddWithValue("@Password", objekat.Password);
                 MySqlDataReader r = upit.ExecuteReader();
                 while(r.Read())
                 {

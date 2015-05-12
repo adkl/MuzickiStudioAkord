@@ -23,7 +23,7 @@ namespace MuzickiStudioAkord.Models
 
         //povezan na : uposlenikViewModel i DBaseSastanci
 
-        public Uposlenik(string firstName, string lastName, string jmbg, string brTel, string username, string password) 
+        public Uposlenik(string firstName, string lastName, string jmbg, string adresa, string brTel, string username, string password) 
         {
             this.Adresa = null;
             //this.DatumRodjenja = null;
@@ -31,6 +31,7 @@ namespace MuzickiStudioAkord.Models
             this.Prezime = lastName;
             this.BrojTelefona = brTel;
             this.Jmbg = jmbg;
+            this.Adresa = adresa;
             this.username = username;
             this.password = password;
         }
