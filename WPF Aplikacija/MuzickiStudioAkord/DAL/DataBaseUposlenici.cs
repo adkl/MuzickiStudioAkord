@@ -97,7 +97,7 @@ namespace MuzickiStudioAkord.DAL
             {
                 MySqlCommand upit = new MySqlCommand();
                 upit.Connection = connection;
-                upit.CommandText = "delete from Uposlenici where Ime = @Ime and prezime = @Prezime and JMBG = @JMBG and Broj_telefona = @Broj_telefona and username = @Username and password = @Password)";
+                upit.CommandText = "delete from Uposlenici where Ime = @Ime and prezime = @Prezime and JMBG = @JMBG and Broj_telefona = @Broj_telefona and username = @Username and password = @Password";
                 upit.Parameters.AddWithValue("@Ime", objekat.Ime);
                 upit.Parameters.AddWithValue("@Prezime", objekat.Prezime);
                 upit.Parameters.AddWithValue("@JMBG", objekat.Jmbg);
@@ -124,16 +124,21 @@ namespace MuzickiStudioAkord.DAL
             {
                 MySqlCommand upit = new MySqlCommand();
                 upit.Connection = connection;
-                upit.CommandText = "select Count(*) from Uposlenici where Ime = @Ime and prezime = @Prezime and JMBG = @JMBG and Broj_telefona = @Broj_telefona and username = @Username and password = @Password)";
+                upit.CommandText = "select * from Uposlenici where Ime = @Ime and Prezime = @Prezime and JMBG = @JMBG and Broj_telefona = @Broj_telefona and Username = @Username and Password = @Password";
                 upit.Parameters.AddWithValue("@Ime", objekat.Ime);
                 upit.Parameters.AddWithValue("@Prezime", objekat.Prezime);
                 upit.Parameters.AddWithValue("@JMBG", objekat.Jmbg);
                 upit.Parameters.AddWithValue("@Broj_telefona", objekat.BrojTelefona);
                 upit.Parameters.AddWithValue("@Username", objekat.Username);
                 upit.Parameters.AddWithValue("@Password", objekat.Password);
-                if (upit.ExecuteNonQuery() == 1)
+                MySqlDataReader r = upit.ExecuteReader();
+                while(r.Read())
                 {
-                    return true;
+                    if (r.GetString("JMBG") == objekat.Jmbg)
+                    {
+                        connection.Close();
+                        return true;
+                    }
                 }
                 connection.Close();
                 return false;
