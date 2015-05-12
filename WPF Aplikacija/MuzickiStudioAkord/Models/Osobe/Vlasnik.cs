@@ -21,7 +21,7 @@ namespace MuzickiStudioAkord.Models
             get { return username; }
         }
 
-        public Vlasnik(string firstName, string lastName, string jmbg, string brTel, string username, string password) 
+        public Vlasnik(string firstName, string lastName, string jmbg, string adresa,string brTel, string username, string password) 
         {
             this.Adresa = null;
             //this.DatumRodjenja = null;
@@ -31,6 +31,7 @@ namespace MuzickiStudioAkord.Models
             this.Jmbg = jmbg;
             this.username = username;
             this.password = password;
+            this.Adresa = adresa;
         }
 
         //vlasnikViewModel i DBaseSastanci

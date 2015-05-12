@@ -17,13 +17,14 @@ namespace MuzickiStudioAkord.DAL
         }
         public List<Uposlenik> dajSve()
         {
-            List<Uposlenik> uposlenici = new List<Uposlenik>();
-            connection.Open();
+            List<Uposlenik> uposlenici = new List<Uposlenik>();  
             try
             {
+                connection.Open();
                 MySqlCommand upit = new MySqlCommand();
                 upit.Connection = connection;
-                upit.CommandText = "select * from Uposlenici";
+                upit.CommandText = "select * from osobe where status = @Status";
+                upit.Parameters.AddWithValue("@Status", 1);
                 MySqlDataReader r = upit.ExecuteReader();
                 while (r.Read())
                 {
@@ -56,13 +57,13 @@ namespace MuzickiStudioAkord.DAL
                     uposlenik = new Uposlenik(r.GetString("Ime"), r.GetString("Prezime"), r.GetString("JMBG"), r.GetString("Adresa"),r.GetString("Broj_telefona"), r.GetString("Username"), r.GetString("Password"));
                 }
                 connection.Close();
+                return uposlenik;
             }
             catch (Exception)
             {
                 connection.Close();
+                return null;
             }
-            if (uposlenik == null) uposlenik = new Uposlenik("Unknown", "Unknown", "Unknown", "Unknown", "Unknown", "Unknown", "Unknown");
-            return uposlenik;
         }
 
         public bool dodaj(Uposlenik objekat)
