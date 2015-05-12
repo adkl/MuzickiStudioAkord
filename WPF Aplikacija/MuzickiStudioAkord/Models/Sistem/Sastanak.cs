@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MuzickiStudioAkord.Models
 {
-    class Sastanak
+    public class Sastanak
     {
     }
 }

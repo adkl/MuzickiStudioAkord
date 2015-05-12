@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -54,6 +55,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DAL\DataBase.cs" />
+    <Compile Include="DAL\DataBaseArtikli.cs" />
+    <Compile Include="DAL\DataBaseKlijenti.cs" />
+    <Compile Include="DAL\DataBaseSastanci.cs" />
+    <Compile Include="DAL\DataBaseUposlenici.cs" />
+    <Compile Include="DAL\DataBaseVlasnici.cs" />
+    <Compile Include="DAL\IDataBase.cs" />
     <Compile Include="Models\Artikli\ElektricnaGitara.cs" />
     <Compile Include="Models\Artikli\Gitara.cs" />
     <Compile Include="Models\Artikli\KlasicnaGitara.cs" />
