@@ -14,7 +14,7 @@ namespace MuzickiStudioAkord.DAL
         private string password;
         private string db;
         public readonly string connectionString;
-
+        public MySqlConnection connection;
         public DataBase(string password, string server = "db4free.net", string username = "studioakord", string database = "muzickistudio")
         {
             this.server = server;
@@ -22,21 +22,21 @@ namespace MuzickiStudioAkord.DAL
             this.password = password;
             this.db = database;
             connectionString = "server=" + server + ";user=" + username + ";pwd=" + password + ";database=" + database;
-
             validirajKorisnika();
+            connection = new MySqlConnection(connectionString);
         }
 
         private void validirajKorisnika()
         {
             try
             {
-                MySqlConnection con = new MySqlConnection(connectionString);
-                con.Open();
-                con.Close();
+                MySqlConnection test = new MySqlConnection(connectionString);
+                test.Open();
+                test.Close();
             }
             catch(MySqlException e)
             {
-                throw new Exception("Konekcija na bazu nije moguca!");
+                throw new Exception("Konekcija na bazu nije moguca!\nPoruka : " + e.Message);
             }
         }
     }
