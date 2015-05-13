@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
+
 
 namespace MuzickiStudioAkord.Models
 {
@@ -37,14 +39,13 @@ namespace MuzickiStudioAkord.Models
             set { spec = value; }
         }
 
-        private Image slika;
-        private SpecPojacalo spec1;
-        public Image Slika
+        private BitmapImage slika;
+        public BitmapImage Slika
         {
             get { return slika; }
             set { slika = value; }
         }
-        public Artikal(int serijskiBroj, string naziv, double cijena, Specifikacija spec, Image slika)
+        public Artikal(int serijskiBroj, string naziv, double cijena, Specifikacija spec, BitmapImage slika)
         {
             this.SerijskiBroj = serijskiBroj;
             this.Naziv = naziv;

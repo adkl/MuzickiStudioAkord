@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace MuzickiStudioAkord.Models
 {
@@ -11,7 +11,7 @@ namespace MuzickiStudioAkord.Models
     {
         public TipElektronika Tip { get; set; }
 
-        public ElektricnaGitara(int serijskiBroj, string naziv, double cijena, SpecElektricna spec, Image slika, TipElektronika tip)
+        public ElektricnaGitara(int serijskiBroj, string naziv, double cijena, SpecElektricna spec, BitmapImage slika, TipElektronika tip)
             :base(serijskiBroj, naziv, cijena, spec, slika)
         {
             this.Tip = tip;
@@ -19,7 +19,7 @@ namespace MuzickiStudioAkord.Models
     }
     public enum TipElektronika
     {
-        Elektricne,
+        Elektricna,
         Bass
     }
 }

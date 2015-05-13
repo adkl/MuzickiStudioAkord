@@ -12,6 +12,7 @@ namespace MuzickiStudioAkord.Models
         public string Zvucnik { get; set; }
         public double Tezina { get; set; }
         public string Napajanje { get; set; }
+
         public SpecKlavijatura(int godinaProizvodnje, string proizvodjac, string model, string materijal, int brojTipki, string zvucnik, double tezina, string napajanje)
             :base(godinaProizvodnje, proizvodjac, model, materijal)
         {

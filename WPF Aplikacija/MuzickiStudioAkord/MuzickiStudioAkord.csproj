@@ -66,9 +66,9 @@
     <Compile Include="Models\Artikli\Gitara.cs" />
     <Compile Include="Models\Artikli\KlasicnaGitara.cs" />
     <Compile Include="Models\Artikli\Klavijatura.cs" />
-    <Compile Include="Models\Artikli\Specifikacije\SpecElektricna.cs" />
-    <Compile Include="Models\Artikli\Specifikacije\SpecGitara.cs" />
     <Compile Include="Models\Artikli\Specifikacije\SpecKlasicna.cs" />
+    <Compile Include="Models\Artikli\Specifikacije\SpecGitara.cs" />
+    <Compile Include="Models\Artikli\Specifikacije\SpecElektricna.cs" />
     <Compile Include="Models\Artikli\Specifikacije\SpecKlavijatura.cs" />
     <Compile Include="Models\Artikli\Specifikacije\SpecPojacalo.cs" />
     <Compile Include="Models\Sistem\Inventory.cs" />

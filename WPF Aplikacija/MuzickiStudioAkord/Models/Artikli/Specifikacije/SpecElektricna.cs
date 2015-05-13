@@ -8,11 +8,18 @@ namespace MuzickiStudioAkord.Models
 {
     public class SpecElektricna : SpecGitara
     {
-        public string Masinica { get; set; }
-        public SpecElektricna(int godinaProizvodnje, string proizvodjac, string model, string materijal, int brojZica, string masinica)
+        public string Vrat { get; set; }
+        public string Most { get; set; }
+        public string PickUp { get; set; }
+        public string Elektronika { get; set; }
+
+        public SpecElektricna(int godinaProizvodnje, string proizvodjac, string model, string materijal, int brojZica, string masinica, string vrat, string most, string pickup, string elektronika)
             : base(godinaProizvodnje, proizvodjac, model, materijal, brojZica)
         {
-            this.Masinica = masinica;
+            this.Vrat = vrat;
+            this.Most = most;
+            this.PickUp = pickup;
+            this.Elektronika = elektronika;
         }
     }
 }
