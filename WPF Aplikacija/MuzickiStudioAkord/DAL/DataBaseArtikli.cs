@@ -208,7 +208,8 @@ namespace MuzickiStudioAkord.DAL
                 upit.Parameters.AddWithValue("@model", objekat.Spec.Model);
                 upit.Parameters.AddWithValue("@materijal", objekat.Spec.Materijal);
                 upit.ExecuteNonQuery();
-                if (objekat is ElektricnaGitara) {
+                if (objekat is ElektricnaGitara)
+                {
                     SpecElektricna temp = objekat.Spec as SpecElektricna;
                     upit.CommandText = "insert into spec_gitara values(@id, @masinica, @vrat, @most, @pickup, @elektronika, @broj_zica)";
                     upit.Parameters.AddWithValue("@id", upit.LastInsertedId);
@@ -219,29 +220,83 @@ namespace MuzickiStudioAkord.DAL
                     upit.Parameters.AddWithValue("@elektronika", temp.Elektronika);
                     upit.Parameters.AddWithValue("@broj_zica", temp.BrojZica);
                     upit.ExecuteNonQuery();
+                    upit.CommandText = "insert into artikli values(@serijski_broj, @naziv, @cijena, @id_specifikacije, @slika, @tip_artikla, @tip_gitare)";
+                    upit.Parameters.AddWithValue("@serijski_broj", objekat.SerijskiBroj);
+                    upit.Parameters.AddWithValue("@naziv", objekat.Naziv);
+                    upit.Parameters.AddWithValue("@id_specifikacije", upit.LastInsertedId);
+                    upit.Parameters.AddWithValue("@slika", getJPGFromImageControl(objekat.Slika));
+                    upit.Parameters.AddWithValue("@tip_artikla", 1);
+                    if (((ElektricnaGitara)(objekat)).Tip == TipElektronika.Elektricna) upit.Parameters.AddWithValue("@tip_gitare", 3);
+                    else upit.Parameters.AddWithValue("@tip_gitare", 4);
+                    upit.ExecuteNonQuery();
                 }
-                else if (objekat is KlasicnaGitara) {
+                else if (objekat is KlasicnaGitara)
+                {
                     SpecKlasicna temp = objekat.Spec as SpecKlasicna;
                     upit.CommandText = "insert into spec_gitara values(@id, @masinica, @vrat, @most, @pickup, @elektronika, @broj_zica)";
                     upit.Parameters.AddWithValue("@id", upit.LastInsertedId);
                     upit.Parameters.AddWithValue("@masinica", null);
-                    upit.Parameters.AddWithValue("@vrat", temp.Vrat);
-                    upit.Parameters.AddWithValue("@most", temp.Most);
-                    upit.Parameters.AddWithValue("@pickup", temp.PickUp);
-                    upit.Parameters.AddWithValue("@elektronika", temp.Elektronika);
+                    upit.Parameters.AddWithValue("@vrat", null);
+                    upit.Parameters.AddWithValue("@most", null);
+                    upit.Parameters.AddWithValue("@pickup", null);
+                    upit.Parameters.AddWithValue("@elektronika", null);
                     upit.Parameters.AddWithValue("@broj_zica", temp.BrojZica);
                     upit.ExecuteNonQuery();
+                    upit.CommandText = "insert into artikli values(@serijski_broj, @naziv, @cijena, @id_specifikacije, @slika, @tip_artikla, @tip_gitare)";
+                    upit.Parameters.AddWithValue("@serijski_broj", objekat.SerijskiBroj);
+                    upit.Parameters.AddWithValue("@naziv", objekat.Naziv);
+                    upit.Parameters.AddWithValue("@id_specifikacije", upit.LastInsertedId);
+                    upit.Parameters.AddWithValue("@slika", getJPGFromImageControl(objekat.Slika));
+                    upit.Parameters.AddWithValue("@tip_artikla", 2);
+                    if (((KlasicnaGitara)(objekat)).Tip == TipKlasicne.Akusticna) upit.Parameters.AddWithValue("@tip_gitare", 2);
+                    else upit.Parameters.AddWithValue("@tip_gitare", 1);
+                    upit.ExecuteNonQuery();
                 }
-                else if (objekat is Klavijatura) { }
-                else if (objekat is Pojacalo) { }
-                upit.CommandText = "";
-
-                upit.CommandText = "insert into artikli values(@serijski_broj, @naziv, @cijena, @id_specifikacije, @slika, @tip_artikla, @tip_gitare)";
-
+                else if (objekat is Klavijatura)
+                {
+                    SpecKlavijatura temp = objekat.Spec as SpecKlavijatura;
+                    upit.CommandText = "insert into spec_klavijatura values(@id, @broj_tipki, @zvucnik, @tezina, @napajanje)";
+                    upit.Parameters.AddWithValue("@id", upit.LastInsertedId);
+                    upit.Parameters.AddWithValue("@broj_tipki", temp.BrojTipki);
+                    upit.Parameters.AddWithValue("@tezina", temp.Tezina);
+                    upit.Parameters.AddWithValue("@napajanje", temp.Napajanje);
+                    upit.ExecuteNonQuery();
+                    upit.CommandText = "insert into artikli values(@serijski_broj, @naziv, @cijena, @id_specifikacije, @slika, @tip_artikla, @tip_gitare)";
+                    upit.Parameters.AddWithValue("@serijski_broj", objekat.SerijskiBroj);
+                    upit.Parameters.AddWithValue("@naziv", objekat.Naziv);
+                    upit.Parameters.AddWithValue("@id_specifikacije", upit.LastInsertedId);
+                    upit.Parameters.AddWithValue("@slika", getJPGFromImageControl(objekat.Slika));
+                    upit.Parameters.AddWithValue("@tip_artikla", 3);
+                    upit.Parameters.AddWithValue("@tip_gitare", null);
+                    upit.Parameters.AddWithValue("@tip_gitare", null);
+                    upit.ExecuteNonQuery();
+                }
+                else if (objekat is Pojacalo)
+                {
+                    SpecPojacalo temp = objekat.Spec as SpecPojacalo;
+                    upit.CommandText = "insert into spec_pojacala values(@id, @zvucnik, @broj_kanala, @ulaz_slusalice)";
+                    upit.Parameters.AddWithValue("@id", upit.LastInsertedId);
+                    upit.Parameters.AddWithValue("@zvucnik", temp.Zvucnik);
+                    upit.Parameters.AddWithValue("@broj_kanala", temp.BrojKanala);
+                    upit.Parameters.AddWithValue("@ulaz_slusalice", temp.UlazZaSlusalice);
+                    upit.ExecuteNonQuery();
+                    upit.CommandText = "insert into artikli values(@serijski_broj, @naziv, @cijena, @id_specifikacije, @slika, @tip_artikla, @tip_gitare)";
+                    upit.Parameters.AddWithValue("@serijski_broj", objekat.SerijskiBroj);
+                    upit.Parameters.AddWithValue("@naziv", objekat.Naziv);
+                    upit.Parameters.AddWithValue("@id_specifikacije", upit.LastInsertedId);
+                    upit.Parameters.AddWithValue("@slika", getJPGFromImageControl(objekat.Slika));
+                    upit.Parameters.AddWithValue("@tip_artikla", 4);
+                    upit.Parameters.AddWithValue("@tip_gitare", null);
+                    upit.Parameters.AddWithValue("@tip_gitare", null);
+                    upit.ExecuteNonQuery();
+                }
+                return true;
             }
-            catch(Exception)
+            catch (Exception)
             {
-
+                connection.Close();
+                connection2.Close();
+                return false;
             }
         }
 
@@ -272,6 +327,14 @@ namespace MuzickiStudioAkord.DAL
             }
             image.Freeze();
             return image;
+        }
+        public byte[] getJPGFromImageControl(BitmapImage imageC)
+        {
+            MemoryStream memStream = new MemoryStream();
+            JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(imageC));
+            encoder.Save(memStream);
+            return memStream.GetBuffer();
         }
     }
 }
