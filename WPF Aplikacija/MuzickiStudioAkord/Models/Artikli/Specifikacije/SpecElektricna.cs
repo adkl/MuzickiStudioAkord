@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace MuzickiStudioAkord.Models
 {
-    class SpecElektricna : SpecGitara
+    public class SpecElektricna : SpecGitara
     {
+        public string Masinica { get; set; }
+        public SpecElektricna(int godinaProizvodnje, string proizvodjac, string model, string materijal, int brojZica, string masinica)
+            : base(godinaProizvodnje, proizvodjac, model, materijal, brojZica)
+        {
+            this.Masinica = masinica;
+        }
     }
 }

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace MuzickiStudioAkord.Models
 {
-    [Serializable]
-    public class Artikal
+    public abstract class Artikal
     {
         private int serijskiBroj;
         public int SerijskiBroj
@@ -31,20 +31,26 @@ namespace MuzickiStudioAkord.Models
         }
 
         private Specifikacija spec;
-        internal Specifikacija Spec
+        public Specifikacija Spec
         {
             get { return spec; }
             set { spec = value; }
         }
 
-        private string slikaPath;
-
-        public string SlikaPath
+        private Image slika;
+        private SpecPojacalo spec1;
+        public Image Slika
         {
-            get { return slikaPath; }
-            set { slikaPath = value; }
+            get { return slika; }
+            set { slika = value; }
         }
-
-
+        public Artikal(int serijskiBroj, string naziv, double cijena, Specifikacija spec, Image slika)
+        {
+            this.SerijskiBroj = serijskiBroj;
+            this.Naziv = naziv;
+            this.Cijena = cijena;
+            this.Spec = spec;
+            this.Slika = slika;
+        }
     }
 }
