@@ -302,12 +302,48 @@ namespace MuzickiStudioAkord.DAL
 
         public bool obrisi(Artikal objekat)
         {
-            throw new NotImplementedException();
+            try
+            {
+                MySqlCommand upit = new MySqlCommand();
+                upit.Connection = connection;
+                upit.CommandText = "delete from artikli where serijski_broj = @sBroj";
+                upit.Parameters.AddWithValue("@sBroj", objekat.SerijskiBroj);
+                upit.ExecuteNonQuery();
+                return true;
+            }
+            catch(Exception)
+            {
+                connection.Close();
+                return false;
+            }
         }
 
         public bool daLiPostoji(Artikal objekat)
         {
-            throw new NotImplementedException();
+            try
+            {
+                connection.Open();
+                MySqlCommand upit = new MySqlCommand();
+                upit.Connection = connection;
+                upit.CommandText = "select * from artikli where serijski_broj = @sBroj";
+                upit.Parameters.AddWithValue("@sBroj", objekat.SerijskiBroj);
+                MySqlDataReader r = upit.ExecuteReader();
+                while (r.Read())
+                {
+                    if (r.GetInt32("serijski_broj") == objekat.SerijskiBroj)
+                    {
+                        connection.Close();
+                        return true;
+                    }
+                }
+                connection.Close();
+                return false;
+            }
+            catch (Exception)
+            {
+                connection.Close();
+                return false;
+            }
         }
 
 
