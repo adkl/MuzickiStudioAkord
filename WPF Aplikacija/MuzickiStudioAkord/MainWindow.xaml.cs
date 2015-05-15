@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MuzickiStudioAkord.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace MuzickiStudioAkord
         public MainWindow()
         {
             InitializeComponent();
+            SastanakWindow sw = new SastanakWindow();
+            sw.Show();
         }
     }
 }

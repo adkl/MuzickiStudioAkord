@@ -22,6 +22,17 @@ namespace MuzickiStudioAkord.Views
         public SastanakWindow()
         {
             InitializeComponent();
+            this.SizeToContent = SizeToContent.Manual;
+
+            // Automatically resize width relative to content
+            this.SizeToContent = SizeToContent.Width;
+
+            // Automatically resize height relative to content
+            this.SizeToContent = SizeToContent.Height;
+
+            // Automatically resize height and width relative to content
+            this.SizeToContent = SizeToContent.WidthAndHeight;
+
         }
     }
 }

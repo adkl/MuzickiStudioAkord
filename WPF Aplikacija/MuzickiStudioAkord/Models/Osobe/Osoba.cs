@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MuzickiStudioAkord.Models
 {
-    public abstract class Osoba
+    public abstract class Osoba : INotifyPropertyChanged
     {
         private string ime;
         public string Ime

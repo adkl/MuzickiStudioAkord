@@ -29,7 +29,9 @@ namespace MuzickiStudioAkord.DAL
                 MySqlDataReader r = upit.ExecuteReader();
                 while (r.Read())
                 {
-                    vlasnici.Add(new Vlasnik(r.GetString("Ime"), r.GetString("Prezime"), r.GetString("JMBG"), r.GetString("Adresa"), r.GetString("Broj_telefona"), r.GetString("Username"), r.GetString("Password")));
+                    vlasnici.Add(new Vlasnik(r.GetString("Ime"), r.GetString("Prezime"), r.GetString("JMBG"),
+                                             /*r.GetString("Adresa"),*/
+                                             r.GetString("Broj_telefona"), r.GetString("Username"), r.GetString("Password")));
                 }
 
             }
@@ -55,7 +57,14 @@ namespace MuzickiStudioAkord.DAL
                 MySqlDataReader r = upit.ExecuteReader();
                 while (r.Read())
                 {
-                    vlasnik = new Vlasnik(r.GetString("Ime"), r.GetString("Prezime"), r.GetString("JMBG"), r.GetString("Adresa"), r.GetString("Broj_telefona"), r.GetString("Username"), r.GetString("Password"));
+                    vlasnik = new Vlasnik(r.GetString("Ime"), 
+                                          r.GetString("Prezime"), 
+                                          r.GetString("JMBG"), 
+                                          /*r.GetString("Adresa"),*/
+                                          
+                                          r.GetString("Broj_telefona"), 
+                                          r.GetString("Username"), 
+                                          r.GetString("Password"));
                 }
                 connection.Close();
             }
@@ -63,7 +72,7 @@ namespace MuzickiStudioAkord.DAL
             {
                 connection.Close();
             }
-            if (vlasnik == null) vlasnik = new Vlasnik("Unknown", "Unknown", "Unknown", "Unknown", "Unknown", "Unknown", "Unknown");
+            if (vlasnik == null) vlasnik = new Vlasnik("Unknown", "Unknown", "Unknown", /*"Unknown",*/ "Unknown", "Unknown", "Unknown");
             return vlasnik;
         }
 

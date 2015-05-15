@@ -3,23 +3,35 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="SastanakWindow"
         Height="300"
-        Width="300">
+        Width="900"
+        >
     <Grid>
         <Label x:Name="labelIme"
                Content="Vaše ime:"
                HorizontalAlignment="Left"
-               Margin="79,19,0,0"
+               Margin="15,45,0,0"
                VerticalAlignment="Top"
-               Width="52"
-               FontSize="10"
-               Height="21" />
+               Width="86"
+               FontSize="15"
+               Height="29"
+               RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="0.167" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
         <Label x:Name="labelPrezime"
                Content="Vaše prezime:"
                HorizontalAlignment="Left"
-               Margin="60,40,0,0"
+               Margin="15,84,0,0"
                VerticalAlignment="Top"
-               Height="24"
-               FontSize="10" />
+               Height="31"
+               FontSize="15"
+               Width="105" />
         <TextBox x:Name="ime_tBox"
                  HorizontalAlignment="Left"
                  Height="19"
@@ -35,17 +47,19 @@
                  VerticalAlignment="Top"
                  Width="120" />
         <DatePicker HorizontalAlignment="Left"
-                    Margin="136,73,0,0"
-                    VerticalAlignment="Top" 
-                    Height="19"
+                    Margin="136,93,0,0"
+                    VerticalAlignment="Top"
+                    Height="27"
                     FontSize="8"
-                    />
+                    Width="108" />
         <TextBlock HorizontalAlignment="Left"
-                   Margin="48,73,0,0"
+                   Margin="15,120,0,0"
                    TextWrapping="Wrap"
                    Text="Vrijeme sastanka:"
                    VerticalAlignment="Top"
-                   FontSize="10" />
+                   FontSize="15"
+                   Height="46"
+                   Width="105" />
 
     </Grid>
 </Window>
