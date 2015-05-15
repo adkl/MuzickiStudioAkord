@@ -123,6 +123,10 @@ namespace MuzickiStudioAkord.Models
             this.ccv = _ccv;
             this.datum_isteka = datum_istekaa;
         }
+        public KreditnaKartica ()
+        {
+
+        }
 
 
     }

@@ -8,5 +8,22 @@ namespace MuzickiStudioAkord.Models
 {
     class Inventory
     {
+        private List<Artikal> artikli;
+        public List<Artikal> Artikli
+        {
+            get { return artikli; }
+            set { artikli = value; }
+        }
+
+        public Inventory(List<Artikal> _artikli)
+        {
+            this.Artikli = _artikli;
+        }
+        public Inventory()
+        {
+
+        }
+
+
     }
 }
