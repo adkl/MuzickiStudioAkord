@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MuzickiStudioAkord.Models
 {
-    public abstract class Osoba : INotifyPropertyChanged
+    public abstract class Osoba 
     {
         private string ime;
         public string Ime
