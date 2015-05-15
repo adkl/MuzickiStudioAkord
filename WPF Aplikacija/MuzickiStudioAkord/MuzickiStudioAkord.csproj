@@ -74,6 +74,7 @@
     <Compile Include="Models\Sistem\Inventory.cs" />
     <Compile Include="Models\Sistem\KreditnaKartica.cs" />
     <Compile Include="Models\Osobe\Klijent.cs" />
+    <Compile Include="Models\Sistem\Pomocna\Luhn.cs" />
     <Compile Include="Models\Sistem\Narudzba.cs" />
     <Compile Include="Models\Osobe\Osoba.cs" />
     <Compile Include="Models\Artikli\Pojacalo.cs" />
