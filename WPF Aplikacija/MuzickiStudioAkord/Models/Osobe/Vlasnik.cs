@@ -21,17 +21,14 @@ namespace MuzickiStudioAkord.Models
             get { return username; }
         }
 
-        public Vlasnik(string firstName, string lastName, string jmbg, string adresa,string brTel, string username, string password) 
+        public Vlasnik(string firstName, string lastName, string jmbg, /*string adresa,*/string brTel, string username, string password)
+            :base(firstName, lastName, jmbg, null, brTel)
         {
-            this.Adresa = null;
+            //this.Adresa = null;
             //this.DatumRodjenja = null;
-            this.Ime = firstName;
-            this.Prezime = lastName;
-            this.BrojTelefona = brTel;
-            this.Jmbg = jmbg;
             this.username = username;
             this.password = password;
-            this.Adresa = adresa;
+            //this.Adresa = adresa;
         }
 
         //vlasnikViewModel i DBaseSastanci

@@ -24,14 +24,8 @@ namespace MuzickiStudioAkord.Models
         //povezan na : uposlenikViewModel i DBaseSastanci
 
         public Uposlenik(string firstName, string lastName, string jmbg, string adresa, string brTel, string username, string password) 
+            :base(firstName, lastName, jmbg, null, brTel)
         {
-            this.Adresa = null;
-            //this.DatumRodjenja = null;
-            this.Ime = firstName;
-            this.Prezime = lastName;
-            this.BrojTelefona = brTel;
-            this.Jmbg = jmbg;
-            this.Adresa = adresa;
             this.username = username;
             this.password = password;
         }
