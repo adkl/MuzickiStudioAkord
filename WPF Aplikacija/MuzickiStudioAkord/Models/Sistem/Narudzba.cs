@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MuzickiStudioAkord.Models
 {
-    class Narudzba: INotifyPropertyChanged
+    public class Narudzba: INotifyPropertyChanged
     {
         private  int brojNarudzbe = 0;
         public  int BrojNarudzbe

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MuzickiStudioAkord.Models
 {
-    class Inventory
+    public class Inventory
     {
         private List<Artikal> artikli;
         public List<Artikal> Artikli
@@ -36,7 +36,24 @@ namespace MuzickiStudioAkord.Models
             Artikli.Clear();
             Artikli = baza.dajSve();
         }
-        
+        public bool dodajArtikal(Artikal artikal)
+        {
+            if (baza.dodaj(artikal))
+            {
+                Artikli.Add(artikal);
+                return true;
+            }
+            return false;
+        }
+        public bool obrisiArtikal(Artikal artikal)
+        {
+            if (baza.obrisi(artikal))
+            {
+                Artikli.Remove(artikal);
+                return true;
+            }
+            return false;
+        }
 
 
     }
