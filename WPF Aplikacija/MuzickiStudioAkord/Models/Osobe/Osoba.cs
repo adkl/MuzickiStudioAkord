@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MuzickiStudioAkord.Models
 {
-    public abstract class Osoba 
+    public abstract class Osoba : INotifyPropertyChanged
     {
         private string ime;
         public string Ime
@@ -17,8 +17,11 @@ namespace MuzickiStudioAkord.Models
             get { return ime; }
             set
             {
-                if ( !String.IsNullOrEmpty(value.ToString()) )
+                if ( !String.IsNullOrEmpty(value.ToString()) ) 
+                {
                     ime = value;
+                    OnPropertyChanged("Ime");
+                }
                 else
                     throw new Exception("Prazno ime");
             }
@@ -30,8 +33,12 @@ namespace MuzickiStudioAkord.Models
             get { return prezime; }
             set
             {
-                if ( !String.IsNullOrEmpty(value.ToString()) )
+                if ( !String.IsNullOrEmpty(value.ToString()) ) 
+                {
                     prezime = value;
+                    OnPropertyChanged("Prezime");
+                }
+                    
                 else
                     throw new Exception("Prazno prezime");
             }
@@ -69,8 +76,13 @@ namespace MuzickiStudioAkord.Models
             }
             set
             {
-                if (validirajJmbg(value.ToString()))
+                if (validirajJmbg(value.ToString())) 
+                {
                     jmbg = value;
+                    OnPropertyChanged("Jmbg");
+                }
+
+                    
                 else
                     throw new Exception("Nevalidan JMBG");
             }
@@ -80,7 +92,7 @@ namespace MuzickiStudioAkord.Models
         public string Adresa
         {
             get { return adresa; }
-            set { adresa = value; } 
+            set { adresa = value; OnPropertyChanged("Adresa"); } 
         }
 
         private bool IsValidEmail(string pEmail)
@@ -92,8 +104,8 @@ namespace MuzickiStudioAkord.Models
             //najmanje 3 karaktera prije @ u mail-u
             if (pEmail.Substring(0, pEmail.IndexOf('@')).Length < 3)
                 return false;
-            //najmanje 5 karaktera poslije @ u mail-u
-            if (pEmail.Substring(pEmail.IndexOf('@'), pEmail.Length - pEmail.IndexOf('@')).Length < 5)
+            //najmanje 3 karaktera poslije @ u mail-u
+            if (pEmail.Substring(pEmail.IndexOf('@'), pEmail.Length - pEmail.IndexOf('@')).Length < 3)
                 return false;
             //dodati provjeru nedozvoljenih znakova
             
@@ -106,8 +118,12 @@ namespace MuzickiStudioAkord.Models
             get { return email; }
             set
             {
-                if (IsValidEmail(value.ToString()))
+                if (IsValidEmail(value.ToString())) 
+                {
                     email = value;
+                    OnPropertyChanged("Email");
+                }
+                    
                 else
                     throw new Exception("Nevalidan Email");
 
@@ -119,14 +135,14 @@ namespace MuzickiStudioAkord.Models
         public string BrojTelefona
         {
             get { return brojTelefona; }
-            set { brojTelefona = value; }
+            set { brojTelefona = value; OnPropertyChanged("BrojTelefona"); }
         }
 
         private DateTime datumRodjenja;
         public DateTime DatumRodjenja
         {
             get { return datumRodjenja; }
-            set { datumRodjenja = value; }
+            set { datumRodjenja = value; OnPropertyChanged("DatumRodjenja"); }
         }
 
         public Osoba(string firstName, string lastName, string jmbg, string adresa, string brTel)
@@ -152,6 +168,18 @@ namespace MuzickiStudioAkord.Models
         {
 
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+
 
 
 
