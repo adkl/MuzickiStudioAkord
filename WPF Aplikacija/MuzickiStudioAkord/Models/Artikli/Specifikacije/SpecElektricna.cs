@@ -13,7 +13,7 @@ namespace MuzickiStudioAkord.Models
         public string PickUp { get; set; }
         public string Elektronika { get; set; }
 
-        public SpecElektricna(int godinaProizvodnje, string proizvodjac, string model, string materijal, int brojZica, string masinica, string vrat, string most, string pickup, string elektronika)
+        public SpecElektricna(int godinaProizvodnje, string proizvodjac, string model, string materijal, int brojZica, string vrat, string most, string pickup, string elektronika)
             : base(godinaProizvodnje, proizvodjac, model, materijal, brojZica)
         {
             this.Vrat = vrat;

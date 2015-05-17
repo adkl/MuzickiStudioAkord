@@ -43,7 +43,7 @@ namespace MuzickiStudioAkord.DAL
                             Byte[] slikaTEMP = new Byte[65536];
                             r.GetBytes(4, 0, slikaTEMP, 0, 65536);
                             BitmapImage slika = byteArrayToImage(slikaTEMP);
-                            SpecElektricna spec = new SpecElektricna(r2.GetInt32("godina_proizvodnje"), r2.GetString("proizvodjac"), r2.GetString("model"), r2.GetString("materijal"), r2.GetInt32("broj_zica"), r2.GetString("masinica"), r2.GetString("vrat"), r2.GetString("most"), r2.GetString("pickup"), r2.GetString("elektronika"));
+                            SpecElektricna spec = new SpecElektricna(r2.GetInt32("godina_proizvodnje"), r2.GetString("proizvodjac"), r2.GetString("model"), r2.GetString("materijal"), r2.GetInt32("broj_zica"), r2.GetString("vrat"), r2.GetString("most"), r2.GetString("pickup"), r2.GetString("elektronika"));
                             string tempTip = r.GetString("tip_gitare");
                             TipElektronika tip;
                             if (tempTip == "Elektricna") tip = TipElektronika.Elektricna;
@@ -131,7 +131,7 @@ namespace MuzickiStudioAkord.DAL
                             Byte[] slikaTEMP = new Byte[65536];
                             r.GetBytes(4, 0, slikaTEMP, 0, 65536);
                             BitmapImage slika = byteArrayToImage(slikaTEMP);
-                            SpecElektricna spec = new SpecElektricna(r2.GetInt32("godina_proizvodnje"), r2.GetString("proizvodjac"), r2.GetString("model"), r2.GetString("materijal"), r2.GetInt32("broj_zica"), r2.GetString("masinica"), r2.GetString("vrat"), r2.GetString("most"), r2.GetString("pickup"), r2.GetString("elektronika"));
+                            SpecElektricna spec = new SpecElektricna(r2.GetInt32("godina_proizvodnje"), r2.GetString("proizvodjac"), r2.GetString("model"), r2.GetString("materijal"), r2.GetInt32("broj_zica"), r2.GetString("vrat"), r2.GetString("most"), r2.GetString("pickup"), r2.GetString("elektronika"));
                             string tempTip = r.GetString("tip_gitare");
                             TipElektronika tip;
                             if (tempTip == "Elektricna") tip = TipElektronika.Elektricna;
@@ -235,7 +235,7 @@ namespace MuzickiStudioAkord.DAL
                     SpecKlasicna temp = objekat.Spec as SpecKlasicna;
                     upit.CommandText = "insert into spec_gitara values(@id, @masinica, @vrat, @most, @pickup, @elektronika, @broj_zica)";
                     upit.Parameters.AddWithValue("@id", upit.LastInsertedId);
-                    upit.Parameters.AddWithValue("@masinica", null);
+                    upit.Parameters.AddWithValue("@masinica", temp.Masinica);
                     upit.Parameters.AddWithValue("@vrat", null);
                     upit.Parameters.AddWithValue("@most", null);
                     upit.Parameters.AddWithValue("@pickup", null);
