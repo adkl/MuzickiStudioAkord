@@ -1,0 +1,29 @@
+﻿{ "Artikli": [
+    {
+        "TipArtikla" :  "ElektricnaGitara",
+        "SerijskiBroj": "1",
+        "Naziv": "",
+        "Cijena": "5000",
+        "Specifikacija": [
+
+        ],
+        "ImagePath": ""
+            //nastavljam i sa ovim 
+
+    },
+    {
+
+    },
+    {
+
+    },
+    {
+
+    },
+    {
+
+    },
+    { 
+
+    }
+  ] }

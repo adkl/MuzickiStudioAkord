@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{399af18f-a0a1-4be4-871f-a0e2d7f3755d}</ProjectGuid>
+    <ProjectGuid>{399AF18F-A0A1-4BE4-871F-A0E2D7F3755D}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MuzickiStudioAkord</RootNamespace>
@@ -80,11 +80,25 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="DataModel\AllData.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataModel\Artikal.cs" />
+    <Compile Include="DataModel\DataSource.cs" />
+    <Compile Include="DataModel\ElektricnaGitara.cs" />
+    <Compile Include="DataModel\Gitara.cs" />
+    <Compile Include="DataModel\KlasicnaGitara.cs" />
+    <Compile Include="DataModel\Klavijatura.cs" />
+    <Compile Include="DataModel\Pojacalo.cs" />
+    <Compile Include="DataModel\Specifikacije\SpecElektricna.cs" />
+    <Compile Include="DataModel\Specifikacije\SpecGitara.cs" />
+    <Compile Include="DataModel\Specifikacije\Specifikacija.cs" />
+    <Compile Include="DataModel\Specifikacije\SpecKlasicna.cs" />
+    <Compile Include="DataModel\Specifikacije\SpecKlavijatura.cs" />
+    <Compile Include="DataModel\Specifikacije\SpecPojacalo.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -113,14 +127,12 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(TargetPlatformIdentifier)' == '' ">
     <TargetPlatformIdentifier>WindowsPhoneApp</TargetPlatformIdentifier>
   </PropertyGroup>
-
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
