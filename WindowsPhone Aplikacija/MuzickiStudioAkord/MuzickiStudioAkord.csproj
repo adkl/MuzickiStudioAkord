@@ -110,6 +110,11 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\ElektricneGitare\Blade_BCT-52_JC_photo_1.jpg" />
+    <Content Include="Assets\ElektricneGitare\Blade_Blade_X-Fire_XF-230_Titan_photo_1.jpg" />
+    <Content Include="Assets\ElektricneGitare\Blade_Dayton_Custom_photo_1.jpg" />
+    <Content Include="Assets\ElektricneGitare\Blade_Delta_Pro_T3_photo_1.jpg" />
+    <Content Include="Assets\ElektricneGitare\Blade_Delta_Standard_T1_photo_1.jpg" />
     <Content Include="Assets\Logo.scale-240.png" />
     <Content Include="Assets\SmallLogo.scale-240.png" />
     <Content Include="Assets\SplashScreen.scale-240.png" />

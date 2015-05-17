@@ -11,11 +11,14 @@ namespace MuzickiStudioAkord.Models
     {
         public TipElektronika Tip { get; set; }
 
+        public string Opis { get; set; }
+
         public ElektricnaGitara(int serijskiBroj, string naziv, double cijena, SpecElektricna spec, string slika, TipElektronika tip)
             :base(serijskiBroj, naziv, cijena, spec, slika)
         {
             this.Tip = tip;
         }
+
     }
     public enum TipElektronika
     {
