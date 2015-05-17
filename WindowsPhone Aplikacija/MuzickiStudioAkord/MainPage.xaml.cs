@@ -1,4 +1,5 @@
-﻿using MuzickiStudioAkord.DataModel;
+﻿using MuzickiStudioAkord.Common;
+using MuzickiStudioAkord.DataModel;
 using MuzickiStudioAkord.Models;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,14 @@ namespace MuzickiStudioAkord
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+        private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
+        public ObservableDictionary DefaultViewModel
+        {
+            get { return defaultViewModel; }
+        } 
+
+
         public MainPage()
         {
             this.InitializeComponent();
