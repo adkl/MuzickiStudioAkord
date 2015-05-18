@@ -1,5 +1,6 @@
 ﻿{
-
+    "Artikli": [
+        {
             "ElektricneGitare": [
                 {
                     "SerijskiBroj": 1,
@@ -20,7 +21,7 @@
                 },
                 {
                     "SerijskiBroj": 2,
-                    "Naziv": "Blade_X-Fire_XF-23",
+                    "Naziv": "Blade X Fire XF",
                     "Cijena": 5000,
                     "ImagePath": "Assets/ElektricneGitare/Blade_Blade_X-Fire_XF-230_Titan_photo_1.jpg",
                     "GodinaProizvodnje": 2000,
@@ -36,5 +37,21 @@
                     "TipElektronika": "Elektricna"
                 }
             ]
+        },
+        {
+            "KlasicneGitare": [
+
+            ]
+        },
+        {
+            "Klavijature": [
+
+            ]
+        },
+        {
+            "Pojacala": [
+
+            ]
         }
-    
+    ]
+}
