@@ -12,16 +12,16 @@
 
     <Page.Resources>
         <DataTemplate x:Key="Standard200x180TileItemTemplate">
-            <Grid Margin="0,0,9.5,9.5"
+            <Grid Margin="0,0,9.5,25"
                   Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}">
                 <Image Source="{Binding ImagePath}"
-                       Stretch="UniformToFill"
-                       AutomationProperties.Name="{Binding Title}"
+                       Stretch="Uniform"
+                       AutomationProperties.Name="{Binding Naziv}"
                        Height="138.5"
                        Width="138.5" />
                 <TextBlock Text="{Binding Naziv}"
                            VerticalAlignment="Bottom"
-                           Margin="9.5,0,0,6.5"
+                           Margin="0,0,0,-25"
                            Style="{ThemeResource BaseTextBlockStyle}" />
             </Grid>
         </DataTemplate>
@@ -37,7 +37,7 @@
                         Width="Auto">
                 <DataTemplate>
                     <GridView Margin="0,-15.5,0,0"
-                              ItemsSource="{Binding Artikli}"
+                              ItemsSource="{Binding Gitare}"
                               AutomationProperties.AutomationId="ItemGridView"
                               AutomationProperties.Name="Items In Group"
                               ItemTemplate="{StaticResource Standard200x180TileItemTemplate}"

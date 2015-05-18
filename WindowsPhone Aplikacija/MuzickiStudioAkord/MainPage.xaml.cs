@@ -57,6 +57,15 @@ namespace MuzickiStudioAkord
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
             var artikli = await DataSource.GetArtikliAsync();
             this.DefaultViewModel["Artikli"] = artikli;
+
+            var gitare = await DataSource.GetGitareAsync();
+            this.DefaultViewModel["Gitare"] = gitare;
+
+            var klavijature = await DataSource.GetKlavijatureAsync();
+            this.DefaultViewModel["Klavijature"] = klavijature;
+
+            var pojacala = await DataSource.GetPojacalaAsync();
+            this.DefaultViewModel["Pojacala"] = pojacala;
         }
         private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
         {

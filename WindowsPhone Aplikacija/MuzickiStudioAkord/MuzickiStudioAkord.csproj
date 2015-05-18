@@ -81,6 +81,17 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <Content Include="Assets\background.jpg" />
+    <Content Include="Assets\KlasicneGitare\Cashimira_Joan_Cashimira_Model_132_photo_1.jpg" />
+    <Content Include="Assets\KlasicneGitare\Cashimira_Model_140_photo_1.jpg" />
+    <Content Include="Assets\KlasicneGitare\Cashimira_Model_142_klasična_gitara_photo_1.jpg" />
+    <Content Include="Assets\KlasicneGitare\Cashimira_Model_20_photo_1.jpg" />
+    <Content Include="Assets\KlasicneGitare\Cashimira_Mod_90_photo_1.jpg" />
+    <Content Include="Assets\Klavijature\Arturia_Minibrute_photo_1.jpg" />
+    <Content Include="Assets\Klavijature\Roland_FA-06_photo_1.jpg" />
+    <Content Include="Assets\Klavijature\Waldorf_Blofeld_Keyboard_Synthesizer_photo_1.jpg" />
+    <Content Include="Assets\Pojacala\American_Audio_VLP_300_photo_1.jpg" />
+    <Content Include="Assets\Pojacala\American_Audio_XLT1200_photo_1.jpg" />
+    <Content Include="Assets\Pojacala\Apart_Champ_One_photo_1.jpg" />
     <Content Include="DataModel\AllData.json" />
   </ItemGroup>
   <ItemGroup>
