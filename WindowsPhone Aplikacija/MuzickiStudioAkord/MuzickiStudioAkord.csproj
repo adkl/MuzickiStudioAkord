@@ -80,7 +80,8 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <None Include="DataModel\AllData.json" />
+    <Content Include="Assets\background.jpg" />
+    <Content Include="DataModel\AllData.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Graphics.Display;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,35 +26,74 @@ namespace MuzickiStudioAkord
     /// </summary>
     public sealed partial class MainPage : Page
     {
-
+        private readonly NavigationHelper navigationHelper;
         private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
         public ObservableDictionary DefaultViewModel
         {
             get { return defaultViewModel; }
-        } 
+        }
 
 
         public MainPage()
         {
             this.InitializeComponent();
 
+            DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
+
             this.NavigationCacheMode = NavigationCacheMode.Required;
+
+            this.navigationHelper = new NavigationHelper(this);
+            this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
+            this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
         }
 
-        /// <summary>
-        /// Invoked when this page is about to be displayed in a Frame.
-        /// </summary>
-        /// <param name="e">Event data that describes how this page was reached.
-        /// This parameter is typically used to configure the page.</param>
+        public NavigationHelper NavigationHelper
+        {
+            get { return this.navigationHelper; }
+        }
+
+        private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        {
+            // TODO: Create an appropriate data model for your problem domain to replace the sample data
+            var artikli = await DataSource.GetArtikliAsync();
+            this.DefaultViewModel["Artikli"] = artikli;
+        }
+        private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
+        {
+            // TODO: Save the unique state of the page here.
+        }
+        private void ItemView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var type = ((Artikal)e.ClickedItem);
+            var itemId = ((Artikal)e.ClickedItem).SerijskiBroj;
+
+            if (type is ElektricnaGitara)
+            {
+                //this.Frame.Navigate(typeof(ItemPage), itemId);
+            }
+            else if (type is KlasicnaGitara)
+            {
+
+            }
+            else if (type is Klavijatura)
+            {
+
+            }
+            else if (type is Pojacalo)
+            {
+
+            }
+        }
+
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            // TODO: Prepare page for display here.
+            this.navigationHelper.OnNavigatedTo(e);
+        }
 
-            // TODO: If your application contains multiple pages, ensure that you are
-            // handling the hardware Back button by registering for the
-            // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
-            // If you are using the NavigationHelper provided by some templates,
-            // this event is handled for you.
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedFrom(e);
         }
     }
 }

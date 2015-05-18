@@ -1,50 +1,40 @@
-﻿/*
-    
-*/
+﻿{
 
-{
-    "Artikli": [
-        {
             "ElektricneGitare": [
                 {
-                    "SerijskiBroj": "1",
+                    "SerijskiBroj": 1,
                     "Naziv": "Blade BCT 52 JC",
-                    "Cijena": "5000",
-                    "ImagePath": "Assets\ElektricneGitare\Blade_BCT-52_JC_photo_1.jpg",
+                    "Cijena": 5000,
+                    "ImagePath": "Assets/ElektricneGitare/Blade_BCT-52_JC_photo_1.jpg",
+                    "GodinaProizvodnje": 2000,
+                    "Proizvodjac": "sasda",
+                    "Model": "drvo",
+                    "Materijal": "qassfdfsd",
+                    "BrojZica": 4,
+                    "Masinica": "vruca",
                     "Vrat": "sadsa",
                     "Most": "sadda",
                     "PickUp": "afsdf",
                     "Elektronika": "dsfsdf",
-                    "TipElektronika" :  "Bass"
+                    "TipElektronika": "Bass"
                 },
-                { 
-                    "SerijskiBroj": "2",
+                {
+                    "SerijskiBroj": 2,
                     "Naziv": "Blade_X-Fire_XF-23",
-                    "Cijena": "5000",
-                    "ImagePath": "Assets\Blade_Blade_X-Fire_XF-230_Titan_photo_1.jpg",
+                    "Cijena": 5000,
+                    "ImagePath": "Assets/ElektricneGitare/Blade_Blade_X-Fire_XF-230_Titan_photo_1.jpg",
+                    "GodinaProizvodnje": 2000,
+                    "Proizvodjac": "sasda",
+                    "Model": "drvo",
+                    "Materijal": "qassfdfsd",
+                    "BrojZica": 4,
+                    "Masinica": "vruca",
                     "Vrat": "sadsa",
                     "Most": "sadda",
                     "PickUp": "afsdf",
                     "Elektronika": "dsfsdf",
-                    "TipElektronika" : "Elektricna"
+                    "TipElektronika": "Elektricna"
                 }
             ]
-        },
-
-        {
-            "KlasicneGitare": [
-
-            ]
-        },
-        {
-            "Klavijature": [
-
-            ]
-        },
-        {
-            "Pojacala": [ 
-
-            ]
         }
-    ]
-}
+    

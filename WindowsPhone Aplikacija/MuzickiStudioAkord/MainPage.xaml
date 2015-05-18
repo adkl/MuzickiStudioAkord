@@ -1,14 +1,102 @@
-﻿<Page
-    x:Class="MuzickiStudioAkord.MainPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:MuzickiStudioAkord"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+﻿<Page x:Class="MuzickiStudioAkord.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:MuzickiStudioAkord"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:data="using:MuzickiStudioAkord.DataModel"
+      DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+      d:DataContext="{Binding Source={d:DesignData Source=/DataModel/AllData.json, Type=data:DataSource}}"
+      mc:Ignorable="d">
+      
 
+    <Page.Resources>
+        <DataTemplate x:Key="Standard200x180TileItemTemplate">
+            <Grid Margin="0,0,9.5,9.5"
+                  Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}">
+                <Image Source="{Binding ImagePath}"
+                       Stretch="UniformToFill"
+                       AutomationProperties.Name="{Binding Title}"
+                       Height="138.5"
+                       Width="138.5" />
+                <TextBlock Text="{Binding Naziv}"
+                           VerticalAlignment="Bottom"
+                           Margin="9.5,0,0,6.5"
+                           Style="{ThemeResource BaseTextBlockStyle}" />
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+    
+    
     <Grid>
+        <Hub Header="Muzicki Studio Akord"
+             Background="{ThemeResource HubBackgroundImageBrush}">
+
+            <HubSection Header="GITARE"
+                        x:Uid="gitareHubSection"
+                        Width="Auto">
+                <DataTemplate>
+                    <GridView Margin="0,-15.5,0,0"
+                              ItemsSource="{Binding Artikli}"
+                              AutomationProperties.AutomationId="ItemGridView"
+                              AutomationProperties.Name="Items In Group"
+                              ItemTemplate="{StaticResource Standard200x180TileItemTemplate}"
+                              SelectionMode="None"
+                              IsItemClickEnabled="True"
+                              ItemClick="ItemView_ItemClick"
+                              ContinuumNavigationTransitionInfo.ExitElementContainer="True">
+                        <GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid />
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>
+                    </GridView>
+                </DataTemplate>
+            </HubSection>
+            
+            <HubSection Header="KLAVIJATURE"
+                        x:Uid="klavijatureHubSection"
+                        Width="Auto">
+                <DataTemplate>
+                    <GridView Margin="0,-15.5,0,0"
+                              ItemsSource="{Binding Artikli}"
+                              AutomationProperties.AutomationId="ItemGridView"
+                              AutomationProperties.Name="Items In Group"
+                              ItemTemplate="{StaticResource Standard200x180TileItemTemplate}"
+                              SelectionMode="None"
+                              IsItemClickEnabled="True"
+                              ItemClick="ItemView_ItemClick"
+                              ContinuumNavigationTransitionInfo.ExitElementContainer="True">
+                        <GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid />
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>
+                    </GridView>
+                </DataTemplate>
+            </HubSection>
+            <HubSection Header="POJACALA"
+                        x:Uid="pojacalaHubSection"
+                        Width="Auto">
+                <DataTemplate>
+                    <GridView Margin="0,-15.5,0,0"
+                              ItemsSource="{Binding Artikli}"
+                              AutomationProperties.AutomationId="ItemGridView"
+                              AutomationProperties.Name="Items In Group"
+                              ItemTemplate="{StaticResource Standard200x180TileItemTemplate}"
+                              SelectionMode="None"
+                              IsItemClickEnabled="True"
+                              ItemClick="ItemView_ItemClick"
+                              ContinuumNavigationTransitionInfo.ExitElementContainer="True">
+                        <GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid />
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>
+                    </GridView>
+                </DataTemplate>
+            </HubSection>
+        </Hub>
 
     </Grid>
 </Page>
