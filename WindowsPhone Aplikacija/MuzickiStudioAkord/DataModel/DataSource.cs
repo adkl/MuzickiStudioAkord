@@ -48,7 +48,7 @@ namespace MuzickiStudioAkord.DataModel
 
         public static async Task<IEnumerable<Artikal>> GetGitareAsync()
         {
-            await dataSource.getAllDataAsync();
+             await dataSource.getAllDataAsync();
 
             //DataSource.popuniData();
 

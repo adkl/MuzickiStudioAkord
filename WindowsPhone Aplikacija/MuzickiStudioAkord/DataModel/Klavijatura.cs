@@ -9,9 +9,11 @@ namespace MuzickiStudioAkord.Models
 {
     public class Klavijatura : Artikal
     {
+        public SpecKlavijatura Spec { get; set; }
         public Klavijatura(int serijskiBroj, string naziv, double cijena, SpecKlavijatura spec, string slika)
-            : base(serijskiBroj, naziv, cijena, spec, slika)
+            : base(serijskiBroj, naziv, cijena, slika)
         {
+            this.Spec = spec;
             this.Opis = opis();
         }
 

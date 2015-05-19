@@ -11,8 +11,8 @@ namespace MuzickiStudioAkord.Models
     public abstract class Gitara : Artikal
     {
 
-        public Gitara(int serijskiBroj, string naziv, double cijena, SpecGitara spec, string slika)
-            :base(serijskiBroj, naziv, cijena, spec, slika)
+        public Gitara(int serijskiBroj, string naziv, double cijena, string slika)
+            :base(serijskiBroj, naziv, cijena, slika)
         {
         }
     }

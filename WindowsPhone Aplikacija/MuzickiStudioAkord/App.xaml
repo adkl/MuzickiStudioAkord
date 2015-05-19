@@ -11,6 +11,7 @@
                     <ImageBrush x:Key="HubBackgroundImageBrush"
                                 ImageSource="Assets/background.jpg" />
                 </ResourceDictionary>
+                
                 <ResourceDictionary x:Key="HighContrast">
                     <ImageBrush x:Key="HubBackgroundImageBrush"
                                 ImageSource="{x:Null}" />

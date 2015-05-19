@@ -8,7 +8,7 @@
       mc:Ignorable="d"
       DataContext="{Binding DefaultViewModel.Artikal, RelativeSource={RelativeSource Self}}"
       d:DataContext="{Binding Artikal, Source={d:DesignData Source=/DataModel/AllData.json, Type=data:DataSource}}"
-      Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+      Background="{ThemeResource HubBackgroundImageBrush}">
 
 
 
@@ -63,8 +63,21 @@
                                Margin="10,12,10,0"
                                TextWrapping="Wrap"
                                FontSize="20">
-
                     </TextBlock>
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Cijena: "
+                                   Margin="10,12,10,0"
+                                   TextWrapping="Wrap"
+                                   FontSize="30" />
+
+                        <TextBlock Text="{Binding Cijena}"
+                                   Margin="10,12,10,0"
+                                   TextWrapping="Wrap"
+                                   FontSize="30" />
+                    </StackPanel>
+                    
+                    
                 </StackPanel>
 
 

@@ -10,9 +10,11 @@ namespace MuzickiStudioAkord.Models
 {
     public class Pojacalo : Artikal
     {
+        public SpecPojacalo Spec { get; set; }
         public Pojacalo(int serijskiBroj, string naziv, double cijena, SpecPojacalo spec, string slika)
-            :base(serijskiBroj, naziv, cijena, spec, slika)
+            :base(serijskiBroj, naziv, cijena, slika)
         {
+            this.Spec = spec;
             this.Opis = opis();
         }
 

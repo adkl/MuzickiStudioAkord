@@ -11,10 +11,13 @@ namespace MuzickiStudioAkord.Models
     {
         public TipKlasicne Tip { get; set; }
 
+        public SpecKlasicna Spec { get; set; }
+
         public KlasicnaGitara(int serijskiBroj, string naziv, double cijena, SpecKlasicna spec, string slika, TipKlasicne tip)
-            :base(serijskiBroj, naziv, cijena, spec, slika)
+            :base(serijskiBroj, naziv, cijena, slika)
         {
             this.Tip = tip;
+            this.Spec = spec;
             this.Opis = opis();
         }
 
@@ -26,7 +29,7 @@ namespace MuzickiStudioAkord.Models
                      "\nMaterijal:" + Spec.Materijal +
                      "\nProizvodjac: " + Spec.Proizvodjac +
                      // napravili smo neki previd oko nasljedjivanja pa mi ne da da povadim ostale atribute iz spec
-                     "\nTipKlasicne: " + Tip == "Klasicna" ? "Klasicna" : "Akusticna"  
+                     "\nTip klasicne gitare: " + Tip == "Klasicna" ? "Klasicna" : "Akusticna"  
                 );
         }
     }

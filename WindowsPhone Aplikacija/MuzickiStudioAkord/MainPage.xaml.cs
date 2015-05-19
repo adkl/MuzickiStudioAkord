@@ -58,7 +58,7 @@ namespace MuzickiStudioAkord
             var artikli = await DataSource.GetArtikliAsync();
             this.DefaultViewModel["Artikli"] = artikli;
 
-            var gitare = await DataSource.GetGitareAsync();
+            var gitare =  await DataSource.GetGitareAsync();
             this.DefaultViewModel["Gitare"] = gitare;
 
             var klavijature = await DataSource.GetKlavijatureAsync();
