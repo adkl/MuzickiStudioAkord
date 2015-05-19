@@ -71,27 +71,52 @@ namespace MuzickiStudioAkord
         {
             // TODO: Save the unique state of the page here.
         }
+
+        
         private void ItemView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var type = ((Artikal)e.ClickedItem);
-            var itemId = ((Artikal)e.ClickedItem).SerijskiBroj;
-
-            if (type is ElektricnaGitara)
+            int itemId;
+            string type;
+            if (e.ClickedItem is ElektricnaGitara)
             {
-                //this.Frame.Navigate(typeof(ItemPage), itemId);
+                itemId = ((ElektricnaGitara)e.ClickedItem).SerijskiBroj;
+                type = "ElektricnaGitara";
             }
-            else if (type is KlasicnaGitara)
+            else if (e.ClickedItem is KlasicnaGitara)
             {
-
+                itemId = ((KlasicnaGitara)e.ClickedItem).SerijskiBroj;
+                type = "KlasicnaGitara";
             }
-            else if (type is Klavijatura)
+            else if (e.ClickedItem is Klavijatura)
             {
-
+                itemId = ((Klavijatura)e.ClickedItem).SerijskiBroj;
+                type = "Klavijatura";
             }
-            else if (type is Pojacalo)
+            else
             {
-
+                itemId = ((Pojacalo)e.ClickedItem).SerijskiBroj;
+                type = "Pojacalo";
             }
+            INFO info = new INFO { id = itemId, tip = type};
+            this.Frame.Navigate(typeof(ArtikalPage), info);
+
+
+            //if (type is ElektricnaGitara)
+            //{
+            //    this.Frame.Navigate(typeof(ArtikalPage), itemId);
+            //}
+            //else if (type is KlasicnaGitara)
+            //{
+
+            //}
+            //else if (type is Klavijatura)
+            //{
+
+            //}
+            //else if (type is Pojacalo)
+            //{
+
+            //}
         }
 
 
@@ -104,5 +129,11 @@ namespace MuzickiStudioAkord
         {
             this.navigationHelper.OnNavigatedFrom(e);
         }
+    }
+
+    class INFO
+    {
+        public string tip;
+        public int id;
     }
 }

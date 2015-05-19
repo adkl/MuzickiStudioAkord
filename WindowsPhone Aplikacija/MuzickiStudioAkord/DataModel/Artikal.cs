@@ -45,6 +45,18 @@ namespace MuzickiStudioAkord.Models
             get { return imagePath; }
             set { imagePath = value; }
         }
+        private string opiS;
+        public string Opis
+        {
+            get
+            {
+                return opiS;
+            }
+            set
+            {
+                opiS = value;
+            }
+        }
         public Artikal(int serijskiBroj, string naziv, double cijena, Specifikacija spec, string imagepath)
         {
             this.SerijskiBroj = serijskiBroj;
@@ -52,6 +64,16 @@ namespace MuzickiStudioAkord.Models
             this.Cijena = cijena;
             this.Spec = spec;
             this.ImagePath = imagepath;
+        }
+
+        public virtual string opis()
+        {
+            return ("Naziv: " + Naziv +
+                     "\nGodina Proizvodnje: " + Spec.GodinaProizvodnje +
+                     "\nModel: " + Spec.Model +
+                     "\nMaterijal:" + Spec.Materijal +
+                     "\nProizvodjac: " + Spec.Proizvodjac
+                   );
         }
 
     }

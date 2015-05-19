@@ -73,13 +73,38 @@ namespace MuzickiStudioAkord.DataModel
             return dataSource.Pojacala;
         }
 
-        public static async Task<Artikal> GetArtikalAsync(string serijski_broj)
+        public static async Task<Artikal> GetArtikalAsync(int serijski_broj, string tip)
         {
             await dataSource.getAllDataAsync();
             // Simple linear search is acceptable for small data sets
-            var matches = dataSource.Artikli.Where((item) => item.SerijskiBroj.Equals(serijski_broj));
-            if (matches.Count() == 1) return matches.First();
-            return null;
+            //var matches = dataSource.Artikli.Where((item) => item.SerijskiBroj.Equals(serijski_broj));
+            //if (matches.Count() == 1) return matches.First();
+            //return null;
+
+            if (tip == "ElektricnaGitara")
+            {
+                var matches = dataSource.Gitare.Where((item) => item.SerijskiBroj.Equals(serijski_broj));
+                if (matches.Count() == 1) return matches.First();
+                return null;
+            }
+            else if (tip == "KlasicnaGitara")
+            {
+                var matches = dataSource.Gitare.Where((item) => item.SerijskiBroj.Equals(serijski_broj));
+                if (matches.Count() == 1) return matches.First();
+                return null;
+            }
+            else if (tip == "Klavijatura")
+            {
+                var matches = dataSource.Klavijature.Where((item) => item.SerijskiBroj.Equals(serijski_broj));
+                if (matches.Count() == 1) return matches.First();
+                return null;
+            }
+            else
+            {
+                var matches = dataSource.Pojacala.Where((item) => item.SerijskiBroj.Equals(serijski_broj));
+                if (matches.Count() == 1) return matches.First();
+                return null;
+            }
         }
 
         private async Task getAllDataAsync()
