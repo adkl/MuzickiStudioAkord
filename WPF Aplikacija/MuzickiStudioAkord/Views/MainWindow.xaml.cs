@@ -29,7 +29,8 @@ namespace MuzickiStudioAkord.Views
 
         private void Window_Activated(object sender, EventArgs e)
         {
-            //popraviLayout();    
+            //popraviLayout();  
+            DataContext = new MainWindowViewModel();
         }
         void popraviLayout()
         {
