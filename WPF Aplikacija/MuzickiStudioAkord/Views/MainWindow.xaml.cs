@@ -30,7 +30,7 @@ namespace MuzickiStudioAkord.Views
 
         private void Window_Activated(object sender, EventArgs e)
         {
-            popraviLayout();    
+            //popraviLayout();    
         }
         void popraviLayout()
         {
