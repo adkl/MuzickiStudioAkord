@@ -1,0 +1,94 @@
+﻿<Window x:Class="MuzickiStudioAkord.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Muzicki Studio Akord"
+        Height="600"
+        Width="800"
+        Activated="Window_Activated">
+
+
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150" />
+            <RowDefinition Height="450" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="650" />
+        </Grid.ColumnDefinitions>
+
+
+        <Image Source="/MuzickiStudioAkord;component/Resources/musicStudioCover.jpg"
+               Grid.Row="0"
+               Grid.ColumnSpan="3"
+               Stretch="UniformToFill" />
+
+        <Menu HorizontalAlignment="Left"
+              Grid.Column="0"
+              Grid.Row="1"
+              VerticalAlignment="Top"
+              Width="150"
+              FontFamily="Showcard Gothic"
+              FontSize="33">
+            <MenuItem Header="HOME"
+                      Height="60"
+                      Width="150" />
+
+            <MenuItem Header="O nama"
+                      Height="60"
+                      Width="150" />
+
+            <MenuItem Header="Usluge"
+                      Height="60"
+                      Width="150" />
+
+            <MenuItem Header="Shop"
+                      Height="50"
+                      Width="150" />
+        </Menu>
+
+        <StackPanel Grid.Row="1"
+                    Grid.Column="1"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top">
+            <Frame Source="SastanakView.xaml" />
+        </StackPanel>
+        
+        <StackPanel Grid.Column="0"
+                    Grid.Row="1"
+                    Margin="10,270,0,31">
+            <TextBox HorizontalAlignment="Left"
+                     Height="23"
+                     Grid.Row="1"
+                     TextWrapping="Wrap"
+                     Text="Username"
+                     VerticalAlignment="Top"
+                     Width="120" />
+            <TextBox HorizontalAlignment="Left"
+                     Height="23"
+                     Grid.Row="1"
+                     TextWrapping="Wrap"
+                     Text="Password"
+                     VerticalAlignment="Top"
+                     Width="120" />
+            <Button Content="Login"
+                    HorizontalAlignment="Left"
+                    Grid.Row="1"
+                    VerticalAlignment="Top"
+                    Width="75" />
+            <Label Content="Logirani ste kao: " />
+            <Button Content="Sign up"
+                    HorizontalAlignment="Left"
+                    Grid.Row="1"
+                    VerticalAlignment="Top"
+                    Width="75" />
+        </StackPanel>
+        
+
+    </Grid>
+
+
+</Window>
