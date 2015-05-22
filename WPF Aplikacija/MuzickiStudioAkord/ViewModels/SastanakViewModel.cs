@@ -8,4 +8,8 @@ using System.Windows.Input;
 
 namespace MuzickiStudioAkord.ViewModels
 {
+    public class SastanakViewModel
+    {
+
+    }
 }
