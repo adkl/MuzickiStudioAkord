@@ -83,13 +83,13 @@ namespace MuzickiStudioAkord.Models
         }
         private string validirajBroj()
         {
-            string BrojKreditneKartice = id_kartice.ToString();
-            if (String.IsNullOrWhiteSpace(BrojKreditneKartice))
+            string BrojKreditneKartice = Id_kartice.ToString();
+            if (String.IsNullOrWhiteSpace(BrojKreditneKartice) || Id_kartice == 0)
             {
                 return "Id kreditne kartice mora bit unesen!";
             }
             //510510510510510 mastercard testna kartica ispravna
-            if (!BrojKreditneKartice.LuhnCheck() || BrojKreditneKartice.Length>19 || BrojKreditneKartice.Length<1)
+            if (!BrojKreditneKartice.LuhnCheck() || BrojKreditneKartice.Length>19 || BrojKreditneKartice.Length < 1)
             {
                 return "Broj kreditne kartice ne postoji!";
             }

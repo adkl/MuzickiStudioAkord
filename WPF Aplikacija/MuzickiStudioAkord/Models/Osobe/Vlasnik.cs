@@ -19,7 +19,7 @@ namespace MuzickiStudioAkord.Models
         private string validirajUsername()
         {
 
-            if (username.Length > 10)
+            if (Username.Length > 10)
                 return "Korisnicko ime ne moze imati vise od 10 karaktera";
 
             return null;
@@ -29,7 +29,7 @@ namespace MuzickiStudioAkord.Models
         private string validirajPassword()
         {
 
-            if (password.Length > 8 || password.Length < 4)
+            if (Password.Length > 8 || password.Length < 4)
                 return "Lozinka ne moze imati vise od 8, niti manje od 4 karaktera";
 
             return null;

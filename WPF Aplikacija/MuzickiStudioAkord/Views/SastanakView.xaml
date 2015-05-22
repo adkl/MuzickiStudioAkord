@@ -50,7 +50,7 @@
                 <TextBox x:Name="textBoxIme"
                          Margin="3"
                          Width="150"
-                         Text="{Binding Path=SastanakKlijent.Ime,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Text="{Binding Path=SastanakKlijent.Ime,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
                          Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
                 <Label Name="labelaPrezime"
                        HorizontalAlignment="Center"
@@ -111,7 +111,7 @@
                 <TextBox x:Name="textBoxBrojKartice"
                          Margin="3"
                          Width="150"
-                         Text="{Binding Path=SastanakKlijent.Kartica.Id_kartice,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Text="{Binding Path=SastanakKreditnaKartica.Id_kartice,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
                 <Label Name="labelaCCV"
                        HorizontalAlignment="Center"
@@ -119,7 +119,7 @@
                 <TextBox x:Name="textBoxCCV"
                          Margin="3"
                          Width="150"
-                        Text="{Binding Path=SastanakKlijent.Kartica.Ccv,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                        Text="{Binding Path=SastanakKreditnaKartica.Ccv,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
                 <Label Name="OdabirDatuma2"
                         HorizontalAlignment="Center"

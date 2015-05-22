@@ -18,18 +18,19 @@ namespace MuzickiStudioAkord.ViewModels
         public Action CloseAction { get; set; }
         public Sastanak UneseniSastanak { get; set; }
         public Klijent SastanakKlijent { get; set; }
+        public KreditnaKartica SastanakKreditnaKartica { get; set; }
 
         public SastanakViewModel()
         {
             BazaSastanci = new DataBaseSastanci(Resources.BazaPassword);
             UnosSastanka = new RelayCommand(potvrdi);
             SastanakKlijent = new Klijent();
+            SastanakKreditnaKartica = new KreditnaKartica();
         }
         public void potvrdi(object parametar)
         {
-                if (SastanakKlijent.IsValid)
+                if (SastanakKlijent.IsValid && SastanakKlijent.Kartica.IsValid)
                 {
-
                     CloseAction();
                 }
         }

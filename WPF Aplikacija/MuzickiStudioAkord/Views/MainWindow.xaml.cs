@@ -8,7 +8,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -30,15 +29,35 @@ namespace MuzickiStudioAkord.Views
 
         private void Window_Activated(object sender, EventArgs e)
         {
-            //popraviLayout();  
-            DataContext = new MainWindowViewModel();
+
         }
-        void popraviLayout()
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            System.Drawing.Rectangle workingRectangle =
-            Screen.PrimaryScreen.WorkingArea;
-            this.Height = workingRectangle.Height * 0.7;
-            this.Width = workingRectangle.Width * 0.7;
+            TextBox tb = sender as TextBox;
+            if (tb.Text == "Username")
+            {
+                tb.Text = String.Empty;
+                tb.FontStyle = FontStyles.Normal;
+                //Stavi ovdje foreground na black
+            }
+            Binding b = new Binding("Admin.Username");
+            b.ValidatesOnDataErrors = true;
+            b.NotifyOnValidationError = true;
+            b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+            b.Mode = BindingMode.TwoWay;
+           
+            tb.SetBinding(TextBox.TextProperty, b);
+        }
+
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (tb.Text == string.Empty)
+            {
+                tb.Text = "Username";
+                tb.FontStyle = FontStyles.Italic;
+            }
+
         }
     }
 }

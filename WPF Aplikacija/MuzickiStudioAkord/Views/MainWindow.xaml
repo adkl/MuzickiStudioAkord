@@ -90,10 +90,13 @@
         <StackPanel Grid.Column="0"
                     Grid.Row="1"
                     Margin="10,230,3,36">
-            <TextBox Text="{Binding Path=Admin.Username,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"
+            <TextBox Text="Username"
+                     GotFocus="TextBox_GotFocus"
+                     LostFocus="TextBox_LostFocus"
                      Validation.ErrorTemplate="{StaticResource ErrorTemplate}"
                      Margin="0,10,0,0"
                      Height="25"
+                     FontStyle ="Italic"
                      Foreground="#FF645A5A" />
 
             <TextBox Text="Password"
