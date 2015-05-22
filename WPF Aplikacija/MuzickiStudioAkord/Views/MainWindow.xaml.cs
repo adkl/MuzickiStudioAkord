@@ -24,6 +24,7 @@ namespace MuzickiStudioAkord.Views
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainWindowViewModel();
             
         }
 

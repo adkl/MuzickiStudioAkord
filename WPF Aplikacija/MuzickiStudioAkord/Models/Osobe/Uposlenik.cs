@@ -66,7 +66,7 @@ namespace MuzickiStudioAkord.Models
 
 
         private readonly static string[] properties = {"Username", "Password"};
-        string  getValidationError(string propertyName)
+        protected override string  getValidationError(string propertyName)
         {
             string error = null;
 
@@ -91,9 +91,6 @@ namespace MuzickiStudioAkord.Models
                     if (getValidationError(property) != null)
                         return false;
                 }
-
-                if (!IsValidBase)
-                    return false;
 
                 return true;
             }

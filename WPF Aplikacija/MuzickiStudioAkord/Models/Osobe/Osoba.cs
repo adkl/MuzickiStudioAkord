@@ -123,7 +123,7 @@ namespace MuzickiStudioAkord.Models
         {
             "Jmbg", "Email", "BrojTelefona", "Ime", "Prezime", "Adresa"
         };
-        public bool IsValid
+        public virtual bool IsValid
         {
             get
             {

@@ -15,11 +15,12 @@ namespace MuzickiStudioAkord.ViewModels
         public Vlasnik Admin {get;set;}
 
         public Uposlenik Radnik { get; set; }
+
         public Action CloseAction { get; set; }
 
         public void login(Object parametar)
         {
-            if (Admin.isValidVlasnik || Radnik.isValidUposlenik)
+            if (Admin.IsValid)
             {
 
                 CloseAction();

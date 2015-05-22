@@ -20,7 +20,7 @@ namespace MuzickiStudioAkord.Models
         internal KreditnaKartica Kartica
         {
             get { return kartica; }
-            set { kartica = value; }
+            set { kartica = value; OnPropertyChanged("KreditnaKartica"); }
         }
 
         private List<Narudzba> narudzbe;
@@ -31,23 +31,24 @@ namespace MuzickiStudioAkord.Models
             set { narudzbe = value; }
         }
 
-        public bool IsValid
+        public override bool IsValid
         {
             get
             {
-                foreach (string property in validateProperties)
-                {
-                    if (getValidationError(property) != null)
+                if (!base.IsValid) return false;                
+                    foreach (string property in validateProperties)
                     {
-                        return false;
+                        if (getValidationError(property) != null)
+                        {
+                            return false;
+                        }
                     }
-                }
                 return true;
             }
         }
         static readonly string[] validateProperties =
         {
-            "Jmbg", "Email", "BrojTelefona", "Ime", "Prezime", "Adresa", "PotrosackaKarticaID"
+            "PotrosackaKarticaID"
         };
         protected override string getValidationError(string property)
         {
@@ -58,7 +59,7 @@ namespace MuzickiStudioAkord.Models
         }
         private string validirajPotrosackuKarticu()
         {
-            if (PotrosackaKarticaID < 1000 || PotrosackaKarticaID > 9999) return "Mora biti 4 cifre";
+            if (PotrosackaKarticaID < 0 || PotrosackaKarticaID > 9999999) return "Maksimalno 7 cifara";
             return null;
         }
         public Klijent(string firstName, string lastName, string jmbg, string adresa, string brTel, int potrosackaID, KreditnaKartica card)
@@ -71,15 +72,6 @@ namespace MuzickiStudioAkord.Models
             : base()
         {
 
-        }
-        string IDataErrorInfo.Error
-        {
-            get { return null; }
-        }
-        //Ponasa se tako da ako se vrati null nema errora ako se vrati neka vrijednost validacija nije uspjela
-        string IDataErrorInfo.this[string propertyName]
-        {
-            get { return getValidationError(propertyName); }
         }
     }
 }

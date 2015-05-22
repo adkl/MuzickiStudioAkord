@@ -1,23 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MuzickiStudioAkord.Models
 {
-    public class Vlasnik : Osoba
+    public class Vlasnik : Osoba, INotifyPropertyChanged, IDataErrorInfo
     {
         private string username;
         public string Username
         {
             get { return username; }
+            set { username = value; OnPropertyChanged("Username"); }
         }
 
         private string validirajUsername()
         {
-            if (String.IsNullOrEmpty(Username) || String.IsNullOrWhiteSpace(Username))
-                return "Polje za unos korisnickog imena ne moze biti prazno";
 
             if (username.Length > 10)
                 return "Korisnicko ime ne moze imati vise od 10 karaktera";
@@ -28,8 +28,6 @@ namespace MuzickiStudioAkord.Models
 
         private string validirajPassword()
         {
-            if (String.IsNullOrEmpty(Password) || String.IsNullOrWhiteSpace(Password))
-                return "Polje za unos lozinke ne moze biti prazno";
 
             if (password.Length > 8 || password.Length < 4)
                 return "Lozinka ne moze imati vise od 8, niti manje od 4 karaktera";
@@ -37,19 +35,16 @@ namespace MuzickiStudioAkord.Models
             return null;
         }
 
-        public bool isValidVlasnik
+        public override bool IsValid
         {
             get
             {
+                if (!base.IsValid) return false; 
                 foreach (string property in properties)
                 {
                     if (getValidationError(property) != null)
                         return false;
                 }
-
-                if (!IsValidBase)
-                    return false;
-
                 return true;
             }
         }
@@ -58,7 +53,7 @@ namespace MuzickiStudioAkord.Models
         private string password;
         public string Password
         {
-            get { return username; }
+            get { return password; }
             set
             {
                 password = value;
@@ -72,12 +67,10 @@ namespace MuzickiStudioAkord.Models
         }
 
         private readonly static string[] properties = { "Username", "Password" };
-        string getValidationError(string propertyName)
+
+        protected override string getValidationError(string propertyName)
         {
-            string error = null;
-
-
-
+            string error = base.getValidationError(propertyName);
             switch (propertyName)
             {
                 case "Username":
