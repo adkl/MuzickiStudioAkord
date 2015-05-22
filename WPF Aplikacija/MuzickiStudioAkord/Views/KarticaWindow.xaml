@@ -1,8 +1,0 @@
-﻿<Window x:Class="MuzickiStudioAkord.Views.KarticaWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="KarticaWindow" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
-</Window>

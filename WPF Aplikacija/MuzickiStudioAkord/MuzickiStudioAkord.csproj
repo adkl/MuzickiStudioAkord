@@ -112,14 +112,14 @@
     </Compile>
     <Compile Include="ViewModels\KarticaViewModel.cs" />
     <Compile Include="ViewModels\SastanakViewModel.cs" />
-    <Compile Include="Views\KarticaWindow.xaml.cs">
-      <DependentUpon>KarticaWindow.xaml</DependentUpon>
+    <Compile Include="Views\KatalogView.xaml.cs">
+      <DependentUpon>KatalogView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SastanakWindow.xaml.cs">
-      <DependentUpon>SastanakWindow.xaml</DependentUpon>
+    <Compile Include="Views\SastanakView.xaml.cs">
+      <DependentUpon>SastanakView.xaml</DependentUpon>
     </Compile>
     <Page Include="UserControls\ArtikalControl.xaml">
       <SubType>Designer</SubType>
@@ -129,7 +129,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\KarticaWindow.xaml">
+    <Page Include="Views\KatalogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -137,7 +137,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SastanakWindow.xaml">
+    <Page Include="Views\SastanakView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

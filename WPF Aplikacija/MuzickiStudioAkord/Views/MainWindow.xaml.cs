@@ -30,12 +30,13 @@ namespace MuzickiStudioAkord.Views
 
         private void Window_Activated(object sender, EventArgs e)
         {
+            popraviLayout();    
+        }
+        void popraviLayout()
+        {
             System.Drawing.Rectangle workingRectangle =
             Screen.PrimaryScreen.WorkingArea;
-
-            // Set the size of the form slightly less than size of  
-            // working rectangle. 
-            this.Height = workingRectangle.Height * 0.9;
+            this.Height = workingRectangle.Height * 0.7;
             this.Width = workingRectangle.Width * 0.7;
         }
     }

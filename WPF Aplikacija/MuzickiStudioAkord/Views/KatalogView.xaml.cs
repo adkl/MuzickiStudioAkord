@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace MuzickiStudioAkord.Views
 {
     /// <summary>
-    /// Interaction logic for KarticaWindow.xaml
+    /// Interaction logic for KatalogView.xaml
     /// </summary>
-    public partial class KarticaWindow : Window
+    public partial class KatalogView : Page
     {
-        public KarticaWindow()
+        public KatalogView()
         {
             InitializeComponent();
         }
