@@ -87,9 +87,9 @@ namespace MuzickiStudioAkord.DAL
                 upit.ExecuteNonQuery();
 
                 upit.CommandText = "insert into kreditna_kartica values(@id_kartice, @ccv, @datum_isteka, @JMBG)";
-                upit.Parameters.AddWithValue("@id_kartice", objekat.Kartica.id_kartice);
-                upit.Parameters.AddWithValue("@ccv", objekat.Kartica.ccv);
-                upit.Parameters.AddWithValue("@datum_isteka", objekat.Kartica.datum_isteka);
+                upit.Parameters.AddWithValue("@id_kartice", objekat.Kartica.Id_kartice);
+                upit.Parameters.AddWithValue("@ccv", objekat.Kartica.Ccv);
+                upit.Parameters.AddWithValue("@datum_isteka", objekat.Kartica.Datum_isteka);
                 upit.Parameters.AddWithValue("@JMBG", objekat.Jmbg);
                 upit.ExecuteNonQuery();
 

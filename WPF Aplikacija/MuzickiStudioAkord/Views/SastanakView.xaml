@@ -81,20 +81,36 @@
                 <TextBox x:Name="textBoxBrojTelefona"
                          Margin="5,5,5,5"
                          Width="150"
-                         Text="Adresa"
+                         Text="Broj telefona"
                          FontStyle="Italic"
                          GotFocus="textBoxBrojTelefona_GotFocus"
                          LostFocus="textBoxBrojTelefona_LostFocus"/>
+                <TextBox x:Name="textBoxPotrosackaID"
+                         Margin="5,5,5,5"
+                         Width="150"
+                         Text="Potrosacka kartica"
+                         FontStyle="Italic"
+                         GotFocus="textBoxPotrosackaID_GotFocus"
+                         LostFocus="textBoxPotrosackaID_LostFocus"/>
 
+                
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Vertical">
+                <TextBox x:Name="textBoxBrojKartice"
+                         Margin="5,5,5,5"
+                         Width="150"
+                         Text="Broj kreditne kartice"
+                         FontStyle="Italic"
+                         GotFocus="textBoxBrojKartice_GotFocus"
+                         LostFocus="textBoxBrojKartice_LostFocus"/>
                 <Button x:Name="buttonPotvrda"
                         Content="Potvrdi"
                         Margin="5,5,5,5"
                         Width="50"
                         Height="30"
-                        HorizontalAlignment="Right"
+                        HorizontalAlignment="Center"
                         Command="{Binding Path = UnosSastanka}"/>
             </StackPanel>
-
         </Grid>
 
     </Grid>

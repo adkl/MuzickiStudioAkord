@@ -110,12 +110,62 @@ namespace MuzickiStudioAkord.Views
 
         private void textBoxBrojTelefona_LostFocus(object sender, RoutedEventArgs e)
         {
-
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == String.Empty)
+            {
+                tb.Text = "Broj telefona";
+                tb.FontStyle = FontStyles.Italic;
+            }
         }
 
         private void textBoxBrojTelefona_GotFocus(object sender, RoutedEventArgs e)
         {
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == "Broj telefona")
+            {
+                tb.Text = string.Empty;
+                tb.FontStyle = FontStyles.Normal;
+            }
+        }
 
+        private void textBoxPotrosackaID_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == "Potrosacka kartica")
+            {
+                tb.Text = string.Empty;
+                tb.FontStyle = FontStyles.Normal;
+            }
+        }
+
+        private void textBoxPotrosackaID_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == String.Empty)
+            {
+                tb.Text = "Potrosacka kartica";
+                tb.FontStyle = FontStyles.Italic;
+            }
+        }
+
+        private void textBoxBrojKartice_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == "Broj kreditne kartice")
+            {
+                tb.Text = string.Empty;
+                tb.FontStyle = FontStyles.Normal;
+            }
+        }
+
+        private void textBoxBrojKartice_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == String.Empty)
+            {
+                tb.Text = "Broj kreditne kartice";
+                tb.FontStyle = FontStyles.Italic;
+            }
         }
     }
 }

@@ -27,7 +27,7 @@ namespace MuzickiStudioAkord.ViewModels
         }
         public void potvrdi(object parametar)
         {
-                if (SastanakKlijent.IsValid)
+                if (SastanakKlijent.IsValidBase && SastanakKlijent.Kartica.IsValid && SastanakKlijent.IsValidKlijent)
                 {
 
                     CloseAction();
