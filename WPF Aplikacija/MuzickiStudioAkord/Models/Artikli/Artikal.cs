@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ using System.Windows.Media.Imaging;
 
 namespace MuzickiStudioAkord.Models
 {
-    public abstract class Artikal
+    public abstract class Artikal : INotifyPropertyChanged
     {
         private int serijskiBroj;
         public int SerijskiBroj
@@ -52,6 +53,16 @@ namespace MuzickiStudioAkord.Models
             this.Cijena = cijena;
             this.Spec = spec;
             this.Slika = slika;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }

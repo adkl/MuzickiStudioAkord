@@ -13,12 +13,17 @@ namespace MuzickiStudioAkord.Models
         {
             get { return username; }
         }
-        
-       
+
+
         private string password;
-        public string Password 
+        public string Password
         {
             get { return username; }
+            set
+            {
+                password = value;
+                OnPropertyChanged("Password");
+            }
         }
 
         //povezan na : uposlenikViewModel i DBaseSastanci

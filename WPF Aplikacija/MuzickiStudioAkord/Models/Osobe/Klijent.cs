@@ -28,7 +28,11 @@ namespace MuzickiStudioAkord.Models
         internal List<Narudzba> Narudzbe
         {
             get { return narudzbe; }
-            set { narudzbe = value; }
+            set
+            {
+                narudzbe = value;
+                OnPropertyChanged("Narudzbe");
+            }
         }
 
         public Klijent(string firstName, string lastName, string jmbg, string adresa, string brTel, int potrosackaID, KreditnaKartica card)

@@ -19,10 +19,15 @@ namespace MuzickiStudioAkord.Models
         public string Password
         {
             get { return username; }
+            set
+            {
+                password = value;
+                OnPropertyChanged("Password");
+            }
         }
 
-        public Vlasnik(string firstName, string lastName, string jmbg, string adresa,string brTel, string username, string password)
-            :base(firstName, lastName, jmbg, adresa, brTel)
+        public Vlasnik(string firstName, string lastName, string jmbg, string adresa, string brTel, string username, string password)
+            : base(firstName, lastName, jmbg, adresa, brTel)
         {
             this.username = username;
             this.password = password;
