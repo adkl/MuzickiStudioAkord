@@ -44,71 +44,100 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" Orientation="Vertical">
+                <Label Name="labelaIme"
+                       HorizontalAlignment="Center"
+                       Content="Ime"/>
                 <TextBox x:Name="textBoxIme"
-                         Margin="5,5,5,5"
+                         Margin="3"
                          Width="150"
                          Text="{Binding Path=SastanakKlijent.Ime,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"
-                    GotFocus="textBoxIme_GotFocus"
-                         LostFocus="textBoxIme_LostFocus"   />
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                <Label Name="labelaPrezime"
+                       HorizontalAlignment="Center"
+                       Content="Prezime"/>
                 <TextBox x:Name="textBoxPrezime"
-                         Margin="5,5,5,5"
+                         Margin="3"
                          Width="150"
-                         Text="Prezime"
-                         FontStyle="Italic"
-                         GotFocus="textBoxPrezime_GotFocus"
-                         LostFocus="textBoxPrezime_LostFocus"/>
+                         Text="{Binding Path=SastanakKlijent.Prezime,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                <Label Name="labelaOdabirDatuma1"
+                       HorizontalAlignment="Center"
+                       Content="Datum sastanka"/>
                 <DatePicker  x:Name="datePickerDatumSastanka"
-                             Margin="5,5,5,5"
+                             Margin="3"
                              Width="150"
                              SelectedDate="{x:Static sys:DateTime.Now}"
                              DisplayDateStart="{x:Static sys:DateTime.Now}"
                              FirstDayOfWeek="Monday"/>
+                <Label Name="labelaJMBG"
+                       HorizontalAlignment="Center"
+                       Content="JMBG"/>
                 <TextBox x:Name="textBoxJMBG"
-                         Margin="5,5,5,5"
+                         Margin="3"
                          Width="150"
-                         Text="JMBG"
-                         FontStyle="Italic"
-                         GotFocus="textBoxJMBG_GotFocus"
-                         LostFocus="textBoxJMBG_LostFocus"/>
+                         Text="{Binding Path=SastanakKlijent.Jmbg,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                <Label Name="labelaAdresa"
+                       HorizontalAlignment="Center"
+                       Content="Adresa"/>
                 <TextBox x:Name="textBoxAdresa"
-                         Margin="5,5,5,5"
+                         Margin="3"
                          Width="150"
-                         Text="Adresa"
-                         FontStyle="Italic"
-                         GotFocus="textBoxAdresa_GotFocus"
-                         LostFocus="textBoxAdresa_LostFocus"/>
+                         Text="{Binding Path=SastanakKlijent.Adresa,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                <Label Name="labelaBrojTelefona"
+                       HorizontalAlignment="Center"
+                       Content="BrojTelefona"/>
                 <TextBox x:Name="textBoxBrojTelefona"
-                         Margin="5,5,5,5"
+                         Margin="3"
                          Width="150"
-                         Text="Broj telefona"
-                         FontStyle="Italic"
-                         GotFocus="textBoxBrojTelefona_GotFocus"
-                         LostFocus="textBoxBrojTelefona_LostFocus"/>
+                         Text="{Binding Path=SastanakKlijent.BrojTelefona,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                <Label Name="labelaPotrosackaID"
+                       HorizontalAlignment="Center"
+                       Content="Potrosacka kartica"/>
                 <TextBox x:Name="textBoxPotrosackaID"
-                         Margin="5,5,5,5"
+                         Margin="3"
                          Width="150"
-                         Text="Potrosacka kartica"
-                         FontStyle="Italic"
-                         GotFocus="textBoxPotrosackaID_GotFocus"
-                         LostFocus="textBoxPotrosackaID_LostFocus"/>
+                        Text="{Binding Path=SastanakKlijent.PotrosackaKarticaID,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
 
                 
             </StackPanel>
             <StackPanel Grid.Column="1" Orientation="Vertical">
+                <Label Name="labelaBrojKartice"
+                       HorizontalAlignment="Center"
+                       Content="Broj kreditne kartice"/>
                 <TextBox x:Name="textBoxBrojKartice"
-                         Margin="5,5,5,5"
+                         Margin="3"
                          Width="150"
-                         Text="Broj kreditne kartice"
-                         FontStyle="Italic"
-                         GotFocus="textBoxBrojKartice_GotFocus"
-                         LostFocus="textBoxBrojKartice_LostFocus"/>
+                         Text="{Binding Path=SastanakKlijent.Kartica.Id_kartice,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                <Label Name="labelaCCV"
+                       HorizontalAlignment="Center"
+                       Content="CCV"/>
+                <TextBox x:Name="textBoxCCV"
+                         Margin="3"
+                         Width="150"
+                        Text="{Binding Path=SastanakKlijent.Kartica.Ccv,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                <Label Name="OdabirDatuma2"
+                        HorizontalAlignment="Center"
+                       Content="Datum isteka kartice"/>
+                <DatePicker  x:Name="datePickerDatumIstekaKartice"
+                             Text="Datum isteka"
+                             Margin="5,5,5,5"
+                             Width="150"
+                             DisplayDateStart="{x:Static sys:DateTime.Now}"
+                             FirstDayOfWeek="Monday"/>
+                
                 <Button x:Name="buttonPotvrda"
                         Content="Potvrdi"
-                        Margin="5,5,5,5"
-                        Width="50"
+                        Margin="5,50,5,5"
+                        Width="70"
                         Height="30"
                         HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
                         Command="{Binding Path = UnosSastanka}"/>
             </StackPanel>
         </Grid>

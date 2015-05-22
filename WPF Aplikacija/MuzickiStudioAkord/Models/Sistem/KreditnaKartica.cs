@@ -69,13 +69,13 @@ namespace MuzickiStudioAkord.Models
             string error = null;
             switch (propertyName)
             {
-                case "id_kartice":
+                case "Id_kartice":
                     error = validirajBroj();
                 break;
-                case "datum_isteka":
+                case "Datum_isteka":
                     error = validirajDatum();
                 break;
-                case "ccv":
+                case "Ccv":
                     error = validrajCcv();
                 break;
             }

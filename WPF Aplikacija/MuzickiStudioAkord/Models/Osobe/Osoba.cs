@@ -123,7 +123,7 @@ namespace MuzickiStudioAkord.Models
         {
             "Jmbg", "Email", "BrojTelefona", "Ime", "Prezime", "Adresa"
         };
-        public bool IsValidBase
+        public bool IsValid
         {
             get
             {
@@ -156,7 +156,7 @@ namespace MuzickiStudioAkord.Models
             get { return getValidationError(propertyName); }
         }
 
-        string getValidationError(string propertyName)
+        protected virtual string getValidationError(string propertyName)
         {
             string error = null;
             switch (propertyName)
