@@ -61,6 +61,15 @@ namespace MuzickiStudioAkord.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Studio1.
+        /// </summary>
+        internal static string BazaPassword {
+            get {
+                return ResourceManager.GetString("BazaPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap cart_add_icon {

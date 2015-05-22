@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MuzickiStudioAkord.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,98 @@ namespace MuzickiStudioAkord.Views
         public SastanakView()
         {
             InitializeComponent();
+            DataContext = new SastanakViewModel();
+        }
+
+        private void textBoxIme_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == "Ime")
+            {
+                tb.Text = string.Empty;
+                tb.FontStyle = FontStyles.Normal;
+            }
+        }
+
+        private void textBoxIme_LostFocus(object sender, RoutedEventArgs e)
+        {
+
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == String.Empty)
+            {
+                tb.Text = "Ime";
+                tb.FontStyle = FontStyles.Italic;
+            }
+        }
+        private void textBoxPrezime_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == "Prezime")
+            {
+                tb.Text = string.Empty;
+                tb.FontStyle = FontStyles.Normal;
+            }
+        }
+
+        private void textBoxPrezime_LostFocus(object sender, RoutedEventArgs e)
+        {
+            
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == String.Empty)
+            {
+                tb.Text = "Prezime";
+                tb.FontStyle = FontStyles.Italic;
+            }
+        }
+
+        private void textBoxJMBG_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == "JMBG")
+            {
+                tb.Text = string.Empty;
+                tb.FontStyle = FontStyles.Normal;
+            }
+        }
+
+        private void textBoxJMBG_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == String.Empty)
+            {
+                tb.Text = "JMBG";
+                tb.FontStyle = FontStyles.Italic;
+            }
+        }
+
+        private void textBoxAdresa_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == "Adresa")
+            {
+                tb.Text = string.Empty;
+                tb.FontStyle = FontStyles.Normal;
+            }
+        }
+
+        private void textBoxAdresa_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == String.Empty)
+            {
+                tb.Text = "Adresa";
+                tb.FontStyle = FontStyles.Italic;
+            }
+        }
+
+        private void textBoxBrojTelefona_LostFocus(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void textBoxBrojTelefona_GotFocus(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

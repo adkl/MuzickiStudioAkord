@@ -3,64 +3,99 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      Width="650"
+      Height="450"
 	Title="SastanakView">
 
-    <Grid>
-        <Label x:Name="labelIme"
-               Content="Vaše ime:"
-               HorizontalAlignment="Left"
-               Margin="15,45,0,0"
+    <Page.Resources>
+        <ControlTemplate x:Key="ErrorTemplate">
+            <DockPanel LastChildFill="True">
+                <Border BorderBrush="Red" BorderThickness="1">
+                    <AdornedElementPlaceholder />
+                </Border>
+            </DockPanel>
+        </ControlTemplate>
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+
+    <Grid x:Name="gridMainSastanci">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Name="lableNaslov"
+               Content="Unesite svoje podatke"
+               Grid.Row="0"
+               HorizontalAlignment="Center"
                VerticalAlignment="Top"
-               Width="86"
-               FontSize="15"
-               Height="29"
-               RenderTransformOrigin="0.5,0.5">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform />
-                    <SkewTransform />
-                    <RotateTransform Angle="0.167" />
-                    <TranslateTransform />
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label x:Name="labelPrezime"
-               Content="Vaše prezime:"
-               HorizontalAlignment="Left"
-               Margin="15,84,0,0"
-               VerticalAlignment="Top"
-               Height="31"
-               FontSize="15"
-               Width="105" />
-        <TextBox x:Name="ime_tBox"
-                 HorizontalAlignment="Left"
-                 Height="19"
-                 Margin="136,19,0,0"
-                 TextWrapping="Wrap"
-                 VerticalAlignment="Top"
-                 Width="120" />
-        <TextBox x:Name="prezime_tBox"
-                 HorizontalAlignment="Left"
-                 Height="19"
-                 Margin="136,43,0,0"
-                 TextWrapping="Wrap"
-                 VerticalAlignment="Top"
-                 Width="120" />
-        <DatePicker HorizontalAlignment="Left"
-                    Margin="136,93,0,0"
-                    VerticalAlignment="Top"
-                    Height="27"
-                    FontSize="8"
-                    Width="108" />
-        <TextBlock HorizontalAlignment="Left"
-                   Margin="15,120,0,0"
-                   TextWrapping="Wrap"
-                   Text="Vrijeme sastanka:"
-                   VerticalAlignment="Top"
-                   FontSize="15"
-                   Height="46"
-                   Width="105" />
+               FontSize="15"/>
+
+        <Grid x:Name="gridUnosPodataka" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Vertical">
+                <TextBox x:Name="textBoxIme"
+                         Margin="5,5,5,5"
+                         Width="150"
+                         Text="{Binding Path=SastanakKlijent.Ime,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"
+                    GotFocus="textBoxIme_GotFocus"
+                         LostFocus="textBoxIme_LostFocus"   />
+                <TextBox x:Name="textBoxPrezime"
+                         Margin="5,5,5,5"
+                         Width="150"
+                         Text="Prezime"
+                         FontStyle="Italic"
+                         GotFocus="textBoxPrezime_GotFocus"
+                         LostFocus="textBoxPrezime_LostFocus"/>
+                <DatePicker  x:Name="datePickerDatumSastanka"
+                             Margin="5,5,5,5"
+                             Width="150"
+                             SelectedDate="{x:Static sys:DateTime.Now}"
+                             DisplayDateStart="{x:Static sys:DateTime.Now}"
+                             FirstDayOfWeek="Monday"/>
+                <TextBox x:Name="textBoxJMBG"
+                         Margin="5,5,5,5"
+                         Width="150"
+                         Text="JMBG"
+                         FontStyle="Italic"
+                         GotFocus="textBoxJMBG_GotFocus"
+                         LostFocus="textBoxJMBG_LostFocus"/>
+                <TextBox x:Name="textBoxAdresa"
+                         Margin="5,5,5,5"
+                         Width="150"
+                         Text="Adresa"
+                         FontStyle="Italic"
+                         GotFocus="textBoxAdresa_GotFocus"
+                         LostFocus="textBoxAdresa_LostFocus"/>
+                <TextBox x:Name="textBoxBrojTelefona"
+                         Margin="5,5,5,5"
+                         Width="150"
+                         Text="Adresa"
+                         FontStyle="Italic"
+                         GotFocus="textBoxBrojTelefona_GotFocus"
+                         LostFocus="textBoxBrojTelefona_LostFocus"/>
+
+                <Button x:Name="buttonPotvrda"
+                        Content="Potvrdi"
+                        Margin="5,5,5,5"
+                        Width="50"
+                        Height="30"
+                        HorizontalAlignment="Right"
+                        Command="{Binding Path = UnosSastanka}"/>
+            </StackPanel>
+
+        </Grid>
+
     </Grid>
 </Page>

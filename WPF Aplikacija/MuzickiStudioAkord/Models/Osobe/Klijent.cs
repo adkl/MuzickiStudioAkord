@@ -41,5 +41,10 @@ namespace MuzickiStudioAkord.Models
             PotrosackaKarticaID = potrosackaID;
             kartica = card;
         }
+        public Klijent()
+            : base()
+        {
+
+        }
     }
 }
