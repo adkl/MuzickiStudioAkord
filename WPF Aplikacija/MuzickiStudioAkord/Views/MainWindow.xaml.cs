@@ -39,14 +39,26 @@ namespace MuzickiStudioAkord.Views
                 tb.Text = String.Empty;
                 tb.FontStyle = FontStyles.Normal;
                 //Stavi ovdje foreground na black
+                Binding b = new Binding("Admin.Username");
+                b.ValidatesOnDataErrors = true;
+                b.NotifyOnValidationError = true;
+                b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+                b.Mode = BindingMode.TwoWay;
+
+                tb.SetBinding(TextBox.TextProperty, b);
             }
-            Binding b = new Binding("Admin.Username");
-            b.ValidatesOnDataErrors = true;
-            b.NotifyOnValidationError = true;
-            b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-            b.Mode = BindingMode.TwoWay;
-           
-            tb.SetBinding(TextBox.TextProperty, b);
+            else if(tb.Text == "Password")
+            {
+                tb.Text = String.Empty;
+                Binding b = new Binding("Admin.Password");
+                b.ValidatesOnDataErrors = true;
+                b.NotifyOnValidationError = true;
+                b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+                b.Mode = BindingMode.TwoWay;
+
+                tb.SetBinding(TextBox.TextProperty, b);
+                
+            }
         }
 
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)
@@ -58,6 +70,16 @@ namespace MuzickiStudioAkord.Views
                 tb.FontStyle = FontStyles.Italic;
             }
 
+        }
+
+        private void TextBox_LostFocusPassword(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (tb.Text == string.Empty)
+            {
+                tb.Text = "Password";
+                tb.FontStyle = FontStyles.Italic;
+            }
         }
     }
 }

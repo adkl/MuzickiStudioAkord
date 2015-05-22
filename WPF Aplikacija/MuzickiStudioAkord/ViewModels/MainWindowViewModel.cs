@@ -1,4 +1,6 @@
-﻿using MuzickiStudioAkord.Models;
+﻿using MuzickiStudioAkord.DAL;
+using MuzickiStudioAkord.Models;
+using MuzickiStudioAkord.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +12,9 @@ namespace MuzickiStudioAkord.ViewModels
 {
     public class MainWindowViewModel
     {
+        public string LoginUserName { get; set; }
+        public string LoginPassWord { get; set; }
+        public DataBaseVlasnici dbVlasnici { get; set; }
         public ICommand Login { get; set; }
 
         public Vlasnik Admin {get;set;}
@@ -22,7 +27,10 @@ namespace MuzickiStudioAkord.ViewModels
         {
             if (Admin.IsValid)
             {
+                foreach (var item in dbVlasnici.dajSve())
+                {
 
+                }
                 CloseAction();
             }
         }
@@ -32,6 +40,9 @@ namespace MuzickiStudioAkord.ViewModels
             Login = new RelayCommand(login);
             Admin = new Vlasnik();
             Radnik = new Uposlenik();
+            dbVlasnici = new DataBaseVlasnici(Resources.BazaPassword);
+           
+
         }
 
 
