@@ -20,13 +20,11 @@ namespace MuzickiStudioAkord.Views
     /// </summary>
     public partial class MainWindow : Window
     {
-        private SastanakView SastanakPage { get; set; }
         private KatalogView MainPage { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             DataContext = new MainWindowViewModel();
-            SastanakPage = null;
             MainPage = new KatalogView();
             
         }
@@ -84,17 +82,14 @@ namespace MuzickiStudioAkord.Views
         private void MenuItemUsluge_Click(object sender, RoutedEventArgs e)
         {
 
-            if (SastanakPage == null)
-            {
-                SastanakPage = new SastanakView();
-            }
-                mainFrame.Navigate(SastanakPage);
-
+            mainFrame.NavigationService.RemoveBackEntry();
+            mainFrame.Navigate(new SastanakView());
         }
 
         private void MenuItemHome_Click(object sender, RoutedEventArgs e)
         {
             if (MainPage == null) MainPage = new KatalogView();
+            mainFrame.NavigationService.RemoveBackEntry();
             mainFrame.Navigate(MainPage);
         }
 
