@@ -104,7 +104,7 @@ namespace MuzickiStudioAkord.DAL
                 return true;
 
             }
-            catch(Exception e)
+            catch
             {
                 connection.Close();
                 return false;

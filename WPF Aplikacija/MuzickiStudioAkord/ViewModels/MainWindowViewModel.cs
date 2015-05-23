@@ -37,7 +37,16 @@ namespace MuzickiStudioAkord.ViewModels
             {
                 if (v.Username == Admin.Username && v.Password == Admin.Password)
                 {
-                    Admin = new Vlasnik(v.Ime, v.Prezime, v.Jmbg, v.Adresa, v.BrojTelefona, v.Username, v.Password);
+                    Admin.Ime = v.Ime;
+                    Admin.Prezime = v.Prezime;
+                    Admin.Jmbg = v.Jmbg;
+                    Admin.Adresa = v.Adresa;
+                    Admin.DatumRodjenja = v.DatumRodjenja;
+                    Admin.BrojTelefona = v.BrojTelefona;
+                    Admin.Email = v.Email;
+                    Admin.Password = v.Password;
+                    Admin.Username = v.Username;
+                    return;
                 }
             }
             foreach (Uposlenik u in uposlenici)
@@ -50,8 +59,14 @@ namespace MuzickiStudioAkord.ViewModels
                     Radnik.Adresa = u.Adresa;
                     Radnik.DatumRodjenja = u.DatumRodjenja;
                     Radnik.BrojTelefona = u.BrojTelefona;
+                    Radnik.Email = u.Email;
+                    Radnik.Password = u.Password;
+                    Radnik.Username = u.Username;
+                    UlogovanKaoAdmin = true;
+                    return;
                 }
             }
+            System.Windows.Forms.MessageBox.Show("Login podaci neispravni! Pokusajte ponovo");
             //CloseAction();
 
         }
