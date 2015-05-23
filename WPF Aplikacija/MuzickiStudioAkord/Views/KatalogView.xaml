@@ -8,6 +8,8 @@
 	Title="KatalogView">
 
     <Grid>
+        <Label Content="OVO JE SPISAK ARTIKALA"
+               FontSize="24"/>
         <Button Content="Button"
                 HorizontalAlignment="Left"
                 Margin="99,125,0,0"
