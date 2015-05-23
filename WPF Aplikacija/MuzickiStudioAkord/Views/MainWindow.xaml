@@ -90,7 +90,7 @@
                      Height="25"
                      FontStyle ="Italic"
                      Foreground="#FF645A5A" />
-
+<!--
             <TextBox Text="Password"
                      x:Name="textBoxPassword"
                      GotFocus="TextBox_GotFocus"
@@ -101,11 +101,19 @@
                      Foreground="#FF645A5A"
                      FontStyle="Italic"
                      IsHitTestVisible="True" />
+            
+            -->
+            <PasswordBox x:Name="passwordBox"
+                         Height="25"
+                         Margin="0,5,0,5"/>
+
+
 
             <Button Content="Login"
                     Margin="0,0,0,10"
                     Foreground="Black"
                     Command="{Binding Path=Login}"
+                    CommandParameter="{Binding ElementName=passwordBox}"
                      />
 
             <Button Content="DodajRadnika"

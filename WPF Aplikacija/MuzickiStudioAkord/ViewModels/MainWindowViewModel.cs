@@ -3,16 +3,26 @@ using MuzickiStudioAkord.Models;
 using MuzickiStudioAkord.Properties;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace MuzickiStudioAkord.ViewModels
 {
-    public class MainWindowViewModel
+    public class MainWindowViewModel : INotifyPropertyChanged
     {
-        public bool UlogovanKaoAdmin { get; set; }
+        private bool ulogovanKaoAdmin;
+        public bool UlogovanKaoAdmin {
+            get { return ulogovanKaoAdmin; }
+            set 
+            { 
+                ulogovanKaoAdmin = value; 
+                OnPropertyChanged("UlogovanKaoAdmin"); 
+            } 
+        }
         public DataBaseVlasnici dbVlasnici { get; set; }
         public DataBaseUposlenici dbUposlenici { get; set; }
         public ICommand Login { get; set; }
@@ -27,6 +37,9 @@ namespace MuzickiStudioAkord.ViewModels
         {
             var vlasnici = dbVlasnici.dajSve();
             var uposlenici = dbUposlenici.dajSve();
+
+            string pw = ((PasswordBox)parametar).Password;
+            Admin.Password = pw;
 
 
             foreach (Vlasnik v in vlasnici)
@@ -59,7 +72,7 @@ namespace MuzickiStudioAkord.ViewModels
                     Radnik.Email = u.Email;
                     Radnik.Password = u.Password;
                     Radnik.Username = u.Username;
-                    
+
                     return;
                 }
             }
@@ -78,5 +91,17 @@ namespace MuzickiStudioAkord.ViewModels
         }
 
 
+        #region INPC implementation
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        #endregion
     }
 }
