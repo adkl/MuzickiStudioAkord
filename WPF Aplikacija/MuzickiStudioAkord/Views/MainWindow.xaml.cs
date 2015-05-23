@@ -76,5 +76,15 @@ namespace MuzickiStudioAkord.Views
                 tb.FontStyle = FontStyles.Italic;
             }
         }
+
+        private void MenuItemUsluge_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Source = new Uri("SastanakView.xaml", UriKind.Relative);
+        }
+
+        private void MenuItemHome_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Source = new Uri("KatalogView.xaml", UriKind.Relative);
+        }
     }
 }

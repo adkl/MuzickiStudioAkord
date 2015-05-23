@@ -24,17 +24,6 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        <!--Isto za datepicker-->
-        <Style TargetType="DatePicker">
-            <Style.Triggers>
-                <Trigger Property="Validation.HasError"
-                         Value="true">
-                    <Setter Property="ToolTip"
-                            Value="{Binding RelativeSource={x:Static RelativeSource.Self},Path=(Validation.Errors)[0].ErrorContent}" />
-                </Trigger>
-            </Style.Triggers>
-
-        </Style>
     </Window.Resources>
 
 
@@ -64,7 +53,8 @@
               FontSize="33">
             <MenuItem Header="HOME"
                       Height="60"
-                      Width="150" />
+                      Width="150"
+                      Click="MenuItemHome_Click"/>
 
             <MenuItem Header="O nama"
                       Height="60"
@@ -72,18 +62,20 @@
 
             <MenuItem Header="Usluge"
                       Height="60"
-                      Width="150" />
+                      Width="150"
+                      Click="MenuItemUsluge_Click"/>
 
             <MenuItem Header="Shop"
                       Height="50"
                       Width="150" />
         </Menu>
 
-        <StackPanel Grid.Row="1"
+        <StackPanel x:Name="mainStackPanel"
+                    Grid.Row="1"
                     Grid.Column="1"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top">
-            <Frame Source="SastanakView.xaml" />
+            <Frame x:Name="mainFrame" Source="KatalogView.xaml" Width="Auto"/>
         </StackPanel>
 
         <StackPanel Grid.Column="0"
