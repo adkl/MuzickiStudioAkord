@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       Width="650"
       Height="450"
-	Title="SastanakView">
+	  Title="Usluge">
 
     <Page.Resources>
         <ControlTemplate x:Key="ErrorTemplate">

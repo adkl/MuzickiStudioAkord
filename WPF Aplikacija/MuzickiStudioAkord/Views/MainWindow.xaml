@@ -75,7 +75,7 @@
                     Grid.Column="1"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top">
-            <Frame x:Name="mainFrame" Source="KatalogView.xaml" Width="Auto"/>
+            <Frame x:Name="mainFrame" Width="650" Loaded="mainFrame_Loaded"/>
         </StackPanel>
 
         <StackPanel Grid.Column="0"
