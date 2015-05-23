@@ -82,6 +82,7 @@
                     Grid.Row="1"
                     Margin="10,230,3,36">
             <TextBox Text="Username"
+                     x:Name="textBoxUsername"
                      GotFocus="TextBox_GotFocus"
                      LostFocus="TextBox_LostFocus"
                      Validation.ErrorTemplate="{StaticResource ErrorTemplate}"
@@ -91,6 +92,7 @@
                      Foreground="#FF645A5A" />
 
             <TextBox Text="Password"
+                     x:Name="textBoxPassword"
                      GotFocus="TextBox_GotFocus"
                      LostFocus="TextBox_LostFocusPassword"
                      Validation.ErrorTemplate="{StaticResource ErrorTemplate}"
@@ -103,7 +105,8 @@
             <Button Content="Login"
                     Margin="0,0,0,10"
                     Foreground="Black"
-                    Command="{Binding Path=Login}" />
+                    Command="{Binding Path=Login}"
+                     />
 
             <Button Content="DodajRadnika"
                     IsEnabled="{Binding UlogovanKaoAdmin}"/>

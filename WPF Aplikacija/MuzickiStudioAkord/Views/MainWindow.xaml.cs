@@ -103,5 +103,6 @@ namespace MuzickiStudioAkord.Views
             mainFrame.Navigate(MainPage);
         }
 
+
     }
 }
