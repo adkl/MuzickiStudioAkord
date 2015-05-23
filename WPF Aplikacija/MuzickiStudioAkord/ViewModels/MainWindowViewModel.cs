@@ -12,17 +12,16 @@ namespace MuzickiStudioAkord.ViewModels
 {
     enum LogiranKao
     {
-        Gost,Uposlenik,Vlasnik
+        Gost, Uposlenik, Vlasnik
     }
     public class MainWindowViewModel
     {
-        public string LoginUserName { get; set; }
-        public string LoginPassWord { get; set; }
+        public bool UlogovanKaoAdmin { get; set; }
         public DataBaseVlasnici dbVlasnici { get; set; }
         public DataBaseUposlenici dbUposlenici { get; set; }
         public ICommand Login { get; set; }
 
-        public Vlasnik Admin {get;set;}
+        public Vlasnik Admin { get; set; }
 
         public Uposlenik Radnik { get; set; }
 
@@ -32,24 +31,29 @@ namespace MuzickiStudioAkord.ViewModels
         {
             var vlasnici = dbVlasnici.dajSve();
             var uposlenici = dbUposlenici.dajSve();
-         
- 
-                //foreach (Vlasnik v in vlasnici)
-                //{
-                //    if (v.Username == Admin.Username && v.Password == Admin.Password)
-                //    {
-                //        Admin = new Vlasnik(v.Ime, v.Prezime, v.Jmbg, v.Adresa, v.BrojTelefona, v.Username, v.Password);
-                //    }
-                //}
-                foreach (Uposlenik u in uposlenici)
+
+
+            foreach (Vlasnik v in vlasnici)
+            {
+                if (v.Username == Admin.Username && v.Password == Admin.Password)
                 {
-                    if (u.Username == Admin.Username && u.Password == Admin.Password)
-                    {
-                        Uposlenik Radnik = new Uposlenik(u.Ime, u.Prezime, u.Jmbg, u.Adresa, u.BrojTelefona, u.Username, u.Password);
-                    }
+                    Admin = new Vlasnik(v.Ime, v.Prezime, v.Jmbg, v.Adresa, v.BrojTelefona, v.Username, v.Password);
                 }
-                //CloseAction();
-            
+            }
+            foreach (Uposlenik u in uposlenici)
+            {
+                if (u.Username == Admin.Username && u.Password == Admin.Password)
+                {
+                    Radnik.Ime = u.Ime;
+                    Radnik.Prezime = u.Prezime;
+                    Radnik.Jmbg = u.Jmbg;
+                    Radnik.Adresa = u.Adresa;
+                    Radnik.DatumRodjenja = u.DatumRodjenja;
+                    Radnik.BrojTelefona = u.BrojTelefona;
+                }
+            }
+            //CloseAction();
+
         }
 
         public MainWindowViewModel()
