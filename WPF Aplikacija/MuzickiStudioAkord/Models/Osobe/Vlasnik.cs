@@ -20,8 +20,8 @@ namespace MuzickiStudioAkord.Models
         {
             if (String.IsNullOrEmpty(Username) || String.IsNullOrWhiteSpace(Username))
                 return "Polje za unos korisnickog imena ne moze biti prazno";
-            if (Username.Length > 10)
-                return "Korisnicko ime ne moze imati vise od 10 karaktera";
+            if (Username.Length > 18)
+                return "Korisnicko ime ne moze imati vise od 18 karaktera";
 
             return null;
 
@@ -32,8 +32,8 @@ namespace MuzickiStudioAkord.Models
             if (String.IsNullOrEmpty(Password) || String.IsNullOrWhiteSpace(Password))
                 return "Polje za unos passworda ne moze biti prazno";
 
-            if (Password.Length > 8 || password.Length < 4)
-                return "Lozinka ne moze imati vise od 8, niti manje od 4 karaktera";
+            if (Password.Length > 32 || password.Length < 4)
+                return "Lozinka ne moze imati vise od 32, niti manje od 4 karaktera";
 
             return null;
         }

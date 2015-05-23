@@ -26,11 +26,6 @@ namespace MuzickiStudioAkord.Views
             DataContext = new MainWindowViewModel();
             
         }
-
-        private void Window_Activated(object sender, EventArgs e)
-        {
-
-        }
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox tb = sender as TextBox;

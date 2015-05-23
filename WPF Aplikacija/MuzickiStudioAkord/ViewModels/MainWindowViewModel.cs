@@ -10,11 +10,16 @@ using System.Windows.Input;
 
 namespace MuzickiStudioAkord.ViewModels
 {
+    enum LogiranKao
+    {
+        Gost,Uposlenik,Vlasnik
+    }
     public class MainWindowViewModel
     {
         public string LoginUserName { get; set; }
         public string LoginPassWord { get; set; }
         public DataBaseVlasnici dbVlasnici { get; set; }
+        public DataBaseUposlenici dbUposlenici { get; set; }
         public ICommand Login { get; set; }
 
         public Vlasnik Admin {get;set;}
@@ -25,14 +30,26 @@ namespace MuzickiStudioAkord.ViewModels
 
         public void login(Object parametar)
         {
-            if (Admin.IsValid)
-            {
-                foreach (var item in dbVlasnici.dajSve())
+            var vlasnici = dbVlasnici.dajSve();
+            var uposlenici = dbUposlenici.dajSve();
+         
+ 
+                //foreach (Vlasnik v in vlasnici)
+                //{
+                //    if (v.Username == Admin.Username && v.Password == Admin.Password)
+                //    {
+                //        Admin = new Vlasnik(v.Ime, v.Prezime, v.Jmbg, v.Adresa, v.BrojTelefona, v.Username, v.Password);
+                //    }
+                //}
+                foreach (Uposlenik u in uposlenici)
                 {
-
+                    if (u.Username == Admin.Username && u.Password == Admin.Password)
+                    {
+                        Uposlenik Radnik = new Uposlenik(u.Ime, u.Prezime, u.Jmbg, u.Adresa, u.BrojTelefona, u.Username, u.Password);
+                    }
                 }
-                CloseAction();
-            }
+                //CloseAction();
+            
         }
 
         public MainWindowViewModel()
@@ -41,8 +58,7 @@ namespace MuzickiStudioAkord.ViewModels
             Admin = new Vlasnik();
             Radnik = new Uposlenik();
             dbVlasnici = new DataBaseVlasnici(Resources.BazaPassword);
-           
-
+            dbUposlenici = new DataBaseUposlenici(Resources.BazaPassword);
         }
 
 

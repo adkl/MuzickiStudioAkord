@@ -109,9 +109,17 @@ namespace MuzickiStudioAkord.Models
                 this.Prezime = lastName;
                 this.Jmbg = jmbg;
                 this.Adresa = adresa;
+                //try
+                //{
+
                 this.DatumRodjenja = new DateTime(Int32.Parse("1" + Jmbg.Substring(4, 3)),
                                                   Int32.Parse(Jmbg.Substring(2, 2)),
                                                   Int32.Parse(Jmbg.Substring(0, 2)));
+                //}
+                //catch (Exception e)
+                //{
+
+                //}
                 this.BrojTelefona = brTel;
         }
 
