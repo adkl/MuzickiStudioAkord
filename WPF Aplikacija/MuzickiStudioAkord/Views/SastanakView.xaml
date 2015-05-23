@@ -50,7 +50,7 @@
                 <TextBox x:Name="textBoxIme"
                          Margin="3"
                          Width="150"
-                         Text="{Binding Path=SastanakKlijent.Ime,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
+                         Text="{Binding Path=SastanakKlijent.Ime,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
                 <Label Name="labelaPrezime"
                        HorizontalAlignment="Center"
@@ -66,8 +66,9 @@
                 <DatePicker  x:Name="datePickerDatumSastanka"
                              Margin="3"
                              Width="150"
-                             SelectedDate="{x:Static sys:DateTime.Now}"
+                             SelectedDate="{Binding Path=UneseniSastanak.Datum,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"
                              DisplayDateStart="{x:Static sys:DateTime.Now}"
+                             Validation.ErrorTemplate="{StaticResource ErrorTemplate}"
                              FirstDayOfWeek="Monday"/>
                 <Label Name="labelaJMBG"
                        HorizontalAlignment="Center"
@@ -87,12 +88,25 @@
                          Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
                 <Label Name="labelaBrojTelefona"
                        HorizontalAlignment="Center"
-                       Content="BrojTelefona"/>
+                       Content="Broj telefona"/>
                 <TextBox x:Name="textBoxBrojTelefona"
                          Margin="3"
                          Width="150"
                          Text="{Binding Path=SastanakKlijent.BrojTelefona,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                <Label Name="labelaEmail"
+                       HorizontalAlignment="Center"
+                       Content="Email"/>
+                <TextBox x:Name="textBoxEmail"
+                         Margin="3"
+                         Width="150"
+                         Text="{Binding Path=SastanakKlijent.Email,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                
+               
+                
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Vertical">
                 <Label Name="labelaPotrosackaID"
                        HorizontalAlignment="Center"
                        Content="Potrosacka kartica"/>
@@ -102,9 +116,6 @@
                         Text="{Binding Path=SastanakKlijent.PotrosackaKarticaID,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
 
-                
-            </StackPanel>
-            <StackPanel Grid.Column="1" Orientation="Vertical">
                 <Label Name="labelaBrojKartice"
                        HorizontalAlignment="Center"
                        Content="Broj kreditne kartice"/>
@@ -128,12 +139,24 @@
                              Text="Datum isteka"
                              Margin="5,5,5,5"
                              Width="150"
+                             SelectedDate="{Binding Path=SastanakKreditnaKartica.Datum_isteka,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"
+                             Validation.ErrorTemplate="{StaticResource ErrorTemplate}"
                              DisplayDateStart="{x:Static sys:DateTime.Now}"
                              FirstDayOfWeek="Monday"/>
-                
+                <Label Name="labelaOpis"
+                       HorizontalAlignment="Center"
+                       Content="Razlog sastanka"/>
+                <TextBox x:Name="textBoxOpis"
+                         Margin="3"
+                         Text="{Binding Path=UneseniSastanak.Opis,UpdateSourceTrigger=PropertyChanged}"
+                         Width="200"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"
+                         Height="70"
+                         ScrollViewer.VerticalScrollBarVisibility="Auto"
+                         TextWrapping="Wrap"/>
                 <Button x:Name="buttonPotvrda"
                         Content="Potvrdi"
-                        Margin="5,50,5,5"
+                        Margin="3"
                         Width="70"
                         Height="30"
                         HorizontalAlignment="Center"

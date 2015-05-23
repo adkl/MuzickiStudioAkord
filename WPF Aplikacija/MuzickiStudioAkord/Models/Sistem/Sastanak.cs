@@ -46,5 +46,10 @@ namespace MuzickiStudioAkord.Models
             this.Opis = opis;
             this.Klijent = klijent;
         }
+
+        public Sastanak()
+        {
+            Datum = DateTime.UtcNow;
+        }
     }
 }

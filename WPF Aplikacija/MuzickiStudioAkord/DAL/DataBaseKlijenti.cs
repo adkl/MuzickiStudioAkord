@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MuzickiStudioAkord.DAL
 {
@@ -75,29 +76,35 @@ namespace MuzickiStudioAkord.DAL
                 upit.Parameters.AddWithValue("@Prezime", objekat.Prezime);
                 upit.Parameters.AddWithValue("@JMBG", objekat.Jmbg);
                 upit.Parameters.AddWithValue("@Broj_telefona", objekat.BrojTelefona);
-                upit.Parameters.AddWithValue("@Username", "Nema");
-                upit.Parameters.AddWithValue("@Password", "Nema");
+                upit.Parameters.AddWithValue("@Username", objekat.Ime);
+                upit.Parameters.AddWithValue("@Password", objekat.Prezime);
                 upit.Parameters.AddWithValue("@Adresa", objekat.Adresa);
                 upit.Parameters.AddWithValue("@Status", 3);
                 upit.ExecuteNonQuery();
 
-                upit.CommandText = "insert into klijenti values(@potrosacka_kartica, @JMBG)";
-                upit.Parameters.AddWithValue("@potrosacka_kartica", objekat.PotrosackaKarticaID);
-                upit.Parameters.AddWithValue("@JMBG", objekat.Jmbg);
-                upit.ExecuteNonQuery();
+                MySqlCommand upit2 = new MySqlCommand();
+                upit2.Connection = connection;
 
-                upit.CommandText = "insert into kreditna_kartica values(@id_kartice, @ccv, @datum_isteka, @JMBG)";
-                upit.Parameters.AddWithValue("@id_kartice", objekat.Kartica.Id_kartice);
-                upit.Parameters.AddWithValue("@ccv", objekat.Kartica.Ccv);
-                upit.Parameters.AddWithValue("@datum_isteka", objekat.Kartica.Datum_isteka);
-                upit.Parameters.AddWithValue("@JMBG", objekat.Jmbg);
-                upit.ExecuteNonQuery();
+                upit2.CommandText = "insert into klijenti values(@potrosacka_kartica, @JMBG)";
+                upit2.Parameters.AddWithValue("@potrosacka_kartica", objekat.PotrosackaKarticaID);
+                upit2.Parameters.AddWithValue("@JMBG", objekat.Jmbg);
+                upit2.ExecuteNonQuery();
+
+                MySqlCommand upit3 = new MySqlCommand();
+                upit3.Connection = connection;
+
+                upit3.CommandText = "insert into kreditna_kartica values(@id_kartice, @ccv, @datum_isteka, @JMBG)";
+                upit3.Parameters.AddWithValue("@id_kartice", objekat.Kartica.Id_kartice);
+                upit3.Parameters.AddWithValue("@ccv", objekat.Kartica.Ccv);
+                upit3.Parameters.AddWithValue("@datum_isteka", objekat.Kartica.Datum_isteka);
+                upit3.Parameters.AddWithValue("@JMBG", objekat.Jmbg);
+                upit3.ExecuteNonQuery();
 
                 connection.Close();
                 return true;
 
             }
-            catch(Exception)
+            catch(Exception e)
             {
                 connection.Close();
                 return false;

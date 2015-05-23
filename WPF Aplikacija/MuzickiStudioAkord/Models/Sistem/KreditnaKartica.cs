@@ -118,7 +118,7 @@ namespace MuzickiStudioAkord.Models
         }
         public KreditnaKartica ()
         {
-
+            Datum_isteka = DateTime.UtcNow;
         }
 
 

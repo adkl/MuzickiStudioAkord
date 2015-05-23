@@ -26,10 +26,5 @@ namespace MuzickiStudioAkord.Views
             InitializeComponent();
             DataContext = new SastanakViewModel();
         }
-
-        private void textBoxIme_GotFocus(object sender, RoutedEventArgs e)
-        {
-           
-        }
     }
 }

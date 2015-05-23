@@ -75,8 +75,7 @@ namespace MuzickiStudioAkord.DAL
                 MySqlCommand upit = new MySqlCommand();
                 upit.Connection = connection;
                 dataKlijent.dodaj(objekat.Klijent);
-                upit.CommandText = "insert into sastanci values(@id_sastanak, @naziv, @datum, @opis, @jmbg_klijent)";
-                upit.Parameters.AddWithValue("@id_sastanak", objekat.Id_sastanak);
+                upit.CommandText = "insert into sastanci(naziv, datum, opis, jmbg_klijent) values(@naziv, @datum, @opis, @jmbg_klijent)";
                 upit.Parameters.AddWithValue("@naziv", objekat.Naziv);
                 upit.Parameters.AddWithValue("@datum", objekat.Datum);
                 upit.Parameters.AddWithValue("@opis", objekat.Opis);

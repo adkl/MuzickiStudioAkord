@@ -35,7 +35,7 @@ namespace MuzickiStudioAkord.Models
         {
             get
             {
-                if (!base.IsValid) return false;                
+                if (base.IsValid == false) return false;                
                     foreach (string property in validateProperties)
                     {
                         if (getValidationError(property) != null)
@@ -59,6 +59,7 @@ namespace MuzickiStudioAkord.Models
         }
         private string validirajPotrosackuKarticu()
         {
+            if (potrosackaKarticaID == 0) return "Unesite broj kartice";
             if (PotrosackaKarticaID < 0 || PotrosackaKarticaID > 9999999) return "Maksimalno 7 cifara";
             return null;
         }

@@ -25,13 +25,25 @@ namespace MuzickiStudioAkord.ViewModels
             BazaSastanci = new DataBaseSastanci(Resources.BazaPassword);
             UnosSastanka = new RelayCommand(potvrdi);
             SastanakKlijent = new Klijent();
+            UneseniSastanak = new Sastanak();
             SastanakKreditnaKartica = new KreditnaKartica();
         }
         public void potvrdi(object parametar)
         {
-                if (SastanakKlijent.IsValid && SastanakKlijent.Kartica.IsValid)
+            if (SastanakKlijent.IsValid && SastanakKreditnaKartica.IsValid)
                 {
-                    CloseAction();
+                    SastanakKlijent.Kartica = SastanakKreditnaKartica;
+                    UneseniSastanak.Klijent = SastanakKlijent;
+                    UneseniSastanak.Naziv = SastanakKlijent.Ime + " " + SastanakKlijent.Prezime;
+                    if(BazaSastanci.dodaj(UneseniSastanak))
+                    {
+                        MessageBox.Show("Uspjesno!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nije uspjesno!");
+                    }
+                    //CloseAction();
                 }
         }
     }
