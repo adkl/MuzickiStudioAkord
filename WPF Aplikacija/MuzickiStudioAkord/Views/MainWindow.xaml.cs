@@ -86,5 +86,7 @@ namespace MuzickiStudioAkord.Views
         {
             mainFrame.Source = new Uri("KatalogView.xaml", UriKind.Relative);
         }
+
+
     }
 }

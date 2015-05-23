@@ -10,10 +10,6 @@ using System.Windows.Input;
 
 namespace MuzickiStudioAkord.ViewModels
 {
-    enum LogiranKao
-    {
-        Gost, Uposlenik, Vlasnik
-    }
     public class MainWindowViewModel
     {
         public bool UlogovanKaoAdmin { get; set; }
@@ -46,6 +42,7 @@ namespace MuzickiStudioAkord.ViewModels
                     Admin.Email = v.Email;
                     Admin.Password = v.Password;
                     Admin.Username = v.Username;
+                    UlogovanKaoAdmin = true;
                     return;
                 }
             }
@@ -62,7 +59,7 @@ namespace MuzickiStudioAkord.ViewModels
                     Radnik.Email = u.Email;
                     Radnik.Password = u.Password;
                     Radnik.Username = u.Username;
-                    UlogovanKaoAdmin = true;
+                    
                     return;
                 }
             }
