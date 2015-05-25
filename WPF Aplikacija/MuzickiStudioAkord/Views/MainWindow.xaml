@@ -80,7 +80,7 @@
 
         <StackPanel Grid.Column="0"
                     Grid.Row="1"
-                    Margin="10,230,3,36">
+                    Margin="10,230,3,-19">
             <TextBox Text="Username"
                      x:Name="textBoxUsername"
                      GotFocus="TextBox_GotFocus"
@@ -132,10 +132,20 @@
                        FontWeight="Bold"
                        Margin="0,2,0,0"
                        Foreground="Red" />
-
+            
             <Button Content="Log out"
+                    Margin="0,5,0,0"
                     Command="{Binding Path=Logout}"
                     CommandParameter="{Binding ElementName=textBlockLoginName}"/>
+            
+            <Button Content="Promijeni sifru"
+                    Margin="0,5,0,0"
+                    x:Name="buttonPasswordChange"
+                    Click="buttonPasswordChange_Click"
+                     />
+            
+            
+
         </StackPanel>
 
 

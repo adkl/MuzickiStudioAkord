@@ -26,6 +26,8 @@ namespace MuzickiStudioAkord.Views
     {
         private InventoryView ArtikliPage { get; set; }
         private SastanakView SastanakPage { get; set; }
+
+        private PasswordChangeView PasswordChangePage { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -103,6 +105,15 @@ namespace MuzickiStudioAkord.Views
             mainFrame.Navigate(new DodavanjeArtiklaView());
             
         }
+
+        private void buttonPasswordChange_Click(object sender, RoutedEventArgs e)
+        {
+            if (PasswordChangePage == null) PasswordChangePage = new PasswordChangeView();
+            mainFrame.Navigate(PasswordChangePage);
+            
+        }
+
+
 
 
     }
