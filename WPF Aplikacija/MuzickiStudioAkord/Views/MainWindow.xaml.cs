@@ -99,8 +99,8 @@ namespace MuzickiStudioAkord.Views
 
         private void mainFrame_Loaded(object sender, RoutedEventArgs e)
         {
-            if (ArtikliPage == null) ArtikliPage = new InventoryView();
-            mainFrame.Navigate(ArtikliPage);
+         //   if (ArtikliPage == null) ArtikliPage = new InventoryView();
+            mainFrame.Navigate(new DodavanjeArtiklaView());
             
         }
 

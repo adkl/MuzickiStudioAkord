@@ -9,15 +9,16 @@
       Height="450"
 	  Title="Home">
 
-   
-        <Grid x:Name="gridArtikli" Height="Auto">
+
+    <Grid x:Name="gridArtikli">
         <ScrollViewer>
             <StackPanel Name="stackpanelArtikli" 
+                        Grid.Row="1"
                         Orientation="Vertical"
                         Margin="3"
                         ScrollViewer.VerticalScrollBarVisibility="Auto"/>
         </ScrollViewer>
     </Grid>
-  
+
 
 </Page>

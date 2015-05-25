@@ -30,13 +30,6 @@ namespace MuzickiStudioAkord.Views
             {
                 string opis = item.Spec.GodinaProizvodnje + Environment.NewLine + item.Spec.Materijal + Environment.NewLine + item.Spec.Model + Environment.NewLine + item.Spec.Proizvodjac;
                 stackpanelArtikli.Children.Add(new ArtikalControl(item.Naziv, item.Slika, item.Cijena.ToString(), opis));
-                stackpanelArtikli.Children.Add(new ArtikalControl(item.Naziv, item.Slika, item.Cijena.ToString(), opis));
-                stackpanelArtikli.Children.Add(new ArtikalControl(item.Naziv, item.Slika, item.Cijena.ToString(), opis));
-                stackpanelArtikli.Children.Add(new ArtikalControl(item.Naziv, item.Slika, item.Cijena.ToString(), opis));
-                stackpanelArtikli.Children.Add(new ArtikalControl(item.Naziv, item.Slika, item.Cijena.ToString(), opis));
-                stackpanelArtikli.Children.Add(new ArtikalControl(item.Naziv, item.Slika, item.Cijena.ToString(), opis));
-                stackpanelArtikli.Children.Add(new ArtikalControl(item.Naziv, item.Slika, item.Cijena.ToString(), opis));
-                stackpanelArtikli.Children.Add(new ArtikalControl(item.Naziv, item.Slika, item.Cijena.ToString(), opis));
             }
         }
     }

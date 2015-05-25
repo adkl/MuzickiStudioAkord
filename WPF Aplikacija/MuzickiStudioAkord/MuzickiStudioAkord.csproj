@@ -118,6 +118,9 @@
     <Compile Include="Views\DodajRadnikaView.xaml.cs">
       <DependentUpon>DodajRadnikaView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DodavanjeArtiklaView.xaml.cs">
+      <DependentUpon>DodavanjeArtiklaView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\InventoryView.xaml.cs">
       <DependentUpon>InventoryView.xaml</DependentUpon>
     </Compile>
@@ -139,6 +142,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\DodajRadnikaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DodavanjeArtiklaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
