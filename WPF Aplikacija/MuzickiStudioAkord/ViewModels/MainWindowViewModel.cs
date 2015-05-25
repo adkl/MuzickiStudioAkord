@@ -53,6 +53,7 @@ namespace MuzickiStudioAkord.ViewModels
         public DataBaseVlasnici dbVlasnici { get; set; }
         public DataBaseUposlenici dbUposlenici { get; set; }
         public ICommand Login { get; set; }
+        public ICommand Logout { get; set; }
 
         public Vlasnik Admin { get; set; }
 
@@ -116,9 +117,18 @@ namespace MuzickiStudioAkord.ViewModels
 
         }
 
+        public void logout(Object parametar)
+        {
+            ((TextBlock)parametar).Text = "Gost";
+            UlogovanKaoAdmin = false;
+            Admin = new Vlasnik();
+            Radnik = new Uposlenik();
+        }
+
         public MainWindowViewModel()
         {
             Login = new RelayCommand(login);
+            Logout = new RelayCommand(logout);
             Admin = new Vlasnik();
             Radnik = new Uposlenik();
             
