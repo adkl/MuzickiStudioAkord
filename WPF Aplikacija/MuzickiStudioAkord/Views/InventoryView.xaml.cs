@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MuzickiStudioAkord.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace MuzickiStudioAkord.Views
         public KatalogView()
         {
             InitializeComponent();
+            DataContext = new InventoryViewModel();
         }
     }
 }

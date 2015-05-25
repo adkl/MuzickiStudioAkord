@@ -11,20 +11,18 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid Width="Auto" Height="Auto" Background="White">
+    <Grid Width="Auto" Height="200" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="8*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
         <Label Name="imeArtikla"
                Grid.Row="0"
-               Content="Ime artikla" 
+               Content="Naziv artikla" 
                Width="Auto" 
-               Height="50" 
-               FontSize="23"
+               Height="Auto" 
                HorizontalAlignment="Center"
-               Margin="3,3,3,3"
                TextBlock.TextAlignment="Center"
                VerticalAlignment="Top"/>
         <Grid Grid.Row="1">
@@ -36,7 +34,7 @@
                 <Image x:Name="Slika"
                        Margin="5"
                        Width="Auto"
-                       Height="Auto"
+                       Height="100"
                        Stretch="Fill"
                        Source="{StaticResource Missing_Image}"/>
             </StackPanel>
@@ -58,7 +56,7 @@
             </StackPanel>
             <StackPanel Grid.Column="2" Width="Auto" Height="Auto">
                 <Button x:Name="korpa_dodaj" Width="100" Height="50"
-                        Click="korpa_dodaj_Click" MouseEnter="korpa_dodaj_MouseEnter" MouseLeave="korpa_dodaj_MouseLeave" RenderTransformOrigin="0.5,0.5">
+            		Click="korpa_dodaj_Click" MouseEnter="korpa_dodaj_MouseEnter" MouseLeave="korpa_dodaj_MouseLeave" RenderTransformOrigin="0.5,0.5" Margin="8,0,7,0">
                     <Button.Template>
                         <ControlTemplate>
                             <Image Source="{StaticResource KorpaButton}" Width="50" Height="Auto" Stretch="Fill"/>
