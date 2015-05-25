@@ -121,9 +121,19 @@
 
             <TextBlock Text="Logirani ste kao:"
                        Margin="0,5,0,0" />
+            <!--
             <TextBlock Text="{Binding Radnik.Ime, UpdateSourceTrigger=PropertyChanged}"
                        FontWeight="Bold"
-                       Margin="0,2,0,0" />
+                       Margin="0,2,0,0"
+                       Foreground="Red"/>
+            -->
+            <TextBlock Text="{Binding LoginName}"
+                       FontWeight="Bold"
+                       Margin="0,2,0,0"
+                       Foreground="Red" />
+
+            <TextBlock Text="Log out"
+                       TextDecorations="Underline" />
         </StackPanel>
 
 

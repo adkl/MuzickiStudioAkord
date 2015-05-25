@@ -14,7 +14,34 @@ namespace MuzickiStudioAkord.ViewModels
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
-        private bool ulogovanKaoAdmin;
+        private string loginUsername;
+        public string LoginUsername
+        {
+            get
+            {
+                return loginUsername;
+            }
+            set
+            {
+                loginUsername = value;
+                OnPropertyChanged("LoginUsername");
+            }
+        }
+        private string loginName;
+        public string LoginName
+        {
+            get
+            {
+                return loginName;
+            }
+            set
+            {
+                loginName = value;
+                OnPropertyChanged("LoginName");
+            }
+        }
+
+        private bool ulogovanKaoAdmin = false;
         public bool UlogovanKaoAdmin {
             get { return ulogovanKaoAdmin; }
             set 
@@ -35,16 +62,21 @@ namespace MuzickiStudioAkord.ViewModels
 
         public void login(Object parametar)
         {
+            dbVlasnici = new DataBaseVlasnici(Resources.BazaPassword);
+            dbUposlenici = new DataBaseUposlenici(Resources.BazaPassword);
             var vlasnici = dbVlasnici.dajSve();
             var uposlenici = dbUposlenici.dajSve();
 
             string pw = ((PasswordBox)parametar).Password;
-            Admin.Password = pw;
+            //Admin.Password = pw;
+            string username = LoginUsername;
+            
 
 
             foreach (Vlasnik v in vlasnici)
             {
-                if (v.Username == Admin.Username && v.Password == Admin.Password)
+                //if (v.Username == Admin.Username && v.Password == Admin.Password)
+                if(v.Username == username && v.Password == pw)
                 {
                     Admin.Ime = v.Ime;
                     Admin.Prezime = v.Prezime;
@@ -56,12 +88,14 @@ namespace MuzickiStudioAkord.ViewModels
                     Admin.Password = v.Password;
                     Admin.Username = v.Username;
                     UlogovanKaoAdmin = true;
+                    LoginName = Admin.Ime;
                     return;
                 }
             }
             foreach (Uposlenik u in uposlenici)
             {
-                if (u.Username == Admin.Username && u.Password == Admin.Password)
+                //if (u.Username == Admin.Username && u.Password == Admin.Password)
+                if(u.Username == username && u.Password == pw)
                 {
                     Radnik.Ime = u.Ime;
                     Radnik.Prezime = u.Prezime;
@@ -72,7 +106,8 @@ namespace MuzickiStudioAkord.ViewModels
                     Radnik.Email = u.Email;
                     Radnik.Password = u.Password;
                     Radnik.Username = u.Username;
-
+                    UlogovanKaoAdmin = false;
+                    LoginName = Radnik.Ime;
                     return;
                 }
             }
@@ -86,8 +121,7 @@ namespace MuzickiStudioAkord.ViewModels
             Login = new RelayCommand(login);
             Admin = new Vlasnik();
             Radnik = new Uposlenik();
-            dbVlasnici = new DataBaseVlasnici(Resources.BazaPassword);
-            dbUposlenici = new DataBaseUposlenici(Resources.BazaPassword);
+            
         }
 
 
