@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,18 +22,20 @@ namespace MuzickiStudioAkord
     /// </summary>
     public partial class ArtikalControl : UserControl
     {
-        public ArtikalControl()
+        public ArtikalControl(string nazivArtikla, BitmapImage slikaArtikla, string cijenaArtikla, string opisArtikla)
         {
             InitializeComponent();
+            imeArtikla.Content = nazivArtikla;
+            Slika.Source = slikaArtikla;
+            Cijena.Text = cijenaArtikla;
+            Opis.Text = opisArtikla;
         }
-
         private void korpa_dodaj_Click(object sender, RoutedEventArgs e)
         {
            
             Button b = sender as Button;
             b.Width += 10;
             b.Height += 10;
-            MessageBox.Show("Vozdraaa");
             b.Width -= 10;
             b.Height -= 10;
         }

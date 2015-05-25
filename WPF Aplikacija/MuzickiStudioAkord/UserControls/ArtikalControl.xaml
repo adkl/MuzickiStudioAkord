@@ -11,7 +11,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid Width="Auto" Height="200" Background="White">
+    <Grid Width="300" Height="200" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="6*"/>
@@ -19,7 +19,8 @@
         </Grid.RowDefinitions>
         <Label Name="imeArtikla"
                Grid.Row="0"
-               Content="Naziv artikla" 
+               Content="Ime artikla"
+               FontStyle="Oblique"
                Width="Auto" 
                Height="Auto" 
                HorizontalAlignment="Center"
@@ -36,10 +37,10 @@
                        Width="Auto"
                        Height="100"
                        Stretch="Fill"
-                       Source="{StaticResource Missing_Image}"/>
+                       Source="{Binding Path=SlikaArtikla}"/>
             </StackPanel>
             <StackPanel  Grid.Column="1" Name="opisPanel" Width="auto" Height="Auto" Margin="5">
-                <TextBlock Name="Opis" Width="Auto" Height="Auto" Text="Opis artikla" TextWrapping="Wrap"/>
+                <TextBlock Name="Opis" Width="Auto" Height="Auto" Text="{Binding Path=OpisArtikla}" TextWrapping="Wrap"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="2">
@@ -52,14 +53,14 @@
                 <Label HorizontalAlignment="Left" FontStyle="Italic" Margin="5" Width="Auto" Height="Auto" Content="Cijena: "/>
             </StackPanel>
             <StackPanel Grid.Column="1" Width="Auto" Height="Auto">
-                <TextBlock x:Name="Cijena" Text="2500 KM" Margin="10" FontSize="15" Width="Auto" Height="Auto" HorizontalAlignment="Left"/>
+                <TextBlock x:Name="Cijena" Text="{Binding Path=CijenaArtikla}" Margin="10" FontSize="15" Width="Auto" Height="Auto" HorizontalAlignment="Left"/>
             </StackPanel>
             <StackPanel Grid.Column="2" Width="Auto" Height="Auto">
-                <Button x:Name="korpa_dodaj" Width="100" Height="50"
+                <Button x:Name="korpa_dodaj" Width="50" Height="50"
             		Click="korpa_dodaj_Click" MouseEnter="korpa_dodaj_MouseEnter" MouseLeave="korpa_dodaj_MouseLeave" RenderTransformOrigin="0.5,0.5" Margin="8,0,7,0">
                     <Button.Template>
                         <ControlTemplate>
-                            <Image Source="{StaticResource KorpaButton}" Width="50" Height="Auto" Stretch="Fill"/>
+                            <Image Source="{StaticResource KorpaButton}" Width="50" Height="50" Stretch="Fill"/>
                         </ControlTemplate>
                     </Button.Template>
                 </Button>

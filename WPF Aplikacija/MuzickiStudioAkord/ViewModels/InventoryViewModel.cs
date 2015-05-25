@@ -13,10 +13,10 @@ namespace MuzickiStudioAkord.ViewModels
     public class InventoryViewModel
     {
         public ICommand dodajUKorpu { get; set; }
-        public Inventory ListaArtikala { get; set; }
+        public Inventory ArtikliInventory { get; set; }
         public InventoryViewModel()
         {
-            ListaArtikala = new Inventory(Resources.BazaPassword);
+            ArtikliInventory = new Inventory(Resources.BazaPassword);
             dodajUKorpu = new RelayCommand(dodajKorpa);
         }
 

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,14 +24,14 @@ namespace MuzickiStudioAkord.Views
     /// </summary>
     public partial class MainWindow : Window
     {
-        private KatalogView MainPage { get; set; }
+        private InventoryView ArtikliPage { get; set; }
         private SastanakView SastanakPage { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             DataContext = new MainWindowViewModel();
-            MainPage = new KatalogView();
-            SastanakPage = new SastanakView();
+           
+           
            
         }
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -87,17 +88,19 @@ namespace MuzickiStudioAkord.Views
 
         private void MenuItemUsluge_Click(object sender, RoutedEventArgs e)
         {
+            if (SastanakPage == null) SastanakPage = new SastanakView();
             mainFrame.NavigationService.Navigate(SastanakPage);
         }
 
         private void MenuItemHome_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.NavigationService.Navigate(MainPage);
+            mainFrame.NavigationService.Navigate(ArtikliPage);
         }
 
         private void mainFrame_Loaded(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(SastanakPage);
+            if (ArtikliPage == null) ArtikliPage = new InventoryView();
+            mainFrame.Navigate(ArtikliPage);
             
         }
 

@@ -1,4 +1,5 @@
-﻿using MuzickiStudioAkord.ViewModels;
+﻿using MuzickiStudioAkord.Models;
+using MuzickiStudioAkord.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,12 +20,24 @@ namespace MuzickiStudioAkord.Views
     /// <summary>
     /// Interaction logic for KatalogView.xaml
     /// </summary>
-    public partial class KatalogView : Page
+    public partial class InventoryView : Page
     {
-        public KatalogView()
+        public InventoryView()
         {
             InitializeComponent();
-            DataContext = new InventoryViewModel();
+            InventoryViewModel artikli  = new InventoryViewModel();
+            foreach(Artikal item in artikli.ArtikliInventory.Artikli)
+            {
+                string opis = item.Spec.GodinaProizvodnje + Environment.NewLine + item.Spec.Materijal + Environment.NewLine + item.Spec.Model + Environment.NewLine + item.Spec.Proizvodjac;
+                stackpanelArtikli.Children.Add(new ArtikalControl(item.Naziv, item.Slika, item.Cijena.ToString(), opis));
+                stackpanelArtikli.Children.Add(new ArtikalControl(item.Naziv, item.Slika, item.Cijena.ToString(), opis));
+                stackpanelArtikli.Children.Add(new ArtikalControl(item.Naziv, item.Slika, item.Cijena.ToString(), opis));
+                stackpanelArtikli.Children.Add(new ArtikalControl(item.Naziv, item.Slika, item.Cijena.ToString(), opis));
+                stackpanelArtikli.Children.Add(new ArtikalControl(item.Naziv, item.Slika, item.Cijena.ToString(), opis));
+                stackpanelArtikli.Children.Add(new ArtikalControl(item.Naziv, item.Slika, item.Cijena.ToString(), opis));
+                stackpanelArtikli.Children.Add(new ArtikalControl(item.Naziv, item.Slika, item.Cijena.ToString(), opis));
+                stackpanelArtikli.Children.Add(new ArtikalControl(item.Naziv, item.Slika, item.Cijena.ToString(), opis));
+            }
         }
     }
 }
