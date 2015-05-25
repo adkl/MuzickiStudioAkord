@@ -1,7 +1,9 @@
 ﻿using MuzickiStudioAkord.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -11,6 +13,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace MuzickiStudioAkord.Views
@@ -28,6 +31,7 @@ namespace MuzickiStudioAkord.Views
             DataContext = new MainWindowViewModel();
             MainPage = new KatalogView();
             SastanakPage = new SastanakView();
+           
         }
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -57,6 +61,7 @@ namespace MuzickiStudioAkord.Views
                 tb.SetBinding(TextBox.TextProperty, b);
                 
             }
+            
         }
 
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)
@@ -82,17 +87,18 @@ namespace MuzickiStudioAkord.Views
 
         private void MenuItemUsluge_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(SastanakPage);
+            mainFrame.NavigationService.Navigate(SastanakPage);
         }
 
         private void MenuItemHome_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(MainPage);        
+            mainFrame.NavigationService.Navigate(MainPage);
         }
 
         private void mainFrame_Loaded(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(MainPage);
+            mainFrame.Navigate(SastanakPage);
+            
         }
 
 

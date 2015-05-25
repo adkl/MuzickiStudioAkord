@@ -11,11 +11,9 @@
 
     <Page.Resources>
         <ControlTemplate x:Key="ErrorTemplate">
-            <DockPanel LastChildFill="True">
                 <Border BorderBrush="Red" BorderThickness="1">
                     <AdornedElementPlaceholder />
                 </Border>
-            </DockPanel>
         </ControlTemplate>
         <Style TargetType="TextBox">
             <Style.Triggers>
@@ -50,14 +48,16 @@
                 <TextBox x:Name="textBoxIme"
                          Margin="3"
                          Width="150"
+                         GotFocus="textBox_GotFocus"
                          Text="{Binding Path=SastanakKlijent.Ime,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                         Validation.ErrorTemplate="{DynamicResource ErrorTemplate}"/>
                 <Label Name="labelaPrezime"
                        HorizontalAlignment="Center"
                        Content="Prezime"/>
                 <TextBox x:Name="textBoxPrezime"
                          Margin="3"
                          Width="150"
+                         GotFocus="textBox_GotFocus"
                          Text="{Binding Path=SastanakKlijent.Prezime,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
                 <Label Name="labelaOdabirDatuma1"
@@ -76,6 +76,7 @@
                 <TextBox x:Name="textBoxJMBG"
                          Margin="3"
                          Width="150"
+                         GotFocus="textBox_GotFocus"
                          Text="{Binding Path=SastanakKlijent.Jmbg,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
                 <Label Name="labelaAdresa"
@@ -84,6 +85,7 @@
                 <TextBox x:Name="textBoxAdresa"
                          Margin="3"
                          Width="150"
+                         GotFocus="textBox_GotFocus"
                          Text="{Binding Path=SastanakKlijent.Adresa,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
                 <Label Name="labelaBrojTelefona"
@@ -92,6 +94,7 @@
                 <TextBox x:Name="textBoxBrojTelefona"
                          Margin="3"
                          Width="150"
+                         GotFocus="textBox_GotFocus"
                          Text="{Binding Path=SastanakKlijent.BrojTelefona,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
                 <Label Name="labelaEmail"
@@ -100,6 +103,7 @@
                 <TextBox x:Name="textBoxEmail"
                          Margin="3"
                          Width="150"
+                         GotFocus="textBox_GotFocus"
                          Text="{Binding Path=SastanakKlijent.Email,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
                 
@@ -113,6 +117,7 @@
                 <TextBox x:Name="textBoxPotrosackaID"
                          Margin="3"
                          Width="150"
+                         GotFocus="textBox_GotFocus"
                         Text="{Binding Path=SastanakKlijent.PotrosackaKarticaID,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
 
@@ -122,6 +127,7 @@
                 <TextBox x:Name="textBoxBrojKartice"
                          Margin="3"
                          Width="150"
+                         GotFocus="textBox_GotFocus"
                          Text="{Binding Path=SastanakKreditnaKartica.Id_kartice,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
                 <Label Name="labelaCCV"
@@ -130,6 +136,7 @@
                 <TextBox x:Name="textBoxCCV"
                          Margin="3"
                          Width="150"
+                         GotFocus="textBox_GotFocus"
                         Text="{Binding Path=SastanakKreditnaKartica.Ccv,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
                 <Label Name="OdabirDatuma2"

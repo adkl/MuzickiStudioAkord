@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Muzicki Studio Akord"
         Height="600"
-        Width="800">
+        Width="800" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Icon="/MuzickiStudioAkord;component/icona.ico">
 
     <Window.Resources>
         <ControlTemplate x:Key="ErrorTemplate">
@@ -26,7 +26,7 @@
         </Style>
     </Window.Resources>
 
-
+  
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="150" />
@@ -37,8 +37,7 @@
             <ColumnDefinition Width="150" />
             <ColumnDefinition Width="650" />
         </Grid.ColumnDefinitions>
-
-
+     
         <Image Source="/MuzickiStudioAkord;component/Resources/musicStudioCover.jpg"
                Grid.Row="0"
                Grid.ColumnSpan="3"
@@ -73,9 +72,10 @@
         <StackPanel x:Name="mainStackPanel"
                     Grid.Row="1"
                     Grid.Column="1"
+                    DataContext="{DynamicResource ErrorTemplate}"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top">
-            <Frame x:Name="mainFrame" Width="650" Loaded="mainFrame_Loaded"/>
+            <Frame x:Name="mainFrame" Width="650" Loaded="mainFrame_Loaded" NavigationUIVisibility="Hidden"/>
         </StackPanel>
 
         <StackPanel Grid.Column="0"
