@@ -41,7 +41,7 @@ namespace MuzickiStudioAkord.Views
                 tb.Text = String.Empty;
                 tb.FontStyle = FontStyles.Normal;
                 //Stavi ovdje foreground na black
-                Binding b = new Binding("Admin.Username");
+                Binding b = new Binding("LoginUsername");
                 b.ValidatesOnDataErrors = true;
                 b.NotifyOnValidationError = true;
                 b.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
