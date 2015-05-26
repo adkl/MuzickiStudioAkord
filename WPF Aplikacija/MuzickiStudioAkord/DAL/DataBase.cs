@@ -17,11 +17,11 @@ namespace MuzickiStudioAkord.DAL
         public MySqlConnection connection;
         public DataBase(string password, string server = "db4free.net", string username = "studioakord", string database = "muzickistudio")
         {
-            this.server = server;
-            this.username = username;
-            this.password = password;
+            this.server = "localhost";
+            this.username = "root";
+            this.password = "";
             this.db = database;
-            connectionString = "server=" + server + ";user=" + username + ";pwd=" + password + ";database=" + database;
+            connectionString = "server=" + this.server + ";user=" + this.username + ";pwd=" + this.password + ";database=" + database;
             validirajKorisnika();
             connection = new MySqlConnection(connectionString);
         }
@@ -36,7 +36,7 @@ namespace MuzickiStudioAkord.DAL
             }
             catch(MySqlException e)
             {
-                System.Windows.MessageBox.Show("Konekcija na bazu nije moguca!\nPoruka : " + e.Message);
+                throw new Exception("Konekcija na bazu nije moguca!\nPoruka : " + e.Message);
             }
         }
     }

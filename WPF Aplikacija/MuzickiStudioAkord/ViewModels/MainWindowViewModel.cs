@@ -58,6 +58,18 @@ namespace MuzickiStudioAkord.ViewModels
 
 //-------------------------------------------------------------------------------------------------------
 
+        private bool logiranBiloko;
+
+        public bool LogiranBiloKo
+        {
+            get { return logiranBiloko; }
+            set { logiranBiloko = value;
+            OnPropertyChanged("LogiranBiloKo");
+            }
+        }
+        
+
+
         private string loginUsername;
         public string LoginUsername
         {
@@ -137,6 +149,7 @@ namespace MuzickiStudioAkord.ViewModels
                     VisibilityVlasnik = true;
                     VisibilityRadnik = false;
                     VisibilityGost = false;
+                    LogiranBiloKo = true;
                     return;
                 }
             }
@@ -159,6 +172,8 @@ namespace MuzickiStudioAkord.ViewModels
                     ((PasswordBox)parametar).Password = "";
                     VisibilityGost = false;
                     VisibilityRadnik = true;
+                    VisibilityVlasnik = false;
+                    LogiranBiloKo = true;
                     return;
                 }
             }
@@ -172,11 +187,15 @@ namespace MuzickiStudioAkord.ViewModels
 
         public void logout(Object parametar)
         {
-            ((TextBlock)parametar).Text = "Gost";
+            //((TextBlock)parametar).Text = "Gost";
+            LoginName = "Gost";
             UlogovanKaoAdmin = false;
             Admin = new Vlasnik();
             Radnik = new Uposlenik();
-
+            VisibilityGost = true;
+            VisibilityRadnik = false;
+            VisibilityVlasnik = false;
+            LogiranBiloKo = false;
         }
 
 //----------------------------------------------------------------------------------------------------------------------------
@@ -195,6 +214,7 @@ namespace MuzickiStudioAkord.ViewModels
             VisibilityGost = true;
             VisibilityRadnik = false;
             VisibilityVlasnik = false;
+            LogiranBiloKo = false;
         }
 
 
