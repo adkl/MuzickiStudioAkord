@@ -121,6 +121,9 @@
     <Compile Include="Views\DodavanjeArtiklaView.xaml.cs">
       <DependentUpon>DodavanjeArtiklaView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\HomePageView.xaml.cs">
+      <DependentUpon>HomePageView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\InventoryView.xaml.cs">
       <DependentUpon>InventoryView.xaml</DependentUpon>
     </Compile>
@@ -146,6 +149,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DodavanjeArtiklaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HomePageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -229,6 +236,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\IconOfApp.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\glavna2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

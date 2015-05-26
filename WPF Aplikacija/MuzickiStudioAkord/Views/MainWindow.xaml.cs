@@ -100,8 +100,10 @@ namespace MuzickiStudioAkord.Views
 
         private void mainFrame_Loaded(object sender, RoutedEventArgs e)
         {
-            if (DodajArtikal == null) DodajArtikal = new DodavanjeArtiklaView();
-            mainFrame.Navigate(DodajArtikal);
+            //if (DodajArtikal == null) DodajArtikal = new DodavanjeArtiklaView();
+            //mainFrame.Navigate(DodajArtikal);
+            if (ArtikliPage == null) ArtikliPage = new InventoryView();
+            mainFrame.NavigationService.Navigate(ArtikliPage);
             
         }
 
@@ -121,6 +123,13 @@ namespace MuzickiStudioAkord.Views
         {
             if(DodajArtikal == null) DodajArtikal = new DodavanjeArtiklaView();
             mainFrame.Navigate(DodajArtikal);
+        }
+
+        private void MenuItemHome_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (SastanakPage == null) SastanakPage = new SastanakView();
+            HomePageView hpv = new HomePageView(mainFrame);
+            mainFrame.Navigate(hpv);
         }
 
 

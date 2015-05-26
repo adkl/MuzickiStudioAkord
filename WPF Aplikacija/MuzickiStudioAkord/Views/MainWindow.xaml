@@ -119,6 +119,7 @@
                 <MenuItem Header="HOME"
                           Height="60"
                           Width="150"
+                          Click="MenuItemHome_Click_1"
                           />
 
                 <MenuItem Header="Usluge"
