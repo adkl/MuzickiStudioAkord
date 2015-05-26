@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MuzickiStudioAkord.Models
 {
-    public abstract class SpecGitara : Specifikacija
+    public abstract class SpecGitara : Specifikacija, INotifyPropertyChanged, IDataErrorInfo
     {
         private int brojZica;
 
@@ -20,6 +21,11 @@ namespace MuzickiStudioAkord.Models
             : base(godinaProizvodnje, proizvodjac, model, materijal)
         {
             this.BrojZica = brojZica;
+        }
+        public SpecGitara()
+            :base()
+        {
+
         }
     }
 }

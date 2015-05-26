@@ -96,12 +96,13 @@ namespace MuzickiStudioAkord.Views
 
         private void MenuItemHome_Click(object sender, RoutedEventArgs e)
         {
+            if (ArtikliPage == null) ArtikliPage = new InventoryView();
             mainFrame.NavigationService.Navigate(ArtikliPage);
         }
 
         private void mainFrame_Loaded(object sender, RoutedEventArgs e)
         {
-         //   if (ArtikliPage == null) ArtikliPage = new InventoryView();
+         
             mainFrame.Navigate(new DodavanjeArtiklaView());
             
         }
