@@ -32,6 +32,11 @@ namespace MuzickiStudioAkord.Views
             InitializeComponent();
             DataContext = new MainWindowViewModel();
         }
+
+        private void buttonConfirm_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         //ovdje malo narusavamo MVVM ali nemam izbora, jer nisam uspio implementirati multi-binding na button confirm
        
 

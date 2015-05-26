@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MuzickiStudioAkord.DAL;
+using MuzickiStudioAkord.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,11 @@ namespace MuzickiStudioAkord.Views
     /// </summary>
     public partial class DodajRadnikaView : Page
     {
+        public DataBaseUposlenici dbUposlenici { get; set; }
         public DodajRadnikaView()
         {
             InitializeComponent();
+            DataContext = new MainWindowViewModel();
         }
     }
 }

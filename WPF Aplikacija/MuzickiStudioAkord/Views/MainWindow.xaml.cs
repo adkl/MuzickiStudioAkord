@@ -113,6 +113,11 @@ namespace MuzickiStudioAkord.Views
             
         }
 
+        private void buttonDodajRadnika_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(new DodajRadnikaView());
+        }
+
 
 
 

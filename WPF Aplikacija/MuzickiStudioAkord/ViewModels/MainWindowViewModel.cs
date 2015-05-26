@@ -15,6 +15,25 @@ namespace MuzickiStudioAkord.ViewModels
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
+        public Uposlenik DodaniUposlenik { get; set; }
+        public ICommand DodajRadnika { get; set; }
+
+        public void dodajRadnika(Object parametar)
+        {
+            Uposlenik u = new Uposlenik(DodaniUposlenik.Ime,
+                                        DodaniUposlenik.Prezime,
+                                        DodaniUposlenik.Jmbg,
+                                        DodaniUposlenik.Adresa,
+                                        DodaniUposlenik.BrojTelefona,
+                                        DodaniUposlenik.Username,
+                                        DodaniUposlenik.Jmbg);
+
+            dbUposlenici.dodaj(u);
+            System.Windows.Forms.MessageBox.Show("Zaposlenik dodan u bazu");
+        }
+
+//-------------------------------------------------------------------------------------------------------
+
         private string loginUsername;
         public string LoginUsername
         {
@@ -65,8 +84,7 @@ namespace MuzickiStudioAkord.ViewModels
 
         public void login(Object parametar)
         {
-            dbVlasnici = new DataBaseVlasnici(Resources.BazaPassword);
-            dbUposlenici = new DataBaseUposlenici(Resources.BazaPassword);
+            
             var vlasnici = dbVlasnici.dajSve();
             var uposlenici = dbUposlenici.dajSve();
 
@@ -129,13 +147,19 @@ namespace MuzickiStudioAkord.ViewModels
             Radnik = new Uposlenik();
         }
 
+//----------------------------------------------------------------------------------------------------------------------------
+
         public MainWindowViewModel()
         {
             Login = new RelayCommand(login);
             Logout = new RelayCommand(logout);
+            DodajRadnika = new RelayCommand(dodajRadnika);
+            DodaniUposlenik = new Uposlenik();
+            dbVlasnici = new DataBaseVlasnici(Resources.BazaPassword);
+            dbUposlenici = new DataBaseUposlenici(Resources.BazaPassword);
             Admin = new Vlasnik();
             Radnik = new Uposlenik();
-
+            LoginName = "Gost";
         }
 
 
