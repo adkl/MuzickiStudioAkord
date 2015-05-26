@@ -117,7 +117,9 @@
                      />
 
             <Button Content="DodajRadnika"
-                    IsEnabled="{Binding UlogovanKaoAdmin}"/>
+                    x:Name="buttonDodajRadnika"
+                    IsEnabled="{Binding UlogovanKaoAdmin}"
+                    Click="buttonDodajRadnika_Click"/>
 
             <TextBlock Text="Logirani ste kao:"
                        Margin="0,5,0,0" />
