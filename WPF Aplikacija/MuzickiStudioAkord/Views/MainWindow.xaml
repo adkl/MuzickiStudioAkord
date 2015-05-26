@@ -6,7 +6,8 @@
         Width="815" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Icon="/MuzickiStudioAkord;component/icona.ico">
 
     <Window.Resources>
-        <ControlTemplate x:Key="ErrorTemplate">
+        <BooleanToVisibilityConverter x:Key="BoolToVisConverter" />
+            <ControlTemplate x:Key="ErrorTemplate">
             <DockPanel LastChildFill="True">
                 <Border BorderBrush="Red"
                         BorderThickness="1">
@@ -43,13 +44,60 @@
                Grid.ColumnSpan="3"
                Stretch="UniformToFill" />
 
-        <Menu HorizontalAlignment="Left"
-              Grid.Column="0"
-              Grid.Row="1"
+        <Menu x:Name="menuRadnik"
+              Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left"
               VerticalAlignment="Top"
               Width="150"
               FontFamily="Showcard Gothic"
-              FontSize="33">
+              FontSize="33"
+              Visibility="{Binding Path=VisibilityRadnik, Converter={StaticResource BoolToVisConverter}}">
+            <MenuItem Header="DODAJ"
+                      Height="60"
+                      Width="150"
+                      Click="MenuItem_Click"/>
+
+            <MenuItem Header="OBRISI"
+                      Height="60"
+                      Width="150" />
+            
+            <MenuItem Header="PROFIL"
+                      Height="50"
+                      Width="150" />
+        </Menu>
+
+        <Menu x:Name="menuVlasnik"
+              Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              Width="150"
+              FontFamily="Showcard Gothic"
+              FontSize="33"
+              Visibility="{Binding Path=VisibilityVlasnik, Converter={StaticResource BoolToVisConverter}}">
+            <MenuItem Header="DODAJ"
+                      Height="60"
+                      Width="150"
+                      Click="MenuItem_Click"/>
+
+            <MenuItem Header="OBRISI"
+                      Height="60"
+                      Width="150" />
+            
+            <MenuItem Header="SASTANCI"
+                      Height="60"
+                      Width="150" />
+            
+            <MenuItem Header="PROFIL"
+                      Height="50"
+                      Width="150" />
+        </Menu>
+
+        <Menu x:Name="menuGost"
+              Grid.Row="1" 
+              Grid.Column="0" 
+              HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              Width="150"
+              FontFamily="Showcard Gothic"
+              FontSize="33" Visibility="{Binding Path=VisibilityGost, Converter={StaticResource BoolToVisConverter}}">
             <MenuItem Header="HOME"
                       Height="60"
                       Width="150"
@@ -113,13 +161,7 @@
                     Margin="0,0,0,10"
                     Foreground="Black"
                     Command="{Binding Path=Login}"
-                    CommandParameter="{Binding ElementName=passwordBox}"
-                     />
-
-            <Button Content="DodajRadnika"
-                    x:Name="buttonDodajRadnika"
-                    IsEnabled="{Binding UlogovanKaoAdmin}"
-                    Click="buttonDodajRadnika_Click"/>
+                    CommandParameter="{Binding ElementName=passwordBox}" />
 
             <TextBlock Text="Logirani ste kao:"
                        Margin="0,5,0,0" />
@@ -139,15 +181,6 @@
                     Margin="0,5,0,0"
                     Command="{Binding Path=Logout}"
                     CommandParameter="{Binding ElementName=textBlockLoginName}"/>
-            
-            <Button Content="Promijeni sifru"
-                    Margin="0,5,0,0"
-                    x:Name="buttonPasswordChange"
-                    Click="buttonPasswordChange_Click"
-                     />
-            
-            
-
         </StackPanel>
 
 

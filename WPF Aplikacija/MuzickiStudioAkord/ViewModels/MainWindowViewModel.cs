@@ -15,6 +15,30 @@ namespace MuzickiStudioAkord.ViewModels
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
+        private bool visibilityRadnik;
+
+        public bool VisibilityRadnik
+        {
+            get { return visibilityRadnik; }
+            set { visibilityRadnik = value; OnPropertyChanged("VisibilityRadnik"); }
+        }
+        private bool visibilityGost;
+
+        public bool VisibilityGost
+        {
+            get { return visibilityGost; }
+            set { visibilityGost = value; OnPropertyChanged("VisibilityGost"); }
+        }
+
+        private bool visibilityVlasnik;
+
+        public bool VisibilityVlasnik
+        {
+            get { return visibilityVlasnik; }
+            set { visibilityVlasnik = value; OnPropertyChanged("VisibilityVlasnik"); }
+        }
+        
+
         public Uposlenik DodaniUposlenik { get; set; }
         public ICommand DodajRadnika { get; set; }
 
@@ -84,7 +108,6 @@ namespace MuzickiStudioAkord.ViewModels
 
         public void login(Object parametar)
         {
-            
             var vlasnici = dbVlasnici.dajSve();
             var uposlenici = dbUposlenici.dajSve();
 
@@ -111,6 +134,9 @@ namespace MuzickiStudioAkord.ViewModels
                     UlogovanKaoAdmin = true;
                     LoginName = Admin.Ime;
                     ((PasswordBox)parametar).Password = "";
+                    VisibilityVlasnik = true;
+                    VisibilityRadnik = false;
+                    VisibilityGost = false;
                     return;
                 }
             }
@@ -131,9 +157,14 @@ namespace MuzickiStudioAkord.ViewModels
                     UlogovanKaoAdmin = false;
                     LoginName = Radnik.Ime;
                     ((PasswordBox)parametar).Password = "";
+                    VisibilityGost = false;
+                    VisibilityRadnik = true;
                     return;
                 }
             }
+            VisibilityGost = true;
+            VisibilityRadnik = false;
+            VisibilityVlasnik = false;
             System.Windows.Forms.MessageBox.Show("Login podaci neispravni! Pokusajte ponovo");
             //CloseAction();
 
@@ -145,6 +176,7 @@ namespace MuzickiStudioAkord.ViewModels
             UlogovanKaoAdmin = false;
             Admin = new Vlasnik();
             Radnik = new Uposlenik();
+
         }
 
 //----------------------------------------------------------------------------------------------------------------------------
@@ -160,6 +192,9 @@ namespace MuzickiStudioAkord.ViewModels
             Admin = new Vlasnik();
             Radnik = new Uposlenik();
             LoginName = "Gost";
+            VisibilityGost = true;
+            VisibilityRadnik = false;
+            VisibilityVlasnik = false;
         }
 
 

@@ -25,6 +25,7 @@ namespace MuzickiStudioAkord.Views
     public partial class MainWindow : Window
     {
         private InventoryView ArtikliPage { get; set; }
+        private DodavanjeArtiklaView DodajArtikal { get; set; }
         private SastanakView SastanakPage { get; set; }
 
         private PasswordChangeView PasswordChangePage { get; set; }
@@ -32,9 +33,6 @@ namespace MuzickiStudioAkord.Views
         {
             InitializeComponent();
             DataContext = new MainWindowViewModel();
-           
-           
-           
         }
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -103,7 +101,7 @@ namespace MuzickiStudioAkord.Views
         private void mainFrame_Loaded(object sender, RoutedEventArgs e)
         {
          
-            mainFrame.Navigate(new DodavanjeArtiklaView());
+            //mainFrame.Navigate(new DodavanjeArtiklaView());
             
         }
 
@@ -117,6 +115,12 @@ namespace MuzickiStudioAkord.Views
         private void buttonDodajRadnika_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(new DodajRadnikaView());
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if(DodajArtikal == null) DodajArtikal = new DodavanjeArtiklaView();
+            mainFrame.Navigate(DodajArtikal);
         }
 
 
