@@ -17,11 +17,12 @@ namespace MuzickiStudioAkord.DAL
         public MySqlConnection connection;
         public DataBase(string password, string server = "db4free.net", string username = "studioakord", string database = "muzickistudio")
         {
-            this.server = "localhost";
-            this.username = "root";
-            this.password = "";
+            this.server = server;
+            this.username = username;
+            this.password = password;
             this.db = database;
-            connectionString = "server=" + this.server + ";user=" + this.username + ";pwd=" + this.password + ";database=" + database;
+            connectionString = "server=localhost;user=root;pwd=;database=muzickistudio";
+            //connectionString = "server=" + this.server + ";user=" + this.username + ";pwd=" + this.password + ";database=" + database;
             validirajKorisnika();
             connection = new MySqlConnection(connectionString);
         }

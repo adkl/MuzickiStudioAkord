@@ -22,6 +22,13 @@ namespace MuzickiStudioAkord
     /// </summary>
     public partial class ArtikalControl : UserControl
     {
+        private static List<String> korpa = new List<string>();
+        public static List<String> Korpa
+        {
+            get { return korpa; }
+            set { korpa = value; }
+        }
+        
         public ArtikalControl(string nazivArtikla, BitmapImage slikaArtikla, string cijenaArtikla, string opisArtikla)
         {
             InitializeComponent();
@@ -38,6 +45,7 @@ namespace MuzickiStudioAkord
             b.Height += 10;
             b.Width -= 10;
             b.Height -= 10;
+            Korpa.Add(imeArtikla.Content + " - " + Cijena.Text + " KM");
         }
 
         private void korpa_dodaj_MouseEnter(object sender, MouseEventArgs e)

@@ -16,6 +16,9 @@ namespace MuzickiStudioAkord.ViewModels
         public ICommand dodajUKorpu { get; set; }
         public ICommand dodajUBazu { get; set; }
         public Inventory ArtikliInventory { get; set; }
+
+
+
         public InventoryViewModel()
         {
             ArtikliInventory = new Inventory(Resources.BazaPassword);
