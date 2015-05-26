@@ -24,7 +24,6 @@ namespace MuzickiStudioAkord.Views
         public DodavanjeArtiklaView()
         {
             InitializeComponent();
-            DataContext = new InventoryViewModel();
         }
 
         private void textBox_GotFocus(object sender, RoutedEventArgs e)
@@ -44,6 +43,7 @@ namespace MuzickiStudioAkord.Views
 
         private void comboBoxTipArtikla_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
             ComboBox cb = sender as ComboBox;
             stackPanelKlasicnaGitra.Visibility = Visibility.Hidden;
             stackPanelElektricnaGitra.Visibility = Visibility.Hidden;
@@ -53,21 +53,25 @@ namespace MuzickiStudioAkord.Views
             if(cb.SelectedIndex == 0)
             {
                 stackPanelElektricnaGitra.Visibility = Visibility.Visible;
+                DataContext = new InventoryViewModel("Elektricna gitara");
             }
             //Klasicna gitara
             if (cb.SelectedIndex == 1)
             {
                 stackPanelKlasicnaGitra.Visibility = Visibility.Visible;
+                DataContext = new InventoryViewModel("Klasicna gitara");
             }
             //Klavijature
             if (cb.SelectedIndex == 2)
             {
                 stackPanelKlavijature.Visibility = Visibility.Visible;
+                DataContext = new InventoryViewModel("Klavijature");
             }
             //Pojacalo
             if (cb.SelectedIndex == 3)
             {
                 stackPanelPojacalo.Visibility = Visibility.Visible;
+                DataContext = new InventoryViewModel("Pojacalo");
             }
         }
 
