@@ -20,7 +20,8 @@ namespace MuzickiStudioAkord.Models
         public KlasicnaGitara()
             :base()
         {
-
+            SpecKL = new SpecKlasicna();
+            Spec = new SpecKlasicna();
         }
         public override string dajSpecifikaciju()
         {

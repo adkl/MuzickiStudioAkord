@@ -19,7 +19,8 @@ namespace MuzickiStudioAkord.Models
         public Pojacalo()
             :base()
         {
-
+            SpecPo = new SpecPojacalo();
+            Spec = new SpecPojacalo();
         }
         public override string dajSpecifikaciju()
         {

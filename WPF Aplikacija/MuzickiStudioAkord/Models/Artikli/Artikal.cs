@@ -33,7 +33,14 @@ namespace MuzickiStudioAkord.Models
             set { cijena = value; OnPropertyChanged("Cijena"); }
         }
 
-        public Specifikacija Spec { get; set; }
+        private Specifikacija spec;
+
+        public Specifikacija Spec
+        {
+            get { return spec; }
+            set { spec = value; OnPropertyChanged("Specifikacija"); }
+        }
+        
         private BitmapImage slika;
         public BitmapImage Slika
         {

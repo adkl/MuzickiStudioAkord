@@ -89,7 +89,7 @@ namespace MuzickiStudioAkord.Models
             return error;
         }
 
-        private string validirajMaterijal()
+        private string validirajGodinaProizvodje()
         {
             if (GodinaProizvodnje <= 0)
                 return "Unesite godinu proizvodnje";
@@ -110,7 +110,7 @@ namespace MuzickiStudioAkord.Models
             return null;
         }
 
-        private string validirajGodinaProizvodje()
+        private string validirajMaterijal()
         {
             if (String.IsNullOrEmpty(Materijal))
                 return "Unesite materijal";

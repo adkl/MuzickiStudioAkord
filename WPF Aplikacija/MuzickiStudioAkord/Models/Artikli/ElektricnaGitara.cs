@@ -24,6 +24,7 @@ namespace MuzickiStudioAkord.Models
             :base()
         {
             SpecEl = new SpecElektricna();
+            Spec = new SpecElektricna();
         }
         protected override string getValidationError(string property)
         {

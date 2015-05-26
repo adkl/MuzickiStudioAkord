@@ -18,7 +18,8 @@ namespace MuzickiStudioAkord.Models
         public Klavijatura()
             :base()
         {
-
+            SpecKl = new SpecKlavijatura();
+            Spec = new SpecKlavijatura();
         }
         public override string dajSpecifikaciju()
         {
