@@ -120,6 +120,7 @@ namespace MuzickiStudioAkord.Models
         public Artikal(int serijskiBroj, string naziv, double cijena, Specifikacija spec, BitmapImage slika)
         {
             this.SerijskiBroj = serijskiBroj;
+            this.Cijena = cijena;
             this.Naziv = naziv;
             this.Spec = spec;
             this.Slika = slika;

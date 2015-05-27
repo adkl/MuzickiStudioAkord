@@ -23,16 +23,21 @@ namespace MuzickiStudioAkord.Models
             SpecKL = new SpecKlasicna();
             Spec = new SpecKlasicna();
         }
+        protected override string getValidationError(string property)
+        {
+            string error = base.getValidationError(property);
+            return error;
+        }
         public override string dajSpecifikaciju()
         {
-            return ("Naziv: " + Naziv +
+            return ("Naziv: " + this.Naziv +
                     "\nGodina Proizvodnje: " + Spec.GodinaProizvodnje +
                     "\nModel: " + Spec.Model +
                     "\nMaterijal:" + Spec.Materijal +
                     "\nProizvodjac: " + Spec.Proizvodjac +
-                    "\nMasinica: "+ SpecKL.Masinica +
-                    "\nBroj Zica: "  + SpecKL.BrojZica +
-                    "\nTip klasicne gitare: " + Tip == "Klasicna" ? "Klasicna" : "Akusticna"
+                    "\nMasinica: " + SpecKL.Masinica +
+                    "\nBroj Zica: " + SpecKL.BrojZica +
+                    "\nTip klasicne gitare: " + (Tip == TipKlasicne.Klasicna ? "Klasicna" : "Akusticna")
                );
         }
     }

@@ -232,7 +232,8 @@ namespace MuzickiStudioAkord.DAL
                 }
                 else if (objekat is KlasicnaGitara)
                 {
-                    SpecKlasicna temp = objekat.Spec as SpecKlasicna;
+                    KlasicnaGitara git = objekat as KlasicnaGitara;
+                    SpecKlasicna temp = git.SpecKL as SpecKlasicna;
                     upit.CommandText = "insert into spec_gitara values(@id, @masinica, @vrat, @most, @pickup, @elektronika, @broj_zica)";
                     upit.Parameters.AddWithValue("@id", upit.LastInsertedId);
                     upit.Parameters.AddWithValue("@masinica", temp.Masinica);
@@ -246,7 +247,7 @@ namespace MuzickiStudioAkord.DAL
                     upit.Parameters.AddWithValue("@serijski_broj", objekat.SerijskiBroj);
                     upit.Parameters.AddWithValue("@naziv", objekat.Naziv);
                     upit.Parameters.AddWithValue("@id_specifikacije", upit.LastInsertedId);
-                    upit.Parameters.AddWithValue("@slika", getJPGFromImageControl(objekat.Slika));
+                    upit.Parameters.AddWithValue("@slika", null/*getJPGFromImageControl(objekat.Slika)*/);
                     upit.Parameters.AddWithValue("@tip_artikla", 2);
                     if (((KlasicnaGitara)(objekat)).Tip == TipKlasicne.Akusticna) upit.Parameters.AddWithValue("@tip_gitare", 2);
                     else upit.Parameters.AddWithValue("@tip_gitare", 1);
@@ -267,7 +268,6 @@ namespace MuzickiStudioAkord.DAL
                     upit.Parameters.AddWithValue("@id_specifikacije", upit.LastInsertedId);
                     upit.Parameters.AddWithValue("@slika", getJPGFromImageControl(objekat.Slika));
                     upit.Parameters.AddWithValue("@tip_artikla", 3);
-                    upit.Parameters.AddWithValue("@tip_gitare", null);
                     upit.Parameters.AddWithValue("@tip_gitare", null);
                     upit.ExecuteNonQuery();
                 }

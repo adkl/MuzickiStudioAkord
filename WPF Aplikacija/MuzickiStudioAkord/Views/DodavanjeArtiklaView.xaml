@@ -78,7 +78,7 @@
                 <Label Name="labelaSlika"
                        HorizontalAlignment="Center"
                        Content="Slika"/>
-                <Image Name="slikaArtikla" Height="200" Source="/MuzickiStudioAkord;component/Resources/Status-image-missing-icon.png" Margin="10"/>
+                <Image Name="slikaArtikla" Height="200" Source="{Binding Path=noviArtikal.Slika}" Margin="10"/>
                 <Button x:Name="buttonUpload" Content="Dodaj sliku" Click="Button_Click" Width="70" Background="BurlyWood"/>
             </StackPanel>
             
