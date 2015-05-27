@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -20,15 +21,27 @@ namespace MuzickiStudioAkord
     /// <summary>
     /// Interaction logic for ArtikalControl.xaml
     /// </summary>
-    public partial class ArtikalControl : UserControl
+    public partial class ArtikalControl : UserControl, INotifyPropertyChanged
     {
-        private static List<String> korpa = new List<string>();
-        public static List<String> Korpa
+
+        private bool markiran;
+
+        public bool Markiran
         {
-            get { return korpa; }
-            set { korpa = value; }
+            get { return markiran; }
+            set { markiran = value; OnPropertyChanged("Markiran"); }
         }
         
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
         public ArtikalControl(string nazivArtikla, BitmapImage slikaArtikla, string cijenaArtikla, string opisArtikla)
         {
             InitializeComponent();
@@ -36,30 +49,23 @@ namespace MuzickiStudioAkord
             Slika.Source = slikaArtikla;
             Cijena.Text = cijenaArtikla;
             Opis.Text = opisArtikla;
+            Markiran = false;
+        }
+        public ArtikalControl()
+        {
+            Markiran = false;
         }
         private void korpa_dodaj_Click(object sender, RoutedEventArgs e)
         {
-           
-            Button b = sender as Button;
-            b.Width += 10;
-            b.Height += 10;
-            b.Width -= 10;
-            b.Height -= 10;
-            Korpa.Add(imeArtikla.Content + " - " + Cijena.Text + " KM");
+            if (!Markiran) Markiran = true;
+            else Markiran = false;
+
         }
 
-        private void korpa_dodaj_MouseEnter(object sender, MouseEventArgs e)
+        public override string ToString()
         {
-            Button b = sender as Button;
-            b.Width += 10;
-            b.Height += 10;
+            return imeArtikla.Content + " " + Cijena.Text;
         }
 
-        private void korpa_dodaj_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Button b = sender as Button;
-            b.Width -= 10;
-            b.Height -= 10;
-        }
     }
 }

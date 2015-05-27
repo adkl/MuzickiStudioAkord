@@ -12,28 +12,22 @@
 
     <Grid x:Name="gridArtikli">
 
-        <StackPanel Orientation="Horizontal">
-            <ScrollViewer>
-                <StackPanel Name="stackpanelArtikli"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Background="DarkGray">
+            <Button Content="Zavrsi kupovinu" Width="100" Click="Button_Click"/>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1">
+            <StackPanel Name="stackpanelArtikli"
                             Grid.Row="1"
                             Orientation="Vertical"
-                            HorizontalAlignment="Left"
                             Margin="3"
                             ScrollViewer.VerticalScrollBarVisibility="Auto" />
-            </ScrollViewer>
-
-
-
-            <StackPanel Name="stackpanelKorpa"
-                        HorizontalAlignment="Right"
-                        Orientation="Vertical"
-                        Margin="0,0,0,0">
-                <TextBlock Text="Artikli u korpi:" />
-                <ListView x:Name="listViewKorpa"
-                          ItemsSource="{Binding KorpaArtikli}" />
-
-            </StackPanel>
-        </StackPanel>
+        </ScrollViewer>
     </Grid>
 
 

@@ -61,6 +61,16 @@ namespace MuzickiStudioAkord.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Apply {
+            get {
+                object obj = ResourceManager.GetObject("Apply", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Studio1.
         /// </summary>
         public static string BazaPassword {

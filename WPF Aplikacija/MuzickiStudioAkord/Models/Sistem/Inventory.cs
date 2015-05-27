@@ -1,6 +1,7 @@
 ﻿using MuzickiStudioAkord.DAL;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,8 +14,9 @@ namespace MuzickiStudioAkord.Models
         public List<Artikal> Artikli
         {
             get { return artikli; }
-            set { artikli = value; }
+            set { artikli = value;}
         }
+
         private DataBaseArtikli baza;
         public DataBaseArtikli Baza
         {
@@ -54,7 +56,6 @@ namespace MuzickiStudioAkord.Models
             }
             return false;
         }
-
 
     }
 }

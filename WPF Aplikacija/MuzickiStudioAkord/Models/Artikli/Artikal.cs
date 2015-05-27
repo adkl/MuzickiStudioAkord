@@ -140,5 +140,10 @@ namespace MuzickiStudioAkord.Models
         public Artikal()
         {
         }
+
+        public override string ToString()
+        {
+            return Naziv + " ==> " + Cijena;
+        }
     }
 }
