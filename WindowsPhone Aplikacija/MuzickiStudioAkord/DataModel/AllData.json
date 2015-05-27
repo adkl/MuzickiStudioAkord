@@ -8,7 +8,7 @@
                     "Cijena": 5000,
                     "ImagePath": "Assets/ElektricneGitare/Blade_BCT-52_JC_photo_1.jpg",
                     "GodinaProizvodnje": 2000,
-                    "Proizvodjac": "sasda",
+                    "Proizvodjac": "Behringer",
                     "Model": "drvo",
                     "Materijal": "qassfdfsd",
                     "BrojZica": 4,
@@ -45,12 +45,37 @@
         },
         {
             "Klavijature": [
-
+                {
+                    "SerijskiBroj": 3,
+                    "Naziv": "Waldorf Blofeld Synthesizer",
+                    "Cijena": 1700,
+                    "ImagePath": "Assets/Klavijature/Waldorf_Blofeld_Keyboard_Synthesizer_photo_1.jpg",
+                    "GodinaProizvodnje": 2007,
+                    "Proizvodjac": "sasda",
+                    "Model": "dfsdf",
+                    "Materijal": "plastika",
+                    "BrojTipki": 27,
+                    "Zvucnik": "zvucnikmanufacturer",
+                    "Tezina": 27.4,
+                    "Napajanje" :  "AC"
+                }
             ]
         },
         {
             "Pojacala": [
-
+                {
+                    "SerijskiBroj": 4,
+                    "Naziv": "American Audio XLT1200",
+                    "Cijena": 2000,
+                    "ImagePath": "Assets/Pojacala/American_Audio_XLT1200_photo_1.jpg",
+                    "GodinaProizvodnje": 2007,
+                    "Proizvodjac": "sasda",
+                    "Model": "dfsdf",
+                    "Materijal": "plastika",
+                    "Zvucnik": "zvucnikmanufacturer",
+                    "BrojKanala": 27,
+                    "UlazZaSlusalice": false
+                }
             ]
         }
     ]

@@ -159,6 +159,7 @@ namespace MuzickiStudioAkord.ViewModels
                     ((PasswordBox)parametar).Password = "";
                     VisibilityGost = false;
                     VisibilityRadnik = true;
+                    VisibilityVlasnik = false;
                     return;
                 }
             }
