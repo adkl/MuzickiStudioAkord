@@ -3,19 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" d:DesingWidth="200" d:DesignHeigh="200">
+             mc:Ignorable="d" d:DesingWidth="200" d:DesignHeigh="200"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <UserControl.Resources>
         <ResourceDictionary>
-            <BitmapImage x:Key="Missing_Image" UriSource="/Resources/Status-image-missing-icon.png"/>
+            <BitmapImage x:Key="Dodano" UriSource="/Resources/Apply.png"/>
             <BitmapImage x:Key ="KorpaButton" UriSource="/Resources/cart-add-icon.png" />
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid Width="300" Height="200" Background="White">
+    <Grid Width="400" Height="300" Background="White">
         <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="7*"/>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="6*"/>
-            <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
         <Label Name="imeArtikla"
                Grid.Row="0"
@@ -29,18 +30,18 @@
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" Name="slikaPanel" Width="Auto" Height="Auto" Margin="5">
                 <Image x:Name="Slika"
                        Margin="5"
                        Width="Auto"
-                       Height="100"
+                       Height="200"
                        Stretch="Fill"
                        Source="{Binding Path=SlikaArtikla}"/>
             </StackPanel>
             <StackPanel  Grid.Column="1" Name="opisPanel" Width="auto" Height="Auto" Margin="5">
-                <TextBlock Name="Opis" Width="Auto" Height="Auto" Text="{Binding Path=OpisArtikla}" TextWrapping="Wrap"/>
+                <TextBlock Name="Opis" Width="Auto" Height="Auto" Text="{Binding Path=OpisArtikla}" TextWrapping="Wrap" />
             </StackPanel>
         </Grid>
         <Grid Grid.Row="2">
@@ -56,16 +57,27 @@
                 <TextBlock x:Name="Cijena" Text="{Binding Path=CijenaArtikla}" Margin="10" FontSize="15" Width="Auto" Height="Auto" HorizontalAlignment="Left"/>
             </StackPanel>
             <StackPanel Grid.Column="2" Width="Auto" Height="Auto">
-                <Button x:Name="korpa_dodaj" Width="50" Height="50"
-            		Click="korpa_dodaj_Click" MouseEnter="korpa_dodaj_MouseEnter" MouseLeave="korpa_dodaj_MouseLeave" RenderTransformOrigin="0.5,0.5" Margin="8,0,7,0">
-                    <Button.Template>
-                        <ControlTemplate>
-                            <Image Source="{StaticResource KorpaButton}" Width="50" Height="50" Stretch="Fill"/>
-                        </ControlTemplate>
-                    </Button.Template>
+
+                <Button x:Name="korpa_dodaj" Height="50" Width="50" Margin="8,0,7,0" Click="korpa_dodaj_Click" Background="White">
+                    <Image>
+                        <Image.Style>
+                            <Style TargetType="{x:Type Image}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Markiran}" Value="True">
+                                        <Setter Property="Source" Value="{StaticResource Dodano}" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Markiran}" Value="False">
+                                        <Setter Property="Source" Value="{StaticResource KorpaButton}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
                 </Button>
+                
             </StackPanel>
 
         </Grid>
+        <Label Grid.Row="2" Width="400" Height="3" VerticalAlignment="Bottom"  Background="Red"/>
     </Grid>
 </UserControl>

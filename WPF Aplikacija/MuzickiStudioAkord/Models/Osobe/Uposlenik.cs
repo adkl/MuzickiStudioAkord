@@ -36,7 +36,7 @@ namespace MuzickiStudioAkord.Models
         private string password;
         public string Password
         {
-            get { return username; }
+            get { return password; }
             set
             {
                 password = value;
@@ -58,10 +58,10 @@ namespace MuzickiStudioAkord.Models
         //povezan na : uposlenikViewModel i DBaseSastanci
 
         public Uposlenik(string firstName, string lastName, string jmbg, string adresa, string brTel, string username, string password) 
-            :base(firstName, lastName, jmbg, null, brTel)
+            :base(firstName, lastName, jmbg, adresa, brTel)
         {
-            this.username = username;
-            this.password = password;
+            this.Username = username;
+            this.Password = password;
         }
 
 

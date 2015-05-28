@@ -1,0 +1,28 @@
+﻿<Page x:Class="MuzickiStudioAkord.Views.HomePageView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d"
+      d:DesignHeight="450"
+      d:DesignWidth="650"
+      Title="HomePageView">
+    
+
+    <Grid>
+        
+        <TextBlock Text="Muzicki studio Akord postoji jos od 1990. godine i usrecuje svoje klijente kvalitetnim i najmodernijim uslugama kao sto su snimanje pjesama, reklama, komponovanje i pisanje tekstova. Ukoliko vam treba jedna od navedenih usluga na pravom ste mjestu. Klikom na dugme otvorice vam se forma za zakazivanje sastanka sa osobljem."
+                   FontSize="20"
+                   Foreground="Black"
+                   TextWrapping="Wrap"
+                   Margin="30,30,0,0"/>
+        
+        <Button Content="Zakazi Sastanak"
+                HorizontalAlignment="Left"
+                Margin="261,383,0,0"
+                VerticalAlignment="Top"
+                Width="113"
+                Height="33"
+                Click="Button_Click" />
+    </Grid>
+</Page>

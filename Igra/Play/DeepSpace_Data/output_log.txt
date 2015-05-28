@@ -1,6 +1,7 @@
 Initialize engine version: 5.0.1f1 (5a2e8fe35a68)
 GfxDevice: creating device client; threaded=1
 Direct3D:
+<<<<<<< HEAD
     Version:  Direct3D 11.0 [level 10.1]
     Renderer: ATI Mobility Radeon HD 4330 (ID=0x9552)
     Vendor:   ATI
@@ -14,9 +15,26 @@ Platform assembly: C:\Users\hbhc\Desktop\MuzickiStudioAkord\Igra\Play\DeepSpace_
 Loading C:\Users\hbhc\Desktop\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 - Completed reload, in  0.086 seconds
 desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
+=======
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics Family (ID=0xa16)
+    Vendor:   Intel
+    VRAM:     128 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\OOAD\MuzickiStudio\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\OOAD\MuzickiStudio\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\OOAD\MuzickiStudio\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\OOAD\MuzickiStudio\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\OOAD\MuzickiStudio\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\OOAD\MuzickiStudio\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.359 seconds
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+>>>>>>> 0027d7ffa459e4de827e6a3c2152dde355b758ee
 <RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
 <RI> Initialized touch support.
+<<<<<<< HEAD
 Platform assembly: C:\Users\hbhc\Desktop\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\hbhc\Desktop\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\System.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
@@ -26,4 +44,45 @@ UnloadTime: 6.742253 ms
 
 Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 344.
 Total: 0.357745 ms (FindLiveObjects: 0.047733 ms CreateObjectMapping: 0.033362 ms MarkObjects: 0.257145 ms  DeleteObjects: 0.012318 ms)
+=======
+Platform assembly: E:\OOAD\MuzickiStudio\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: E:\OOAD\MuzickiStudio\MuzickiStudioAkord\Igra\Play\DeepSpace_Data\Managed\System.dll (this message is harmless)
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 1760 -> priority: 1 
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 36.818367 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 344.
+Total: 12.020624 ms (FindLiveObjects: 0.089958 ms CreateObjectMapping: 0.076676 ms MarkObjects: 11.818368 ms  DeleteObjects: 0.033809 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.827545 ms
+
+Unloading 116 unused Assets to reduce memory usage. Loaded Objects now: 229.
+Total: 1.794943 ms (FindLiveObjects: 0.048903 ms CreateObjectMapping: 0.043469 ms MarkObjects: 0.476357 ms  DeleteObjects: 1.225004 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.167045 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 378.
+Total: 0.795739 ms (FindLiveObjects: 0.066412 ms CreateObjectMapping: 0.068827 ms MarkObjects: 0.633935 ms  DeleteObjects: 0.024753 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.879685 ms
+
+Unloading 115 unused Assets to reduce memory usage. Loaded Objects now: 229.
+Total: 2.282771 ms (FindLiveObjects: 0.064601 ms CreateObjectMapping: 0.068827 ms MarkObjects: 0.838606 ms  DeleteObjects: 1.309529 ms)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.973845 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 253.
+Total: 0.872415 ms (FindLiveObjects: 0.070638 ms CreateObjectMapping: 0.044073 ms MarkObjects: 0.706988 ms  DeleteObjects: 0.033206 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.188176 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 378.
+Total: 0.683442 ms (FindLiveObjects: 0.053129 ms CreateObjectMapping: 0.044677 ms MarkObjects: 0.559674 ms  DeleteObjects: 0.024753 ms)
+>>>>>>> 0027d7ffa459e4de827e6a3c2152dde355b758ee
 

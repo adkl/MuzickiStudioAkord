@@ -25,14 +25,14 @@ namespace MuzickiStudioAkord.Views
     public partial class MainWindow : Window
     {
         private InventoryView ArtikliPage { get; set; }
+        private DodavanjeArtiklaView DodajArtikal { get; set; }
         private SastanakView SastanakPage { get; set; }
+
+        private PasswordChangeView PasswordChangePage { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             DataContext = new MainWindowViewModel();
-           
-           
-           
         }
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -92,17 +92,47 @@ namespace MuzickiStudioAkord.Views
             mainFrame.NavigationService.Navigate(SastanakPage);
         }
 
-        private void MenuItemHome_Click(object sender, RoutedEventArgs e)
+        private void MenuItemShop_Click(object sender, RoutedEventArgs e)
         {
+            if (ArtikliPage == null) ArtikliPage = new InventoryView();
             mainFrame.NavigationService.Navigate(ArtikliPage);
         }
 
         private void mainFrame_Loaded(object sender, RoutedEventArgs e)
         {
+            //if (DodajArtikal == null) DodajArtikal = new DodavanjeArtiklaView();
+            //mainFrame.Navigate(DodajArtikal);
             if (ArtikliPage == null) ArtikliPage = new InventoryView();
-            mainFrame.Navigate(ArtikliPage);
+            mainFrame.NavigationService.Navigate(ArtikliPage);
             
         }
+
+        private void buttonPasswordChange_Click(object sender, RoutedEventArgs e)
+        {
+            if (PasswordChangePage == null) PasswordChangePage = new PasswordChangeView();
+            mainFrame.Navigate(PasswordChangePage);
+            
+        }
+
+        private void buttonDodajRadnika_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(new DodajRadnikaView());
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if(DodajArtikal == null) DodajArtikal = new DodavanjeArtiklaView();
+            mainFrame.Navigate(DodajArtikal);
+        }
+
+        private void MenuItemHome_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (SastanakPage == null) SastanakPage = new SastanakView();
+            HomePageView hpv = new HomePageView(mainFrame);
+            mainFrame.Navigate(hpv);
+        }
+
+
 
 
     }

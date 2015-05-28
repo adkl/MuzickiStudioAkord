@@ -59,7 +59,7 @@
                         Width="Auto">
                 <DataTemplate>
                     <GridView Margin="0,-15.5,0,0"
-                              ItemsSource="{Binding Artikli}"
+                              ItemsSource="{Binding Klavijature}"
                               AutomationProperties.AutomationId="ItemGridView"
                               AutomationProperties.Name="Items In Group"
                               ItemTemplate="{StaticResource Standard200x180TileItemTemplate}"
@@ -80,7 +80,7 @@
                         Width="Auto">
                 <DataTemplate>
                     <GridView Margin="0,-15.5,0,0"
-                              ItemsSource="{Binding Artikli}"
+                              ItemsSource="{Binding Pojacala}"
                               AutomationProperties.AutomationId="ItemGridView"
                               AutomationProperties.Name="Items In Group"
                               ItemTemplate="{StaticResource Standard200x180TileItemTemplate}"

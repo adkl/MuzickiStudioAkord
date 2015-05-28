@@ -10,11 +10,35 @@ namespace MuzickiStudioAkord.Models
     public class KlasicnaGitara : Gitara
     {
         public TipKlasicne Tip { get; set; }
-
+        public SpecKlasicna SpecKL { get; set; }
         public KlasicnaGitara(int serijskiBroj, string naziv, double cijena, SpecKlasicna spec, BitmapImage slika, TipKlasicne tip)
             :base(serijskiBroj, naziv, cijena, spec, slika)
         {
             this.Tip = tip;
+            this.SpecKL = spec;
+        }
+        public KlasicnaGitara()
+            :base()
+        {
+            SpecKL = new SpecKlasicna();
+            Spec = new SpecKlasicna();
+        }
+        protected override string getValidationError(string property)
+        {
+            string error = base.getValidationError(property);
+            return error;
+        }
+        public override string dajSpecifikaciju()
+        {
+            return ("Naziv: " + this.Naziv +
+                    "\nGodina Proizvodnje: " + Spec.GodinaProizvodnje +
+                    "\nModel: " + Spec.Model +
+                    "\nMaterijal:" + Spec.Materijal +
+                    "\nProizvodjac: " + Spec.Proizvodjac +
+                    "\nMasinica: " + SpecKL.Masinica +
+                    "\nBroj Zica: " + SpecKL.BrojZica +
+                    "\nTip klasicne gitare: " + (Tip == TipKlasicne.Klasicna ? "Klasicna" : "Akusticna")
+               );
         }
     }
     public enum TipKlasicne

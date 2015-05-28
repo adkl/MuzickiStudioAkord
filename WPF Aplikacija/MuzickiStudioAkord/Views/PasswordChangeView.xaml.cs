@@ -1,4 +1,8 @@
-﻿using System;
+﻿using MuzickiStudioAkord.DAL;
+using MuzickiStudioAkord.Models;
+using MuzickiStudioAkord.ViewModels;
+using MuzickiStudioAkord.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +24,22 @@ namespace MuzickiStudioAkord.Views
     /// </summary>
     public partial class PasswordChangeView : Page
     {
+        public Osoba logiraniKorisnik { get; set; }
+        public DataBaseVlasnici dbVlasnici { get; set; }
+        public DataBaseUposlenici dbUposlenici { get; set; }
         public PasswordChangeView()
         {
             InitializeComponent();
+            DataContext = new MainWindowViewModel();
         }
+
+        private void buttonConfirm_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        //ovdje malo narusavamo MVVM ali nemam izbora, jer nisam uspio implementirati multi-binding na button confirm
+       
+
+        
     }
 }

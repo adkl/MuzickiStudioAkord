@@ -3,9 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Muzicki Studio Akord"
         Height="650"
-        Width="815" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Icon="/MuzickiStudioAkord;component/icona.ico">
+        Width="815"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize"
+        Icon="/MuzickiStudioAkord;component/icona.ico">
 
     <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisConverter" />
         <ControlTemplate x:Key="ErrorTemplate">
             <DockPanel LastChildFill="True">
                 <Border BorderBrush="Red"
@@ -26,7 +30,7 @@
         </Style>
     </Window.Resources>
 
-  
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="150" />
@@ -37,37 +41,98 @@
             <ColumnDefinition Width="150" />
             <ColumnDefinition Width="650" />
         </Grid.ColumnDefinitions>
-     
+
         <Image Source="/MuzickiStudioAkord;component/Resources/musicStudioCover.jpg"
                Grid.Row="0"
                Grid.ColumnSpan="3"
                Stretch="UniformToFill" />
+        <StackPanel Margin="0,176,0,-19"
+                    Grid.Row="1">
+            <Menu x:Name="menuRadnik"
+                  Grid.Row="1"
+                  Grid.Column="0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Width="150"
+                  FontFamily="Showcard Gothic"
+                  FontSize="33"
+                  Visibility="{Binding Path=VisibilityRadnik, Converter={StaticResource BoolToVisConverter}}">
+                <MenuItem Header="DODAJ"
+                          Height="60"
+                          Width="150"
+                          Click="MenuItem_Click" />
 
-        <Menu HorizontalAlignment="Left"
-              Grid.Column="0"
-              Grid.Row="1"
-              VerticalAlignment="Top"
-              Width="150"
-              FontFamily="Showcard Gothic"
-              FontSize="33">
-            <MenuItem Header="HOME"
-                      Height="60"
-                      Width="150"
-                      Click="MenuItemHome_Click"/>
+                <MenuItem Header="OBRISI"
+                          Height="60"
+                          Width="150" />
 
-            <MenuItem Header="O nama"
-                      Height="60"
-                      Width="150" />
+                <MenuItem Header="PROFIL"
+                          Height="50"
+                          Width="150" />
+            </Menu>
+        </StackPanel>
 
-            <MenuItem Header="Usluge"
-                      Height="60"
-                      Width="150"
-                      Click="MenuItemUsluge_Click"/>
+        <StackPanel Margin="0,176,0,-19"
+                    Grid.Row="1">
 
-            <MenuItem Header="Shop"
-                      Height="50"
-                      Width="150" />
-        </Menu>
+            <Menu x:Name="menuVlasnik"
+                  Grid.Row="1"
+                  Grid.Column="0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Width="150"
+                  FontFamily="Showcard Gothic"
+                  FontSize="33"
+                  Visibility="{Binding Path=VisibilityVlasnik, Converter={StaticResource BoolToVisConverter}}">
+
+                <MenuItem Header="DODAJ"
+                          Height="60"
+                          Width="150"
+                          Click="MenuItem_Click" />
+
+                <MenuItem Header="OBRISI"
+                          Height="60"
+                          Width="150" />
+
+                <MenuItem Header="SASTANCI"
+                          Height="60"
+                          Width="150" />
+
+                <MenuItem Header="PROFIL"
+                          Height="50"
+                          Width="150" />
+            </Menu>
+        </StackPanel>
+
+
+        <StackPanel Margin="0,176,0,-19"
+                    Grid.Row="1">
+            <Menu x:Name="menuGost"
+                  Grid.Row="1"
+                  Grid.Column="0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Width="150"
+                  FontFamily="Showcard Gothic"
+                  FontSize="33"
+                  Visibility="{Binding Path=VisibilityGost, Converter={StaticResource BoolToVisConverter}}">
+                <MenuItem Header="HOME"
+                          Height="60"
+                          Width="150"
+                          Click="MenuItemHome_Click_1"
+                          />
+
+                <MenuItem Header="Usluge"
+                          Height="50"
+                          Width="150"
+                          Click="MenuItemUsluge_Click" />
+
+                <MenuItem Header="Shop"
+                          Height="50"
+                          Width="150"
+                          Click="MenuItemShop_Click" />
+            </Menu>
+        </StackPanel>
 
         <StackPanel x:Name="mainStackPanel"
                     Grid.Row="1"
@@ -75,12 +140,15 @@
                     DataContext="{DynamicResource ErrorTemplate}"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top">
-            <Frame x:Name="mainFrame" Width="650" Loaded="mainFrame_Loaded" NavigationUIVisibility="Hidden"/>
+            <Frame x:Name="mainFrame"
+                   Width="650"
+                   Loaded="mainFrame_Loaded"
+                   NavigationUIVisibility="Hidden" />
         </StackPanel>
 
         <StackPanel Grid.Column="0"
                     Grid.Row="1"
-                    Margin="10,230,3,36">
+                    Margin="10,0,5,280">
             <TextBox Text="Username"
                      x:Name="textBoxUsername"
                      GotFocus="TextBox_GotFocus"
@@ -88,9 +156,9 @@
                      Validation.ErrorTemplate="{StaticResource ErrorTemplate}"
                      Margin="0,10,0,0"
                      Height="25"
-                     FontStyle ="Italic"
+                     FontStyle="Italic"
                      Foreground="#FF645A5A" />
-<!--
+            <!--
             <TextBox Text="Password"
                      x:Name="textBoxPassword"
                      GotFocus="TextBox_GotFocus"
@@ -105,7 +173,7 @@
             -->
             <PasswordBox x:Name="passwordBox"
                          Height="25"
-                         Margin="0,5,0,5"/>
+                         Margin="0,5,0,5" />
 
 
 
@@ -113,11 +181,7 @@
                     Margin="0,0,0,10"
                     Foreground="Black"
                     Command="{Binding Path=Login}"
-                    CommandParameter="{Binding ElementName=passwordBox}"
-                     />
-
-            <Button Content="DodajRadnika"
-                    IsEnabled="{Binding UlogovanKaoAdmin}"/>
+                    CommandParameter="{Binding ElementName=passwordBox}" />
 
             <TextBlock Text="Logirani ste kao:"
                        Margin="0,5,0,0" />
@@ -134,8 +198,10 @@
                        Foreground="Red" />
 
             <Button Content="Log out"
+                    Margin="0,5,0,0"
+                    Visibility="{Binding Path=LogiranBiloKo, Converter={StaticResource BoolToVisConverter}}"
                     Command="{Binding Path=Logout}"
-                    CommandParameter="{Binding ElementName=textBlockLoginName}"/>
+                    CommandParameter="{Binding ElementName=textBlockLoginName}" />
         </StackPanel>
 
 

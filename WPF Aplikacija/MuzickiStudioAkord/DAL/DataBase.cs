@@ -21,7 +21,8 @@ namespace MuzickiStudioAkord.DAL
             this.username = username;
             this.password = password;
             this.db = database;
-            connectionString = "server=" + server + ";user=" + username + ";pwd=" + password + ";database=" + database;
+            connectionString = "server=localhost;user=root;pwd=;database=muzickistudio";
+            //connectionString = "server=" + this.server + ";user=" + this.username + ";pwd=" + this.password + ";database=" + database;
             validirajKorisnika();
             connection = new MySqlConnection(connectionString);
         }

@@ -1,0 +1,297 @@
+﻿<Page x:Class="MuzickiStudioAkord.Views.DodavanjeArtiklaView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      Width="650"
+      Height="450"
+	  Title="Dodaj Artikal">
+
+    <Page.Resources>
+        <ControlTemplate x:Key="ErrorTemplate">
+            <Border BorderBrush="Red" BorderThickness="1">
+                <AdornedElementPlaceholder />
+            </Border>
+        </ControlTemplate>
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+
+
+    <Grid x:Name="gridMainUnosArtikla">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Name="lableNaslov"
+               Content="Izaberite tip artikla"
+               Grid.Row="0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               FontSize="15"/>
+        <ComboBox x:Name="comboBoxTipArtikla" Text="Tip artikla" Width="150" SelectionChanged="comboBoxTipArtikla_SelectionChanged" Margin="3,0,30,0" HorizontalAlignment="Right">
+            <ComboBoxItem Name="ElektricnaGitara">Elektricna gitara</ComboBoxItem>
+            <ComboBoxItem Name="KlasicnaGitara">Klasicna gitara</ComboBoxItem>
+            <ComboBoxItem Name="Klavijature">Klavijature</ComboBoxItem>
+            <ComboBoxItem Name="Pojacalo">Pojacalo</ComboBoxItem>
+        </ComboBox>
+        <Grid x:Name="gridUnosPodataka" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Vertical">
+                <Label Name="labelaSerijskiBroj"
+                       HorizontalAlignment="Center"
+                       Content="Serijski broj"/>
+                <TextBox x:Name="textBoxSerijskiBroj"
+                         Margin="3"
+                         Width="150"
+                         GotFocus="textBox_GotFocus"
+                         Text="{Binding Path=noviArtikal.SerijskiBroj,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                <Label Name="labelaNaziv"
+                       HorizontalAlignment="Center"
+                       Content="Naziv artikla"/>
+                <TextBox x:Name="textBoxNaziv"
+                         Margin="3"
+                         Width="150"
+                         GotFocus="textBox_GotFocus"
+                         Text="{Binding Path=noviArtikal.Naziv,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                <Label Name="labelaCijena"
+                       HorizontalAlignment="Center"
+                       Content="Cijena artikla"/>
+                <TextBox x:Name="textBoxCijena"
+                         Margin="3"
+                         Width="150"
+                         GotFocus="textBox_GotFocus"
+                         Text="{Binding Path=noviArtikal.Cijena,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                <Label Name="labelaSlika"
+                       HorizontalAlignment="Center"
+                       Content="Slika"/>
+                <Image Name="slikaArtikla" Height="200" Source="{Binding Path=noviArtikal.Slika}" Margin="10"/>
+                <Button x:Name="buttonUpload" Content="Dodaj sliku" Click="Button_Click" Width="70" Background="BurlyWood"/>
+            </StackPanel>
+            
+            <StackPanel x:Name="stackPanelOsnovno" Grid.Column="1">
+
+                <Label Name="labelaGodinaProizvodnje"
+                       HorizontalAlignment="Center"
+                       Content="Godina proizvodnje"/>
+                <TextBox x:Name="textBoxGodinaProizvodnje"
+                         Margin="3"
+                         Width="150"
+                         GotFocus="textBox_GotFocus"
+                         Text="{Binding Path=noviArtikal.Spec.GodinaProizvodnje,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                <Label Name="labelaProizvodjac"
+                       HorizontalAlignment="Center"
+                       Content="Proizvodjac"/>
+                <TextBox x:Name="textBoxProizvodjac"
+                         Margin="3"
+                         Width="150"
+                         GotFocus="textBox_GotFocus"
+                         Text="{Binding Path=noviArtikal.Spec.Proizvodjac,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                <Label Name="labelaModel"
+                       HorizontalAlignment="Center"
+                       Content="Model"/>
+                <TextBox x:Name="textBoxModel"
+                         Margin="3"
+                         Width="150"
+                         GotFocus="textBox_GotFocus"
+                         Text="{Binding Path=noviArtikal.Spec.Model,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                <Label Name="labelaMaterijal"
+                       HorizontalAlignment="Center"
+                       Content="Materijal"/>
+                <TextBox x:Name="textBoxMaterijal"
+                         Margin="3"
+                         Width="150"
+                         GotFocus="textBox_GotFocus"
+                         Text="{Binding Path=noviArtikal.Spec.Materijal,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+            </StackPanel>
+            
+            <Grid x:Name="gridSpecifikacije" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical">
+                    <Label Name="labelaTipArtikla"
+                       HorizontalAlignment="Center"
+                       Content="Specifikacije"/>
+                    
+                </StackPanel>
+                
+                <StackPanel x:Name="stackPanelElektricnaGitra" Grid.Column="1" Grid.Row="1" Orientation="Vertical" Visibility="Hidden">
+                    <Label Name="labelaVrateg"
+                       HorizontalAlignment="Center"
+                       Content="Vrat"/>
+                    <TextBox x:Name="textBoxVrateg"
+                         Margin="3"
+                         Width="150"
+                         GotFocus="textBox_GotFocus"
+                         Text="{Binding Path=noviArtikal.SpecEl.Vrat,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                    <Label Name="labelaMosteg"
+                       HorizontalAlignment="Center"
+                       Content="Most"/>
+                    <TextBox x:Name="textBoxMosteg"
+                         Margin="3"
+                         Width="150"
+                         GotFocus="textBox_GotFocus"
+                         Text="{Binding Path=noviArtikal.SpecEl.Most,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                    <Label Name="labelaPickupeg"
+                       HorizontalAlignment="Center"
+                       Content="PickuUp"/>
+                    <TextBox x:Name="textBoxPickUpeg"
+                         Margin="3"
+                         Width="150"
+                         GotFocus="textBox_GotFocus"
+                         Text="{Binding Path=noviArtikal.SpecEl.PickUp,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                    <Label Name="labelaElektronika"
+                       HorizontalAlignment="Center"
+                       Content="Elektronika"/>
+                    <TextBox x:Name="textBoxElektronika"
+                         Margin="3"
+                         Width="150"
+                         GotFocus="textBox_GotFocus"
+                         Text="{Binding Path=noviArtikal.SpecEl.Elektronika,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                    <Label Name="labelaBrojZicaeg"
+                       HorizontalAlignment="Center"
+                       Content="Broj zica"/>
+                    <TextBox x:Name="textBoxBrojZicaeg"
+                         Margin="3"
+                         Width="150"
+                         GotFocus="textBox_GotFocus"
+                         Text="{Binding Path=noviArtikal.SpecEl.BrojZica,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                    <Label Name="labelaTipGitareEG"
+                       HorizontalAlignment="Center"
+                       Content="Tip gitare"/>
+                    <ComboBox x:Name="comboBoxTipElektricneGitare" Text="Tip elektricne gitare" Width="150" SelectionChanged="comboBoxTipElektricneGitare_SelectionChanged">
+                        <ComboBoxItem Name="ElektricnaGitaraTipGitare">Elektricna gitara</ComboBoxItem>
+                        <ComboBoxItem Name="BassGitaraTipGitare">Bass gitara</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel x:Name="stackPanelKlasicnaGitra" Grid.Column="1" Grid.Row="1" Orientation="Vertical" Visibility="Hidden">
+                    <Label Name="labelaMasinicakg"
+                       HorizontalAlignment="Center"
+                       Content="Masinica"/>
+                    <TextBox x:Name="textBoxMasinicakg"
+                         Margin="3"
+                         Width="150"
+                         GotFocus="textBox_GotFocus"
+                         Text="{Binding Path=noviArtikal.SpecKL.Masinica,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                    <Label Name="labelaBrojZicakg"
+                       HorizontalAlignment="Center"
+                       Content="Broj zica"/>
+                    <TextBox x:Name="textBoxBrojZicakg"
+                         Margin="3"
+                         Width="150"
+                         GotFocus="textBox_GotFocus"
+                         Text="{Binding Path=noviArtikal.SpecKL.BrojZica,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                    <Label Name="labelaTipGitareKG"
+                       HorizontalAlignment="Center"
+                       Content="Tip gitare"/>
+                    <ComboBox x:Name="comboBoxTipKlasicneGitare" Text="Tip elektricne gitare" Width="150" SelectionChanged="comboBoxTipElektricneGitare_SelectionChanged">
+                        <ComboBoxItem Name="KlasicnaGitaraTipGitare">Klasicna gitara</ComboBoxItem>
+                        <ComboBoxItem Name="AkusticnaGitara">Akusticna gitara</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel x:Name="stackPanelKlavijature" Grid.Column="1" Grid.Row="1" Orientation="Vertical" Visibility="Hidden">
+                    <Label Name="labelaBrojTipki"
+                       HorizontalAlignment="Center"
+                       Content="Broj tipki"/>
+                    <TextBox x:Name="textBoxBrojTipki"
+                         Margin="3"
+                         Width="150"
+                         GotFocus="textBox_GotFocus"
+                         Text="{Binding Path=noviArtikal.SpecKl.BrojTipki,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                    <Label Name="labelaTezina"
+                       HorizontalAlignment="Center"
+                       Content="Tezina"/>
+                    <TextBox x:Name="textBoxTezina"
+                         Margin="3"
+                         Width="150"
+                         GotFocus="textBox_GotFocus"
+                         Text="{Binding Path=noviArtikal.SpecKl.Tezina,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                    <Label Name="labelaNapajanje"
+                       HorizontalAlignment="Center"
+                       Content="Napajanje"/>
+                    <TextBox x:Name="textBoxNapajanje"
+                         Margin="3"
+                         Width="150"
+                         GotFocus="textBox_GotFocus"
+                         Text="{Binding Path=noviArtikal.SpecKl.Napajanje,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                    <Label Name="labelaZvucnikKlav"
+                       HorizontalAlignment="Center"
+                       Content="Zvucnik"/>
+                    <TextBox x:Name="textBoxZvucnikKlav"
+                         Margin="3"
+                         Width="150"
+                         GotFocus="textBox_GotFocus"
+                         Text="{Binding Path=noviArtikal.SpecKl.Zvucnik,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                </StackPanel>
+
+                <StackPanel x:Name="stackPanelPojacalo" Grid.Column="1" Grid.Row="1" Orientation="Vertical" Visibility="Hidden">
+                    <Label Name="labelaZvucnik"
+                       HorizontalAlignment="Center"
+                       Content="Zvucnik"/>
+                    <TextBox x:Name="textBoxZvucnik"
+                         Margin="3"
+                         Width="150"
+                         GotFocus="textBox_GotFocus"
+                         Text="{Binding Path=noviArtikal.SpecPo.Zvucnik,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                    <Label Name="labelaBrojKanala"
+                       HorizontalAlignment="Center"
+                       Content="Broj kanala"/>
+                    <TextBox x:Name="textBoxBrojKanala"
+                         Margin="3"
+                         Width="150"
+                         GotFocus="textBox_GotFocus"
+                         Text="{Binding Path=noviArtikal.SpecPo.BrojKanala,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                    <Label Name="labelaSlusalice"
+                       HorizontalAlignment="Center"
+                       Content="Ulaz za slusalice"/>
+                    <TextBox x:Name="textBoxSlusalice"
+                         Margin="3"
+                         Width="150"
+                         GotFocus="textBox_GotFocus"
+                         Text="{Binding Path=noviArtikal.SpecPo.UlazZaSlusalice,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
+                </StackPanel>
+                
+                <StackPanel Grid.Column="1" Grid.Row="2">
+                    <Button Content="Dodaj artikal" Width="150" Margin="20" Background="BurlyWood" Command="{Binding Path= dodajUBazu}"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

@@ -8,12 +8,68 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace MuzickiStudioAkord.ViewModels
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
+        private bool visibilityRadnik;
+
+        public bool VisibilityRadnik
+        {
+            get { return visibilityRadnik; }
+            set { visibilityRadnik = value; OnPropertyChanged("VisibilityRadnik"); }
+        }
+        private bool visibilityGost;
+
+        public bool VisibilityGost
+        {
+            get { return visibilityGost; }
+            set { visibilityGost = value; OnPropertyChanged("VisibilityGost"); }
+        }
+
+        private bool visibilityVlasnik;
+
+        public bool VisibilityVlasnik
+        {
+            get { return visibilityVlasnik; }
+            set { visibilityVlasnik = value; OnPropertyChanged("VisibilityVlasnik"); }
+        }
+        
+
+        public Uposlenik DodaniUposlenik { get; set; }
+        public ICommand DodajRadnika { get; set; }
+
+        public void dodajRadnika(Object parametar)
+        {
+            Uposlenik u = new Uposlenik(DodaniUposlenik.Ime,
+                                        DodaniUposlenik.Prezime,
+                                        DodaniUposlenik.Jmbg,
+                                        DodaniUposlenik.Adresa,
+                                        DodaniUposlenik.BrojTelefona,
+                                        DodaniUposlenik.Username,
+                                        DodaniUposlenik.Jmbg);
+
+            dbUposlenici.dodaj(u);
+            System.Windows.Forms.MessageBox.Show("Zaposlenik dodan u bazu");
+        }
+
+//-------------------------------------------------------------------------------------------------------
+
+        private bool logiranBiloko;
+
+        public bool LogiranBiloKo
+        {
+            get { return logiranBiloko; }
+            set { logiranBiloko = value;
+            OnPropertyChanged("LogiranBiloKo");
+            }
+        }
+        
+
+
         private string loginUsername;
         public string LoginUsername
         {
@@ -42,13 +98,14 @@ namespace MuzickiStudioAkord.ViewModels
         }
 
         private bool ulogovanKaoAdmin = false;
-        public bool UlogovanKaoAdmin {
+        public bool UlogovanKaoAdmin
+        {
             get { return ulogovanKaoAdmin; }
-            set 
-            { 
-                ulogovanKaoAdmin = value; 
-                OnPropertyChanged("UlogovanKaoAdmin"); 
-            } 
+            set
+            {
+                ulogovanKaoAdmin = value;
+                OnPropertyChanged("UlogovanKaoAdmin");
+            }
         }
         public DataBaseVlasnici dbVlasnici { get; set; }
         public DataBaseUposlenici dbUposlenici { get; set; }
@@ -63,21 +120,19 @@ namespace MuzickiStudioAkord.ViewModels
 
         public void login(Object parametar)
         {
-            dbVlasnici = new DataBaseVlasnici(Resources.BazaPassword);
-            dbUposlenici = new DataBaseUposlenici(Resources.BazaPassword);
             var vlasnici = dbVlasnici.dajSve();
             var uposlenici = dbUposlenici.dajSve();
 
             string pw = ((PasswordBox)parametar).Password;
             //Admin.Password = pw;
             string username = LoginUsername;
-            
+
 
 
             foreach (Vlasnik v in vlasnici)
             {
                 //if (v.Username == Admin.Username && v.Password == Admin.Password)
-                if(v.Username == username && v.Password == pw)
+                if (v.Username == username && v.Password == pw)
                 {
                     Admin.Ime = v.Ime;
                     Admin.Prezime = v.Prezime;
@@ -90,13 +145,18 @@ namespace MuzickiStudioAkord.ViewModels
                     Admin.Username = v.Username;
                     UlogovanKaoAdmin = true;
                     LoginName = Admin.Ime;
+                    ((PasswordBox)parametar).Password = "";
+                    VisibilityVlasnik = true;
+                    VisibilityRadnik = false;
+                    VisibilityGost = false;
+                    LogiranBiloKo = true;
                     return;
                 }
             }
             foreach (Uposlenik u in uposlenici)
             {
                 //if (u.Username == Admin.Username && u.Password == Admin.Password)
-                if(u.Username == username && u.Password == pw)
+                if (u.Username == username && u.Password == pw)
                 {
                     Radnik.Ime = u.Ime;
                     Radnik.Prezime = u.Prezime;
@@ -109,9 +169,17 @@ namespace MuzickiStudioAkord.ViewModels
                     Radnik.Username = u.Username;
                     UlogovanKaoAdmin = false;
                     LoginName = Radnik.Ime;
+                    ((PasswordBox)parametar).Password = "";
+                    VisibilityGost = false;
+                    VisibilityRadnik = true;
+                    VisibilityVlasnik = false;
+                    LogiranBiloKo = true;
                     return;
                 }
             }
+            VisibilityGost = true;
+            VisibilityRadnik = false;
+            VisibilityVlasnik = false;
             System.Windows.Forms.MessageBox.Show("Login podaci neispravni! Pokusajte ponovo");
             //CloseAction();
 
@@ -119,19 +187,34 @@ namespace MuzickiStudioAkord.ViewModels
 
         public void logout(Object parametar)
         {
-            ((TextBlock)parametar).Text = "Gost";
+            //((TextBlock)parametar).Text = "Gost";
+            LoginName = "Gost";
             UlogovanKaoAdmin = false;
             Admin = new Vlasnik();
             Radnik = new Uposlenik();
+            VisibilityGost = true;
+            VisibilityRadnik = false;
+            VisibilityVlasnik = false;
+            LogiranBiloKo = false;
         }
+
+//----------------------------------------------------------------------------------------------------------------------------
 
         public MainWindowViewModel()
         {
             Login = new RelayCommand(login);
             Logout = new RelayCommand(logout);
+            DodajRadnika = new RelayCommand(dodajRadnika);
+            DodaniUposlenik = new Uposlenik();
+            dbVlasnici = new DataBaseVlasnici(Resources.BazaPassword);
+            dbUposlenici = new DataBaseUposlenici(Resources.BazaPassword);
             Admin = new Vlasnik();
             Radnik = new Uposlenik();
-            
+            LoginName = "Gost";
+            VisibilityGost = true;
+            VisibilityRadnik = false;
+            VisibilityVlasnik = false;
+            LogiranBiloKo = false;
         }
 
 
@@ -147,5 +230,7 @@ namespace MuzickiStudioAkord.ViewModels
         }
 
         #endregion
+
+        public ICommand PasswordChange { get; set; }
     }
 }
