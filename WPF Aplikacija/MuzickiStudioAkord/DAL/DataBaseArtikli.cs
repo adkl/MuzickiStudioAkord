@@ -290,6 +290,7 @@ namespace MuzickiStudioAkord.DAL
                     upit.Parameters.AddWithValue("@tip_gitare", null);
                     upit.ExecuteNonQuery();
                 }
+                connection.Close();
                 return true;
             }
             catch (Exception)

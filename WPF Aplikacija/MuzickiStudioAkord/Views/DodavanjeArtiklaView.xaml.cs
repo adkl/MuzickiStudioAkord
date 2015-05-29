@@ -38,6 +38,7 @@ namespace MuzickiStudioAkord.Views
             if (dlg.ShowDialog() == true)
             {
                 slikaArtikla.Source = new BitmapImage(new Uri(dlg.FileName, UriKind.Absolute));
+                (DataContext as InventoryViewModel).noviArtikal.Slika = slikaArtikla.Source as BitmapImage;
             }
         }
 
