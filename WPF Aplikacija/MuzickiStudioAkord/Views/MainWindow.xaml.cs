@@ -28,6 +28,8 @@ namespace MuzickiStudioAkord.Views
         private DodavanjeArtiklaView DodajArtikal { get; set; }
         private SastanakView SastanakPage { get; set; }
 
+        private DodajRadnikaView DodajRadnikaPage { get; set; }
+
         private PasswordChangeView PasswordChangePage { get; set; }
         public MainWindow()
         {
@@ -106,19 +108,6 @@ namespace MuzickiStudioAkord.Views
             mainFrame.NavigationService.Navigate(ArtikliPage);
             
         }
-
-        private void buttonPasswordChange_Click(object sender, RoutedEventArgs e)
-        {
-            if (PasswordChangePage == null) PasswordChangePage = new PasswordChangeView();
-            mainFrame.Navigate(PasswordChangePage);
-            
-        }
-
-        private void buttonDodajRadnika_Click(object sender, RoutedEventArgs e)
-        {
-            mainFrame.Navigate(new DodajRadnikaView());
-        }
-
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             if(DodajArtikal == null) DodajArtikal = new DodavanjeArtiklaView();
@@ -131,6 +120,14 @@ namespace MuzickiStudioAkord.Views
             HomePageView hpv = new HomePageView(mainFrame);
             mainFrame.Navigate(hpv);
         }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (DodajRadnikaPage == null)
+                DodajRadnikaPage = new DodajRadnikaView();
+
+            mainFrame.Navigate(DodajRadnikaPage);
+        } 
 
 
 
