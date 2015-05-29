@@ -15,6 +15,7 @@ namespace MuzickiStudioAkord.ViewModels
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
+        #region visibilities declaration
         private bool visibilityRadnik;
 
         public bool VisibilityRadnik
@@ -37,7 +38,9 @@ namespace MuzickiStudioAkord.ViewModels
             get { return visibilityVlasnik; }
             set { visibilityVlasnik = value; OnPropertyChanged("VisibilityVlasnik"); }
         }
-        
+        #endregion
+
+//--------------------------------------------------------------------------------------------------------
 
         public Uposlenik DodaniUposlenik { get; set; }
         public ICommand DodajRadnika { get; set; }

@@ -114,6 +114,7 @@ namespace MuzickiStudioAkord.DAL
                 upit.Parameters.AddWithValue("@JMBG", objekat.Jmbg);
                 if (upit.ExecuteNonQuery() == 1)
                 {
+                    connection.Close();
                     return true;
                 }
                 connection.Close();

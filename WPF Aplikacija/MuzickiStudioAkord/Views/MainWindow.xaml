@@ -68,7 +68,8 @@
 
                 <MenuItem Header="PROFIL"
                           Height="50"
-                          Width="150" />
+                          Width="150"
+                          Click="MenuItem_Click_2"/>
             </Menu>
         </StackPanel>
 
@@ -100,7 +101,8 @@
 
                 <MenuItem Header="PROFIL"
                           Height="50"
-                          Width="150" />
+                          Width="150"
+                          Click="MenuItem_Click_2"/>
             </Menu>
         </StackPanel>
 

@@ -105,6 +105,7 @@ namespace MuzickiStudioAkord.DAL
                 upit.CommandText = "delete from osobe where JMBG = @JMBG";
                 upit.Parameters.AddWithValue("@JMBG", objekat.Jmbg);
                 if (upit.ExecuteNonQuery() == 1) {
+                    connection.Close();
                     return true;
                 }
                 connection.Close();

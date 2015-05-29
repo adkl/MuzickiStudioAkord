@@ -28,6 +28,8 @@ namespace MuzickiStudioAkord.Views
         private DodavanjeArtiklaView DodajArtikal { get; set; }
         private SastanakView SastanakPage { get; set; }
 
+        private PasswordChangeView ProfilePage { get; set; }
+
         private DodajRadnikaView DodajRadnikaPage { get; set; }
 
         private PasswordChangeView PasswordChangePage { get; set; }
@@ -127,6 +129,12 @@ namespace MuzickiStudioAkord.Views
                 DodajRadnikaPage = new DodajRadnikaView();
 
             mainFrame.Navigate(DodajRadnikaPage);
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            if(ProfilePage == null) ProfilePage = new PasswordChangeView();
+            mainFrame.Navigate(ProfilePage);
         } 
 
 
