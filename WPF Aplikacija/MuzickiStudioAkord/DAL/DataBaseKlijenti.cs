@@ -32,7 +32,7 @@ namespace MuzickiStudioAkord.DAL
                     klijenti.Add(new Klijent(r.GetString("Ime"), r.GetString("Prezime"), r.GetString("JMBG"), r.GetString("Adresa"), r.GetString("Broj_telefona"), r.GetInt32("potrosacka_kartica"), new KreditnaKartica(r.GetInt32("id_kartice"), r.GetInt32("ccv"), r.GetDateTime("datum_isteka"))));
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
                 connection.Close();
             }
@@ -64,10 +64,11 @@ namespace MuzickiStudioAkord.DAL
             return klijent;
         }
 
-        public bool dodaj(Klijent objekat)
+        public bool dodaj(Object o)
         {
             try
             {
+                Klijent objekat = o as Klijent;
                 connection.Open();
                 MySqlCommand upit = new MySqlCommand();
                 upit.Connection = connection;
@@ -104,7 +105,7 @@ namespace MuzickiStudioAkord.DAL
                 return true;
 
             }
-            catch(Exception)
+            catch (Exception)
             {
                 connection.Close();
                 return false;

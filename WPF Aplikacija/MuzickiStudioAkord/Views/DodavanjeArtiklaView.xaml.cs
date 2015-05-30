@@ -1,4 +1,5 @@
-﻿using MuzickiStudioAkord.ViewModels;
+﻿using MuzickiStudioAkord.Models;
+using MuzickiStudioAkord.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -78,7 +79,22 @@ namespace MuzickiStudioAkord.Views
 
         private void comboBoxTipElektricneGitare_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ComboBox cb = sender as ComboBox;
+            if (cb.SelectedIndex == 0)
+            {
+               ((DataContext as InventoryViewModel).noviArtikal as ElektricnaGitara).Tip = TipElektronika.Elektricna;
+            }
+            else ((DataContext as InventoryViewModel).noviArtikal as ElektricnaGitara).Tip = TipElektronika.Bass;
+        }
 
+        private void comboBoxTipKlasicneGitare_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cb = sender as ComboBox;
+            if (cb.SelectedIndex == 0)
+            {
+                ((DataContext as InventoryViewModel).noviArtikal as KlasicnaGitara).Tip = TipKlasicne.Klasicna;
+            }
+            else ((DataContext as InventoryViewModel).noviArtikal as KlasicnaGitara).Tip = TipKlasicne.Akusticna;
         }
     }
 }

@@ -76,10 +76,11 @@ namespace MuzickiStudioAkord.DAL
             return vlasnik;
         }
 
-        public bool dodaj(Vlasnik objekat)
+        public bool dodaj(Object o)
         {
             try
             {
+                Vlasnik objekat = o as Vlasnik;
                 connection.Open();
                 MySqlCommand upit = new MySqlCommand();
                 upit.Connection = connection;

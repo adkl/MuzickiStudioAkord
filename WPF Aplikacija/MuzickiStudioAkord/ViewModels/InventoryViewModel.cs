@@ -24,7 +24,7 @@ namespace MuzickiStudioAkord.ViewModels
         public Artikal noviArtikal { get; set; }
         public ICommand dodajUKorpu { get; set; }
         public ICommand dodajUBazu { get; set; }
-        string TipArtikla = String.Empty;
+        string TipArtikla = string.Empty;
 
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -54,11 +54,10 @@ namespace MuzickiStudioAkord.ViewModels
         }
         public void dodajNoviArtikal(object obj)
         {
-         //   if (noviArtikal.IsValid /*&& noviArtikal.Spec.IsValid*/)
-          //  {
-            ArtikliInventory.dodajArtikal(noviArtikal);
-            
-          //  }
+            if (noviArtikal.IsValid)
+            {
+                ArtikliInventory.dodajArtikal(noviArtikal);
+            }
         }
         private void dodajKorpa(object obj)
         {

@@ -213,7 +213,7 @@
                     <Label Name="labelaTipGitareKG"
                        HorizontalAlignment="Center"
                        Content="Tip gitare"/>
-                    <ComboBox x:Name="comboBoxTipKlasicneGitare" Text="Tip elektricne gitare" Width="150" SelectionChanged="comboBoxTipElektricneGitare_SelectionChanged">
+                    <ComboBox x:Name="comboBoxTipKlasicneGitare" Text="Tip elektricne gitare" Width="150" SelectionChanged="comboBoxTipKlasicneGitare_SelectionChanged">
                         <ComboBoxItem Name="KlasicnaGitaraTipGitare">Klasicna gitara</ComboBoxItem>
                         <ComboBoxItem Name="AkusticnaGitara">Akusticna gitara</ComboBoxItem>
                     </ComboBox>

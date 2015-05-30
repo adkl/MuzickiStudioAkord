@@ -67,10 +67,11 @@ namespace MuzickiStudioAkord.DAL
             }
         }
 
-        public bool dodaj(Sastanak objekat)
+        public bool dodaj(Object o)
         {
             try
             {
+                Sastanak objekat = o as Sastanak;
                 connection.Open();
                 MySqlCommand upit = new MySqlCommand();
                 upit.Connection = connection;

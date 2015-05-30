@@ -66,11 +66,12 @@ namespace MuzickiStudioAkord.DAL
             }
         }
 
-        public bool dodaj(Uposlenik objekat)
+        public bool dodaj(Object o)
         {
            
             try
             {
+                Uposlenik objekat = o as Uposlenik;
                 connection.Open();
                 MySqlCommand upit = new MySqlCommand();
                 upit.Connection = connection;

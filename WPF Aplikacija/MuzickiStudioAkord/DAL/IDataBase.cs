@@ -16,7 +16,7 @@ namespace MuzickiStudioAkord.DAL
         O dajPoID(int id);
 
         //Dodaj jedan objekat, vraca true ako je uspjesno dodao
-        bool dodaj(O objekat);
+        bool dodaj(Object objekat);
 
         //Obrisi
         bool obrisi(O objekat);
