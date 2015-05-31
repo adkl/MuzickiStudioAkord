@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Forms;
 using System.Windows.Input;
 
 namespace MuzickiStudioAkord.ViewModels
@@ -186,7 +187,7 @@ namespace MuzickiStudioAkord.ViewModels
             VisibilityGost = true;
             VisibilityRadnik = false;
             VisibilityVlasnik = false;
-            System.Windows.Forms.MessageBox.Show("Login podaci neispravni! Pokusajte ponovo");
+            System.Windows.Forms.MessageBox.Show("Login podaci neispravni! Pokusajte ponovo", "Greska",MessageBoxButtons.OK,MessageBoxIcon.Error);
             //CloseAction();
 
         }
