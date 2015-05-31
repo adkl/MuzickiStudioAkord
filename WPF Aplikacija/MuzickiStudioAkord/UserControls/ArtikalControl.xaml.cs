@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MuzickiStudioAkord.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -49,10 +50,6 @@ namespace MuzickiStudioAkord
             Slika.Source = slikaArtikla;
             Cijena.Text = cijenaArtikla;
             Opis.Text = opisArtikla;
-            Markiran = false;
-        }
-        public ArtikalControl()
-        {
             Markiran = false;
         }
         private void korpa_dodaj_Click(object sender, RoutedEventArgs e)

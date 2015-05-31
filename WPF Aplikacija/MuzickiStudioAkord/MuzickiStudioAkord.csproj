@@ -111,9 +111,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\InventoryViewModel.cs" />
-    <Compile Include="ViewModels\KarticaViewModel.cs" />
+    <Compile Include="ViewModels\KorpaViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\ObrisiArtikalViewModel.cs" />
+    <Compile Include="ViewModels\ObrisiRadnikaViewModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
     <Compile Include="ViewModels\SastanakViewModel.cs" />
     <Compile Include="Views\DodajRadnikaView.xaml.cs">
@@ -136,6 +137,9 @@
     </Compile>
     <Compile Include="Views\ObrisiArtiklaView.xaml.cs">
       <DependentUpon>ObrisiArtiklaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ObrisiRadnikaView.xaml.cs">
+      <DependentUpon>ObrisiRadnikaView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PasswordChangeView.xaml.cs">
       <DependentUpon>PasswordChangeView.xaml</DependentUpon>
@@ -179,6 +183,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ObrisiArtiklaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ObrisiRadnikaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

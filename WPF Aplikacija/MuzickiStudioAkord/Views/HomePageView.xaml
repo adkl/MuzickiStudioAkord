@@ -11,18 +11,10 @@
 
     <Grid>
         
-        <TextBlock Text="Muzicki studio Akord postoji jos od 1990. godine i usrecuje svoje klijente kvalitetnim i najmodernijim uslugama kao sto su snimanje pjesama, reklama, komponovanje i pisanje tekstova. Ukoliko vam treba jedna od navedenih usluga na pravom ste mjestu. Klikom na dugme otvorice vam se forma za zakazivanje sastanka sa osobljem."
-                   FontSize="20"
+        <TextBlock Text="Muzicki studio Akord postoji jos od 1990. godine i usrecuje svoje klijente kvalitetnim i najmodernijim uslugama kao sto su snimanje pjesama, reklama, komponovanje i pisanje tekstova. Ukoliko vam treba jedna od navedenih usluga na pravom ste mjestu. Sa lijeve strane imate menu sa nasim uslugama."
+                   FontSize="17"
                    Foreground="Black"
                    TextWrapping="Wrap"
                    Margin="30,30,0,0"/>
-        
-        <Button Content="Zakazi Sastanak"
-                HorizontalAlignment="Left"
-                Margin="261,383,0,0"
-                VerticalAlignment="Top"
-                Width="113"
-                Height="33"
-                Click="Button_Click" />
     </Grid>
 </Page>

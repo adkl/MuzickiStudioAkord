@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
         <Label Name="imeArtikla"
                Grid.Row="0"
-               Content="Ime artikla"
+               Content="Naziv artikla"
                FontStyle="Oblique"
                Width="Auto" 
                Height="Auto" 
@@ -58,7 +58,7 @@
             </StackPanel>
             <StackPanel Grid.Column="2" Width="Auto" Height="Auto">
 
-                <Button x:Name="korpa_dodaj" Height="50" Width="50" Margin="8,0,7,0" Click="korpa_dodaj_Click" Background="White">
+                <Button x:Name="korpa_dodaj" Height="50" Width="50" Margin="8,0,7,0" Click="korpa_dodaj_Click" Background="LightBlue">
                     <Image>
                         <Image.Style>
                             <Style TargetType="{x:Type Image}">

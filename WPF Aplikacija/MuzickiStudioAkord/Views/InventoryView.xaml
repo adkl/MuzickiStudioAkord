@@ -8,19 +8,16 @@
       Width="650"
       Height="450"
 	  Title="Home">
-
-
     <Grid x:Name="gridArtikli">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="13*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Background="DarkGray">
-            <Button Content="Zavrsi kupovinu" Width="100" Click="Button_Click"/>
+        <StackPanel Grid.Row="0" Background="LightSteelBlue">
+            <Button Content="Zavrsi kupovinu" Width="Auto" Height="30" Click="Button_Click" VerticalAlignment="Center"/>
         </StackPanel>
-
         <ScrollViewer Grid.Row="1">
             <StackPanel Name="stackpanelArtikli"
                             Grid.Row="1"

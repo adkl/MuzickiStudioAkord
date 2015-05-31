@@ -1,0 +1,80 @@
+﻿<Page x:Class="MuzickiStudioAkord.Views.ObrisiRadnikaView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      Height="450"
+      Width="650"
+	Title="Obrisi radnika">
+
+    <Page.Resources>
+        <ControlTemplate x:Key="ErrorTemplate">
+            <Border BorderBrush="Red" BorderThickness="1">
+                <AdornedElementPlaceholder />
+            </Border>
+        </ControlTemplate>
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" HorizontalAlignment="Center" Width="300"  VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" Grid.Column="0">
+                <Label Content="Ime uposlenika" VerticalAlignment="Center" FontSize="17" Margin="0,10"/>
+            </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="1">
+                <TextBox  VerticalAlignment="Center" FontSize="17" Height="30" Margin="0,10"
+                          Text="{Binding Path=PretragaIme,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                          Validation.ErrorTemplate="{DynamicResource ErrorTemplate}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1">
+                <Button Content="Pretrazi" Margin="0,10" Height="30" Command="{Binding Path=PretragaCommand}" />
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Row="1" Margin="10">
+            <DataGrid x:Name="dataGrid" 
+                      DataContext="{Binding ListaUposlenika}"
+                      ItemsSource="{Binding}" 
+                      AutoGenerateColumns="False"
+                      CanUserAddRows="False"
+                      Height="Auto"
+                      LoadingRow="dataGrid_LoadingRow">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Ime" Binding="{Binding Ime}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Prezime" Binding="{Binding Prezime}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="JMBG" Binding="{Binding Jmbg}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Username" Binding="{Binding Username}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Adresa" Binding="{Binding Adresa}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Broj telefona" Binding="{Binding BrojTelefona}" IsReadOnly="True" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Orientation="Horizontal">
+            <TextBlock Text="Unesite JMBG uposlenika" Margin="30" TextWrapping="Wrap" VerticalAlignment="Center"/>
+            <TextBox Width="200" Height="20" Margin="30" 
+                     Text="{Binding ObrisiJMBG,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                     Validation.ErrorTemplate="{DynamicResource ErrorTemplate}"/>
+            <Button Width="100" Height="30" Content="Potvrdi" Command="{Binding ObrisiCommand}"/>
+        </StackPanel>
+    </Grid>
+</Page>

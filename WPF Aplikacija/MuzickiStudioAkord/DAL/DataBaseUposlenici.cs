@@ -40,7 +40,31 @@ namespace MuzickiStudioAkord.DAL
             connection.Close();
             return uposlenici;
         }
+        public ObservableCollection<Uposlenik> dajSve(string ime)
+        {
+            ObservableCollection<Uposlenik> uposlenici = new ObservableCollection<Uposlenik>();
+            try
+            {
+                connection.Open();
+                MySqlCommand upit = new MySqlCommand();
+                upit.Connection = connection;
+                upit.CommandText = "select * from osobe where Status = @Status and Ime = @Ime";
+                upit.Parameters.AddWithValue("@Status", 1);
+                upit.Parameters.AddWithValue("@Ime", ime);
+                MySqlDataReader r = upit.ExecuteReader();
+                while (r.Read())
+                {
+                    uposlenici.Add(new Uposlenik(r.GetString("Ime"), r.GetString("Prezime"), r.GetString("JMBG"), r.GetString("Adresa"), r.GetString("Broj_telefona"), r.GetString("Username"), r.GetString("Password")));
+                }
 
+            }
+            catch (Exception)
+            {
+                connection.Close();
+            }
+            connection.Close();
+            return uposlenici;
+        }
         public Uposlenik dajPoID(int id)
         {
             Uposlenik uposlenik = null;
@@ -119,7 +143,30 @@ namespace MuzickiStudioAkord.DAL
                 return false;
             }
         }
+        public bool obrisi(string JMBG)
+        {
 
+            try
+            {
+                connection.Open();
+                MySqlCommand upit = new MySqlCommand();
+                upit.Connection = connection;
+                upit.CommandText = "delete from osobe where JMBG = @JMBG";
+                upit.Parameters.AddWithValue("@JMBG", JMBG);
+                if (upit.ExecuteNonQuery() == 1)
+                {
+                    connection.Close();
+                    return true;
+                }
+                connection.Close();
+                return false;
+            }
+            catch (Exception)
+            {
+                connection.Close();
+                return false;
+            }
+        }
         public bool daLiPostoji(Uposlenik objekat)
         {
             

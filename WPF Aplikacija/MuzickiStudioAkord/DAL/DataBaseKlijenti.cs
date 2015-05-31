@@ -168,5 +168,58 @@ namespace MuzickiStudioAkord.DAL
                 return false;
             }
         }
+        public bool daLiPostoji(string username, string password)
+        {
+            try
+            {
+                connection.Open();
+                MySqlCommand upit = new MySqlCommand();
+                upit.Connection = connection;
+                upit.CommandText = "select * from osobe where Username = @Username";
+                upit.Parameters.AddWithValue("@Username", username);
+                MySqlDataReader r = upit.ExecuteReader();
+                while (r.Read())
+                {
+                    if (r.GetString("Password") == password && r.GetString("Status") == "Klijent")
+                    {
+                        connection.Close();
+                        return true;
+                    }
+                }
+                connection.Close();
+                return false;
+            }
+            catch (Exception)
+            {
+                connection.Close();
+                return false;
+            }
+        }
+        public bool postojiPotrosacka(int potrosacka)
+        {
+            try
+            {
+                connection.Open();
+                MySqlCommand upit = new MySqlCommand();
+                upit.Connection = connection;
+                upit.CommandText = "select * from klijenti";
+                MySqlDataReader r = upit.ExecuteReader();
+                while (r.Read())
+                {
+                    if (r.GetInt32("potrosacka_kartica") == potrosacka)
+                    {
+                        connection.Close();
+                        return false;
+                    }
+                }
+                connection.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                connection.Close();
+                return false;
+            }
+        }
     }
 }

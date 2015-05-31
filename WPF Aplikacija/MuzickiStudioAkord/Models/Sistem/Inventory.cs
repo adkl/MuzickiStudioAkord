@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace MuzickiStudioAkord.Models
 {
-    public class Inventory
+    public class Inventory : INotifyPropertyChanged
     {
         private ObservableCollection<Artikal> artikli;
         public ObservableCollection<Artikal> Artikli
         {
             get { return artikli; }
-            set { artikli = value;}
+            set { artikli = value; OnPropertyChanged("listaArtikala"); }
         }
-
+        
         private DataBaseArtikli baza;
         public DataBaseArtikli Baza
         {
@@ -57,6 +57,14 @@ namespace MuzickiStudioAkord.Models
             }
             return false;
         }
+        public event PropertyChangedEventHandler PropertyChanged;
 
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 }
