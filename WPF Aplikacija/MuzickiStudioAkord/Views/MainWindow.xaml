@@ -99,7 +99,8 @@
 
                 <MenuItem Header="SASTANCI"
                           Height="60"
-                          Width="150" />
+                          Width="150"
+                          Click="MenuItem_Click_5"/>
 
                 <MenuItem Header="PROFIL"
                           Height="50"

@@ -32,6 +32,7 @@ namespace MuzickiStudioAkord.Views
         private ObrisiArtiklaView ObrisiArtikalPage { get; set; }
         private DodajRadnikaView DodajRadnikaPage { get; set; }
         public ObrisiRadnikaView ObrisiRadnikaPage { get; set; }
+        public PregledSastanakaView PregledSastanakPage { get; set; }
         private PasswordChangeView PasswordChangePage { get; set; }
         public MainWindow()
         {
@@ -142,6 +143,12 @@ namespace MuzickiStudioAkord.Views
         {
             if (ObrisiRadnikaPage == null) ObrisiRadnikaPage = new ObrisiRadnikaView();
             mainFrame.Navigate(ObrisiRadnikaPage);
+        }
+
+        private void MenuItem_Click_5(object sender, RoutedEventArgs e)
+        {
+            if (PregledSastanakPage == null) PregledSastanakPage = new PregledSastanakaView();
+            mainFrame.Navigate(PregledSastanakPage);
         } 
     }
 }

@@ -64,7 +64,29 @@ namespace MuzickiStudioAkord.DAL
             connection.Close();
             return klijent;
         }
-
+        public Klijent dajPoID(string id)
+        {
+            Klijent klijent = null;
+            try
+            {
+                connection.Open();
+                MySqlCommand upit = new MySqlCommand();
+                upit.Connection = connection;
+                upit.CommandText = "select * from osobe o, klijenti k, kreditna_kartica kk where k.JMBG = o.JMBG and k.JMBG = kk.JMBG and o.JMBG = @JMBG";
+                upit.Parameters.AddWithValue("@JMBG", id.ToString());
+                MySqlDataReader r = upit.ExecuteReader();
+                while (r.Read())
+                {
+                    klijent = new Klijent(r.GetString("Ime"), r.GetString("Prezime"), r.GetString("JMBG"), r.GetString("Adresa"), r.GetString("Broj_telefona"), r.GetInt32("potrosacka_kartica"), new KreditnaKartica(r.GetInt32("id_kartice"), r.GetInt32("ccv"), r.GetDateTime("datum_isteka")));
+                }
+            }
+            catch (Exception)
+            {
+                connection.Close();
+            }
+            connection.Close();
+            return klijent;
+        }
         public bool dodaj(Object o)
         {
             try

@@ -30,7 +30,7 @@ namespace MuzickiStudioAkord.DAL
                  MySqlDataReader r = upit.ExecuteReader();
                  while (r.Read())
                  {       
-                     Klijent tempKlijent = dataKlijent.dajPoID((Int32.Parse(r.GetString("JMBG"))));
+                     Klijent tempKlijent = dataKlijent.dajPoID(r.GetString("jmbg_klijent"));
                      sastanci.Add(new Sastanak(r.GetInt32("id_sastanak"), r.GetString("naziv"), r.GetDateTime("datum"), r.GetString("opis"),tempKlijent));
                  }
             }

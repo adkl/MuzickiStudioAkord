@@ -60,12 +60,12 @@
                       Height="Auto"
                       LoadingRow="dataGrid_LoadingRow">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Ime" Binding="{Binding Ime}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Prezime" Binding="{Binding Prezime}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="JMBG" Binding="{Binding Jmbg}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Username" Binding="{Binding Username}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Adresa" Binding="{Binding Adresa}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Broj telefona" Binding="{Binding BrojTelefona}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Ime" Binding="{Binding Ime}" IsReadOnly="True" Width="*"/>
+                    <DataGridTextColumn Header="Prezime" Binding="{Binding Prezime}" IsReadOnly="True"  Width="*"/>
+                    <DataGridTextColumn Header="JMBG" Binding="{Binding Jmbg}" IsReadOnly="True"  Width="*"/>
+                    <DataGridTextColumn Header="Username" Binding="{Binding Username}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="Adresa" Binding="{Binding Adresa}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="Broj telefona" Binding="{Binding BrojTelefona}" IsReadOnly="True" Width="*" />
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
