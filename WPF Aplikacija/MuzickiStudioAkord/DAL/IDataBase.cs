@@ -1,6 +1,7 @@
 ﻿using MuzickiStudioAkord.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace MuzickiStudioAkord.DAL
     interface IDataBase<O>
     {
         //Vrati sve iz tabele
-        List<O> dajSve();
+        ObservableCollection<O> dajSve();
 
         //Daj objekat po ID
         O dajPoID(int id);

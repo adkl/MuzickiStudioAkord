@@ -106,9 +106,10 @@
                          GotFocus="textBox_GotFocus"
                          Text="{Binding Path=SastanakKlijent.Email,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
-                
-               
-                
+                <Label x:Name="threadTest" Margin="0,30,100,0" Content=""/>
+
+
+
             </StackPanel>
             <StackPanel Grid.Column="1" Orientation="Vertical">
                 <Label Name="labelaPotrosackaID"
@@ -168,7 +169,7 @@
                         Height="30"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Bottom"
-                        Command="{Binding Path = UnosSastanka}"/>
+                        Command="{Binding Path = UnosSastanka}" Click="buttonPotvrda_Click"/>
             </StackPanel>
         </Grid>
 

@@ -39,9 +39,10 @@
                            FontSize="15"
                            Height="25" />
 
-                <TextBox FontSize="20"
+                <TextBox x:Name="textBoxime"
+                         FontSize="20"
                          Width="200"
-                         Text="{Binding DodaniUposlenik.Ime, ValidatesOnDataErrors=True, NotifyOnValidationError=True,                    UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                         Text="{Binding DodaniUposlenik.Ime, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
                          Validation.ErrorTemplate="{DynamicResource ErrorTemplate}" />
 
             </StackPanel>
@@ -54,9 +55,10 @@
                            FontSize="15"
                            Height="25" />
 
-                <TextBox FontSize="20"
+                <TextBox x:Name="textBoxprezime"
+                         FontSize="20"
                          Width="200"
-                         Text="{Binding DodaniUposlenik.Prezime, ValidatesOnDataErrors=True, NotifyOnValidationError=True,                    UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                         Text="{Binding DodaniUposlenik.Prezime, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
                          Validation.ErrorTemplate="{DynamicResource ErrorTemplate}"/>
 
             </StackPanel>
@@ -69,9 +71,10 @@
                            FontSize="15"
                            Height="25" />
 
-                <TextBox FontSize="20"
+                <TextBox x:Name="textBoxJMBG"
+                         FontSize="20"
                          Width="200"
-                         Text="{Binding DodaniUposlenik.Jmbg, ValidatesOnDataErrors=True, NotifyOnValidationError=True,                    UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                         Text="{Binding DodaniUposlenik.Jmbg, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
                          Validation.ErrorTemplate="{DynamicResource ErrorTemplate}"/>
 
             </StackPanel>
@@ -84,9 +87,10 @@
                            FontSize="15"
                            Height="25" />
 
-                <TextBox FontSize="20"
+                <TextBox x:Name="textBoxAdresa"
+                         FontSize="20"
                          Width="200"
-                         Text="{Binding DodaniUposlenik.Adresa, ValidatesOnDataErrors=True, NotifyOnValidationError=True,                    UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                         Text="{Binding DodaniUposlenik.Adresa, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
                          Validation.ErrorTemplate="{DynamicResource ErrorTemplate}"/>
 
             </StackPanel>
@@ -99,9 +103,10 @@
                            FontSize="15"
                            Height="25" />
 
-                <TextBox FontSize="20"
+                <TextBox x:Name="textBoxbrTel"
+                         FontSize="20"
                          Width="200"
-                         Text="{Binding DodaniUposlenik.BrojTelefona, ValidatesOnDataErrors=True, NotifyOnValidationError=True,                    UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                         Text="{Binding DodaniUposlenik.BrojTelefona, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
                          Validation.ErrorTemplate="{DynamicResource ErrorTemplate}" />
 
             </StackPanel>
@@ -114,9 +119,10 @@
                            FontSize="15"
                            Height="25" />
 
-                <TextBox FontSize="20"
+                <TextBox x:Name="textBoxkIme"
+                         FontSize="20"
                          Width="200"
-                         Text="{Binding DodaniUposlenik.Username, ValidatesOnDataErrors=True, NotifyOnValidationError=True,                    UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                         Text="{Binding DodaniUposlenik.Username, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
                          Validation.ErrorTemplate="{DynamicResource ErrorTemplate}"/>
 
             </StackPanel>
@@ -132,8 +138,7 @@
                     FontSize="15"
                     Margin="0,10,0,0"
                     HorizontalAlignment="Right"
-                    Command="{Binding Path=DodajRadnika}"
-                    />
+                    Command="{Binding Path=DodajRadnika}" Click="buttonAddRadnika_Click_1"/>
 
 
 

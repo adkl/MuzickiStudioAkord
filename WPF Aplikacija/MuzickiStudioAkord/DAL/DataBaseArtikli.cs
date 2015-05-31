@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -18,9 +19,9 @@ namespace MuzickiStudioAkord.DAL
         {
 
         }
-        public List<Artikal> dajSve()
+        public ObservableCollection<Artikal> dajSve()
         {
-            List<Artikal> artikli = new List<Artikal>();
+            ObservableCollection<Artikal> artikli = new ObservableCollection<Artikal>();
             MySqlConnection connection2 = new MySqlConnection(connectionString);
             try
             {
@@ -330,7 +331,58 @@ namespace MuzickiStudioAkord.DAL
                 return false;
             }
         }
+        public bool obrisi(int sBroj)
+        {
+            try
+            {
+                connection.Open();
+                uint  id_spec = 0;
+                string tipArtikla = String.Empty;
+                MySqlCommand upit = new MySqlCommand();
+                upit.Connection = connection;
+                upit.CommandText = "select * from artikli where serijski_broj = @sBroj";
+                upit.Parameters.AddWithValue("@sBroj", sBroj);
+                MySqlDataReader r = upit.ExecuteReader();
+                r.Read();
+                id_spec = r.GetUInt32("id_specifikacije");
+                tipArtikla = r.GetString("tip_artikla");
 
+                r.Close();
+
+                upit.CommandText = "delete from artikli where serijski_broj = @sBroj";
+                //upit.Parameters.AddWithValue("@sBroj", sBroj);
+                upit.ExecuteNonQuery();
+
+                //klavijature
+                if(tipArtikla == "Klavijatura")
+                {
+                    upit.CommandText = "delete from spec_klavijature where id_spec = @specBroj";
+                    upit.Parameters.AddWithValue("@specBroj", id_spec);
+                    upit.ExecuteNonQuery();
+                }
+                else if (tipArtikla == "KlasicnaGitara" || tipArtikla == "ElektricnaGitara")
+                {
+                    upit.CommandText = "delete from spec_gitara where id_spec = @specBroj";
+                    upit.Parameters.AddWithValue("@specBroj", id_spec);
+                    upit.ExecuteNonQuery();
+                }
+                else if(tipArtikla == "Pojacalo")
+                {
+                    upit.CommandText = "delete from spec_gitara where id_spec = @specBroj";
+                    upit.Parameters.AddWithValue("@specBroj", id_spec);
+                    upit.ExecuteNonQuery();
+                }
+                upit.CommandText = "delete from specifikacije where id_spec = @specBroj";
+                upit.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                connection.Close();
+                return false;
+            }
+        }
         public bool daLiPostoji(Artikal objekat)
         {
             try

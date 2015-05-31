@@ -1,0 +1,8 @@
+﻿<Window x:Class="MuzickiStudioAkord.Views.UcitavamView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ucitavam.." Height="100" Width="300" ShowInTaskbar="False" ResizeMode="NoResize" Icon="/MuzickiStudioAkord;component/icona.ico" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBlock Margin="10" Text="Spremanje podataka... Molimo sacekajte.."/>
+    </Grid>
+</Window>

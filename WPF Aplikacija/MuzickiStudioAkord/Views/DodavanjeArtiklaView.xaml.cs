@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace MuzickiStudioAkord.Views
 {
@@ -22,11 +24,32 @@ namespace MuzickiStudioAkord.Views
     /// </summary>
     public partial class DodavanjeArtiklaView : Page
     {
+        bool resetuj = false;
+        UcitavamView cekajProzor;
+        DispatcherTimer dispatcherTimer;
         public DodavanjeArtiklaView()
         {
             InitializeComponent();
+            dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
+            dispatcherTimer.Start();
         }
-
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            if (resetuj)
+            {
+                Thread.Sleep(1000);
+                cekajProzor.Close();
+                DataContext = new InventoryViewModel();
+                stackPanelKlasicnaGitra.Visibility = Visibility.Hidden;
+                stackPanelElektricnaGitra.Visibility = Visibility.Hidden;
+                stackPanelKlavijature.Visibility = Visibility.Hidden;
+                stackPanelPojacalo.Visibility = Visibility.Hidden;
+                slikaArtikla.Source = null;
+                resetuj = false;
+            }
+        }
         private void textBox_GotFocus(object sender, RoutedEventArgs e)
         {
 
@@ -95,6 +118,13 @@ namespace MuzickiStudioAkord.Views
                 ((DataContext as InventoryViewModel).noviArtikal as KlasicnaGitara).Tip = TipKlasicne.Klasicna;
             }
             else ((DataContext as InventoryViewModel).noviArtikal as KlasicnaGitara).Tip = TipKlasicne.Akusticna;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            resetuj = true;
+            cekajProzor = new UcitavamView();
+            cekajProzor.Show();
         }
     }
 }

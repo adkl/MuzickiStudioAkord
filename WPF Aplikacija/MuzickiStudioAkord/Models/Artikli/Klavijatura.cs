@@ -28,7 +28,7 @@ namespace MuzickiStudioAkord.Models
                      "\nModel: " + Spec.Model +
                      "\nMaterijal:" + Spec.Materijal +
                      "\nProizvodjac: " + Spec.Proizvodjac +
-                     "\nBroj tipki" + SpecKl.BrojTipki +
+                     "\nBroj tipki :" + SpecKl.BrojTipki +
                      "\nZvucnik: " + SpecKl.Zvucnik +
                      "\nNapajanje: " + SpecKl.Napajanje
                 );

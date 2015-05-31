@@ -29,7 +29,7 @@ namespace MuzickiStudioAkord.Views
         private SastanakView SastanakPage { get; set; }
 
         private PasswordChangeView ProfilePage { get; set; }
-
+        private ObrisiArtiklaView ObrisiArtikalPage { get; set; }
         private DodajRadnikaView DodajRadnikaPage { get; set; }
 
         private PasswordChangeView PasswordChangePage { get; set; }
@@ -98,7 +98,7 @@ namespace MuzickiStudioAkord.Views
 
         private void MenuItemShop_Click(object sender, RoutedEventArgs e)
         {
-            if (ArtikliPage == null) ArtikliPage = new InventoryView();
+            ArtikliPage = new InventoryView();
             mainFrame.NavigationService.Navigate(ArtikliPage);
         }
 
@@ -135,10 +135,12 @@ namespace MuzickiStudioAkord.Views
         {
             if(ProfilePage == null) ProfilePage = new PasswordChangeView();
             mainFrame.Navigate(ProfilePage);
+        }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            if (ObrisiArtikalPage == null) ObrisiArtikalPage = new ObrisiArtiklaView();
+            mainFrame.Navigate(ObrisiArtikalPage);
         } 
-
-
-
-
     }
 }

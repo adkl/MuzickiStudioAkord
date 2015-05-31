@@ -57,6 +57,7 @@ namespace MuzickiStudioAkord.ViewModels
             if (noviArtikal.IsValid)
             {
                 ArtikliInventory.dodajArtikal(noviArtikal);
+                noviArtikal = null;
             }
         }
         private void dodajKorpa(object obj)

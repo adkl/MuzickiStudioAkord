@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,9 +16,9 @@ namespace MuzickiStudioAkord.DAL
         {
 
         }
-        public List<Uposlenik> dajSve()
+        public ObservableCollection<Uposlenik> dajSve()
         {
-            List<Uposlenik> uposlenici = new List<Uposlenik>();  
+            ObservableCollection<Uposlenik> uposlenici = new ObservableCollection<Uposlenik>();  
             try
             {
                 connection.Open();

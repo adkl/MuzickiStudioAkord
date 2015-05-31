@@ -289,7 +289,7 @@
                 </StackPanel>
                 
                 <StackPanel Grid.Column="1" Grid.Row="2">
-                    <Button Content="Dodaj artikal" Width="150" Margin="20" Background="BurlyWood" Command="{Binding Path= dodajUBazu}"/>
+                    <Button Content="Dodaj artikal" Width="150" Margin="20" Background="BurlyWood" Command="{Binding Path= dodajUBazu}" Click="Button_Click_1"/>
                 </StackPanel>
             </Grid>
         </Grid>

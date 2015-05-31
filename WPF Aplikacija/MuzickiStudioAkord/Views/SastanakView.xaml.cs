@@ -1,8 +1,10 @@
 ﻿using MuzickiStudioAkord.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace MuzickiStudioAkord.Views
 {
@@ -21,10 +24,32 @@ namespace MuzickiStudioAkord.Views
     /// </summary>
     public partial class SastanakView : Page
     {
+        private bool resetuj = false;
+        DispatcherTimer dispatcherTimer;
+       
         public SastanakView()
         {
             InitializeComponent();
+            threadTest.Content = DateTime.UtcNow;
             DataContext = new SastanakViewModel();
+            dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
+            dispatcherTimer.Start();
+        }
+
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            threadTest.Content = DateTime.UtcNow;
+           if(resetuj)
+           {
+               UcitavamView uc = new UcitavamView();
+               uc.Show();
+               Thread.Sleep(1000);
+               uc.Close();
+               DataContext = new SastanakViewModel();
+               resetuj = false;
+           }
         }
 
         private void textBox_GotFocus(object sender, RoutedEventArgs e)
@@ -120,6 +145,11 @@ namespace MuzickiStudioAkord.Views
 
                 tb.SetBinding(TextBox.TextProperty, b);
             }
+        }
+
+        private void buttonPotvrda_Click(object sender, RoutedEventArgs e)
+        {
+            resetuj = true;
         }
     }
 }

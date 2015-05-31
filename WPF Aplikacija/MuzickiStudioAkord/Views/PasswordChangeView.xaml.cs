@@ -49,7 +49,7 @@ namespace MuzickiStudioAkord.Views
                     Vlasnik vl = new Vlasnik(v.Ime, v.Prezime, v.Jmbg, v.Adresa, v.BrojTelefona, v.Username, newPw);
                     dbVlasnici.obrisi(v);
                     dbVlasnici.dodaj(vl);
-                    System.Windows.Forms.MessageBox.Show("Password uspjesno promijenjen");
+                    System.Windows.Forms.MessageBox.Show("Password uspjesno promijenjen", "Promjena passworda", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
                     textBoxUsername.Text = String.Empty;
                     passwordBoxNewPassword.Password = String.Empty;
                     passwordBoxOldPassword.Password = String.Empty;
@@ -64,7 +64,7 @@ namespace MuzickiStudioAkord.Views
                     Uposlenik u1 = new Uposlenik(u.Ime, u.Prezime, u.Jmbg, u.Adresa, u.BrojTelefona, u.Username, newPw);
                     dbUposlenici.obrisi(u);
                     dbUposlenici.dodaj(u1);
-                    System.Windows.Forms.MessageBox.Show("Password uspjesno promijenjen");
+                    System.Windows.Forms.MessageBox.Show("Password uspjesno promijenjen", "Promjena passworda", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
                     textBoxUsername.Text = String.Empty;
                     passwordBoxNewPassword.Password = String.Empty;
                     passwordBoxOldPassword.Password = String.Empty;

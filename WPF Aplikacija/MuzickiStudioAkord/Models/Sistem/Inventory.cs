@@ -1,6 +1,7 @@
 ﻿using MuzickiStudioAkord.DAL;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,8 @@ namespace MuzickiStudioAkord.Models
 {
     public class Inventory
     {
-        private List<Artikal> artikli;
-        public List<Artikal> Artikli
+        private ObservableCollection<Artikal> artikli;
+        public ObservableCollection<Artikal> Artikli
         {
             get { return artikli; }
             set { artikli = value;}
@@ -29,7 +30,7 @@ namespace MuzickiStudioAkord.Models
             this.Artikli = baza.dajSve();
         }
         //ovaj je konstruktor ako imas bas neke posebne artikle koji ti samo trebaju xD
-        public Inventory(List<Artikal> _artikli)
+        public Inventory(ObservableCollection<Artikal> _artikli)
         {
             this.Artikli = _artikli;
         }

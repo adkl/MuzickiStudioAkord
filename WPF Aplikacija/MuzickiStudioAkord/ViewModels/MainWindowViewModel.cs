@@ -44,7 +44,6 @@ namespace MuzickiStudioAkord.ViewModels
 
         public Uposlenik DodaniUposlenik { get; set; }
         public ICommand DodajRadnika { get; set; }
-
         public void dodajRadnika(Object parametar)
         {
             Uposlenik u = new Uposlenik(DodaniUposlenik.Ime,
@@ -56,7 +55,12 @@ namespace MuzickiStudioAkord.ViewModels
                                         DodaniUposlenik.Jmbg);
 
             dbUposlenici.dodaj(u);
-            System.Windows.Forms.MessageBox.Show("Zaposlenik dodan u bazu");
+            restart();
+        }
+
+        private void restart()
+        {
+            DodaniUposlenik = new Uposlenik();
         }
 
 //-------------------------------------------------------------------------------------------------------
@@ -119,7 +123,6 @@ namespace MuzickiStudioAkord.ViewModels
 
         public Uposlenik Radnik { get; set; }
 
-        public Action CloseAction { get; set; }
 
         public void login(Object parametar)
         {

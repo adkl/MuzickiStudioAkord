@@ -15,10 +15,10 @@ namespace MuzickiStudioAkord.ViewModels
     {
         public DataBaseSastanci BazaSastanci { get; set; }
         public ICommand UnosSastanka { get; set; }
-        public Action CloseAction { get; set; }
         public Sastanak UneseniSastanak { get; set; }
         public Klijent SastanakKlijent { get; set; }
         public KreditnaKartica SastanakKreditnaKartica { get; set; }
+        public Action CloseAction { get; set; }
 
         public SastanakViewModel()
         {
@@ -27,6 +27,15 @@ namespace MuzickiStudioAkord.ViewModels
             SastanakKlijent = new Klijent();
             UneseniSastanak = new Sastanak();
             SastanakKreditnaKartica = new KreditnaKartica();
+            CloseAction = new Action(() => restart());
+        }
+
+        private object restart()
+        {
+            SastanakKlijent = new Klijent();
+            UneseniSastanak = new Sastanak();
+            SastanakKreditnaKartica = new KreditnaKartica();
+            return null;
         }
         public void potvrdi(object parametar)
         {
@@ -35,15 +44,8 @@ namespace MuzickiStudioAkord.ViewModels
                     SastanakKlijent.Kartica = SastanakKreditnaKartica;
                     UneseniSastanak.Klijent = SastanakKlijent;
                     UneseniSastanak.Naziv = SastanakKlijent.Ime + " " + SastanakKlijent.Prezime;
-                    if(BazaSastanci.dodaj(UneseniSastanak))
-                    {
-                        MessageBox.Show("Uspjesno!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Nije uspjesno!");
-                    }
-                    //CloseAction();
+                    if (BazaSastanci.dodaj(UneseniSastanak))
+                        restart();
                 }
         }
     }
