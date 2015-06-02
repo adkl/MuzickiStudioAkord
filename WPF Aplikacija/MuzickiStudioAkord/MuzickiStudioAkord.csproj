@@ -225,9 +225,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Mikrofon\VoiceRecorder - Shortcut.lnk">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="Mikrofon\VoiceRecorder.application">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
