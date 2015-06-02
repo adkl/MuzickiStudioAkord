@@ -100,7 +100,7 @@ namespace MuzickiStudioAkord.Views
 
         private void MenuItemShop_Click(object sender, RoutedEventArgs e)
         {
-            if(ArtikliPage == null) ArtikliPage = new InventoryView();
+            ArtikliPage = new InventoryView();
             mainFrame.NavigationService.Navigate(ArtikliPage);
         }
 
