@@ -225,20 +225,32 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Mikrofon\VoiceRecorder.application" />
-    <None Include="Mikrofon\VoiceRecorder.exe.config" />
-    <None Include="Mikrofon\VoiceRecorder.exe.manifest" />
-    <None Include="Mikrofon\VoiceRecorder.vshost.application" />
-    <None Include="Mikrofon\VoiceRecorder.vshost.exe.config" />
-    <None Include="Mikrofon\VoiceRecorder.vshost.exe.manifest" />
+    <None Include="Mikrofon\VoiceRecorder - Shortcut.lnk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Mikrofon\VoiceRecorder.application">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Mikrofon\VoiceRecorder.exe.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Mikrofon\VoiceRecorder.exe.manifest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Mikrofon\VoiceRecorder.vshost.application">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Mikrofon\VoiceRecorder.vshost.exe.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Mikrofon\VoiceRecorder.vshost.exe.manifest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="VoiceRecorder - Shortcut.lnk">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -294,31 +306,75 @@
     <None Include="Resources\Apply.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Mikrofon\de\System.Windows.Interactivity.resources.dll" />
-    <Content Include="Mikrofon\en\System.Windows.Interactivity.resources.dll" />
-    <Content Include="Mikrofon\es\System.Windows.Interactivity.resources.dll" />
-    <Content Include="Mikrofon\fr\System.Windows.Interactivity.resources.dll" />
-    <Content Include="Mikrofon\GalaSoft.MvvmLight.dll" />
-    <Content Include="Mikrofon\GalaSoft.MvvmLight.Extras.dll" />
-    <Resource Include="Mikrofon\GalaSoft.MvvmLight.Extras.xml" />
-    <Resource Include="Mikrofon\GalaSoft.MvvmLight.xml" />
-    <Content Include="Mikrofon\it\System.Windows.Interactivity.resources.dll" />
-    <Content Include="Mikrofon\ja\System.Windows.Interactivity.resources.dll" />
-    <Content Include="Mikrofon\ko\System.Windows.Interactivity.resources.dll" />
-    <Content Include="Mikrofon\NAudio.dll" />
-    <Content Include="Mikrofon\System.Windows.Interactivity.dll" />
-    <Resource Include="Mikrofon\System.Windows.Interactivity.xml" />
-    <Content Include="Mikrofon\VoiceRecorder.Audio.dll" />
-    <Content Include="Mikrofon\VoiceRecorder.Audio.pdb" />
-    <Content Include="Mikrofon\VoiceRecorder.Core.dll" />
-    <Content Include="Mikrofon\VoiceRecorder.Core.pdb" />
+    <Content Include="Mikrofon\de\System.Windows.Interactivity.resources.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mikrofon\en\System.Windows.Interactivity.resources.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mikrofon\es\System.Windows.Interactivity.resources.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mikrofon\fr\System.Windows.Interactivity.resources.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mikrofon\GalaSoft.MvvmLight.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mikrofon\GalaSoft.MvvmLight.Extras.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Mikrofon\GalaSoft.MvvmLight.Extras.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Mikrofon\GalaSoft.MvvmLight.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="Mikrofon\it\System.Windows.Interactivity.resources.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mikrofon\ja\System.Windows.Interactivity.resources.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mikrofon\ko\System.Windows.Interactivity.resources.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mikrofon\NAudio.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mikrofon\System.Windows.Interactivity.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Mikrofon\System.Windows.Interactivity.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="Mikrofon\VoiceRecorder.Audio.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mikrofon\VoiceRecorder.Audio.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mikrofon\VoiceRecorder.Core.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mikrofon\VoiceRecorder.Core.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Mikrofon\VoiceRecorder.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Mikrofon\VoiceRecorder.pdb" />
-    <Content Include="Mikrofon\VoiceRecorder.vshost.exe" />
-    <Content Include="Mikrofon\zh-Hans\System.Windows.Interactivity.resources.dll" />
-    <Content Include="Mikrofon\zh-Hant\System.Windows.Interactivity.resources.dll" />
+    <Content Include="Mikrofon\VoiceRecorder.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mikrofon\VoiceRecorder.vshost.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mikrofon\zh-Hans\System.Windows.Interactivity.resources.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mikrofon\zh-Hant\System.Windows.Interactivity.resources.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -151,10 +152,12 @@ namespace MuzickiStudioAkord.Views
             if (PregledSastanakPage == null) PregledSastanakPage = new PregledSastanakaView();
             mainFrame.Navigate(PregledSastanakPage);
         }
-
+        bool flag = true;
         private void MenuItemSnimi_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("VoiceRecorder - Shortcut.lnk");
+            if(flag) Directory.SetCurrentDirectory(@"Mikrofon");
+            Process.Start("VoiceRecorder.exe");
+            flag = false;
         } 
     }
 }
