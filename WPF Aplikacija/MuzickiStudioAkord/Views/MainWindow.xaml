@@ -65,12 +65,12 @@
                 <MenuItem Header="OBRISI"
                           Height="60"
                           Width="150"
-                          Click="MenuItem_Click_3"/>
+                          Click="MenuItem_Click_3" />
 
                 <MenuItem Header="PROFIL"
                           Height="50"
                           Width="150"
-                          Click="MenuItem_Click_2"/>
+                          Click="MenuItem_Click_2" />
             </Menu>
         </StackPanel>
 
@@ -95,17 +95,17 @@
                 <MenuItem Header="OBRISI"
                           Height="60"
                           Width="150"
-                          Click="MenuItem_Click_4"/>
+                          Click="MenuItem_Click_4" />
 
                 <MenuItem Header="SASTANCI"
                           Height="60"
                           Width="150"
-                          Click="MenuItem_Click_5"/>
+                          Click="MenuItem_Click_5" />
 
                 <MenuItem Header="PROFIL"
                           Height="50"
                           Width="150"
-                          Click="MenuItem_Click_2"/>
+                          Click="MenuItem_Click_2" />
             </Menu>
         </StackPanel>
 
@@ -124,8 +124,7 @@
                 <MenuItem Header="HOME"
                           Height="60"
                           Width="150"
-                          Click="MenuItemHome_Click_1"
-                          />
+                          Click="MenuItemHome_Click_1" />
 
                 <MenuItem Header="Usluge"
                           Height="50"
@@ -141,6 +140,10 @@
                           Height="50"
                           Width="150"
                           Click="MenuItemSnimi_Click" />
+                <MenuItem Header="Help"
+                          Height="50"
+                          Width="150"
+                          Click="helpMenuClick" />
             </Menu>
         </StackPanel>
 
@@ -159,48 +162,35 @@
         <StackPanel Grid.Column="0"
                     Grid.Row="1"
                     Margin="10,0,5,280">
-            <TextBox Text="Username"
-                     x:Name="textBoxUsername"
-                     GotFocus="TextBox_GotFocus"
-                     LostFocus="TextBox_LostFocus"
-                     Validation.ErrorTemplate="{StaticResource ErrorTemplate}"
-                     Margin="0,10,0,0"
-                     Height="25"
-                     FontStyle="Italic"
-                     Foreground="#FF645A5A" />
-            <!--
-            <TextBox Text="Password"
-                     x:Name="textBoxPassword"
-                     GotFocus="TextBox_GotFocus"
-                     LostFocus="TextBox_LostFocusPassword"
-                     Validation.ErrorTemplate="{StaticResource ErrorTemplate}"
-                     Margin="0,5,0,10"
-                     Height="25"
-                     Foreground="#FF645A5A"
-                     FontStyle="Italic"
-                     IsHitTestVisible="True" />
-            
-            -->
-            <PasswordBox x:Name="passwordBox"
+
+            <StackPanel>
+                <TextBox Text="Username"
+                         x:Name="textBoxUsername"
+                         GotFocus="TextBox_GotFocus"
+                         LostFocus="TextBox_LostFocus"
+                         Validation.ErrorTemplate="{StaticResource ErrorTemplate}"
+                         Margin="0,10,0,0"
                          Height="25"
-                         Margin="0,5,0,5" />
+                         FontStyle="Italic"
+                         Foreground="#FF645A5A" />
+                <PasswordBox x:Name="passwordBox"
+                             Height="25"
+                             Margin="0,5,0,5" />
 
 
 
-            <Button Content="Login"
-                    Margin="0,0,0,10"
-                    Foreground="Black"
-                    Command="{Binding Path=Login}"
-                    CommandParameter="{Binding ElementName=passwordBox}" />
+
+
+                <Button Content="Login"
+                        Margin="0,0,0,10"
+                        Foreground="Black"
+                        Command="{Binding Path=Login}"
+                        CommandParameter="{Binding ElementName=passwordBox}" />
+
+            </StackPanel>
 
             <TextBlock Text="Logirani ste kao:"
                        Margin="0,5,0,0" />
-            <!--
-            <TextBlock Text="{Binding Radnik.Ime, UpdateSourceTrigger=PropertyChanged}"
-                       FontWeight="Bold"
-                       Margin="0,2,0,0"
-                       Foreground="Red"/>
-            -->
             <TextBlock Text="{Binding LoginName}"
                        x:Name="textBlockLoginName"
                        FontWeight="Bold"

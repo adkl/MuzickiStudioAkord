@@ -158,6 +158,12 @@ namespace MuzickiStudioAkord.Views
             if(flag) Directory.SetCurrentDirectory(@"Mikrofon");
             Process.Start("VoiceRecorder.exe");
             flag = false;
+        }
+
+        private void helpMenuClick(object sender, RoutedEventArgs e)
+        {
+            HelpDocumentReader hdr = new HelpDocumentReader();
+            hdr.Show();
         } 
     }
 }
