@@ -152,12 +152,13 @@ namespace MuzickiStudioAkord.Views
             if (PregledSastanakPage == null) PregledSastanakPage = new PregledSastanakaView();
             mainFrame.Navigate(PregledSastanakPage);
         }
-        bool flag = true;
+       
         private void MenuItemSnimi_Click(object sender, RoutedEventArgs e)
         {
-            if(flag) Directory.SetCurrentDirectory(@"Mikrofon");
+            string direktorij = Directory.GetCurrentDirectory();
+            Directory.SetCurrentDirectory(@"Mikrofon");
             Process.Start("VoiceRecorder.exe");
-            flag = false;
+            Directory.SetCurrentDirectory(direktorij); 
         }
 
         private void helpMenuClick(object sender, RoutedEventArgs e)
