@@ -20,7 +20,7 @@
                    Height="100" />
 
         
-        <Button Content="Daj vremensku prognozu"
+        <Button Content="Vremenska prognoza"
                 x:Name="prognozaButton"
                 HorizontalAlignment="Left"
                 Margin="30,159,0,0"

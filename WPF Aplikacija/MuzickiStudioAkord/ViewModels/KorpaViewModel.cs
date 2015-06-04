@@ -82,10 +82,14 @@ namespace MuzickiStudioAkord.ViewModels
                     System.Windows.MessageBox.Show("Kupovina uspjesna!" + Environment.NewLine + "Vasa potrosacka kartica: " + potrosacka, "Kupovina", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Asterisk);
                     Zavrsio = true;
                 }
+                else
+                {
+                    System.Windows.MessageBox.Show("Kupovina nije uspjela. Korisnik vec postoji.", "Kupovina", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Asterisk);
+                }
             }
             else
             {
-                System.Windows.MessageBox.Show("Kupovina nije uspjela. Pokusajte ponovo" + potrosacka, "Kupovina", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Asterisk);
+                System.Windows.MessageBox.Show("Kupovina nije uspjela. Pokusajte ponovo.", "Kupovina", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Asterisk);
             }
         }
 

@@ -38,7 +38,7 @@ namespace MuzickiStudioAkord.DAL
             }
             catch(MySqlException e)
             {
-                throw new Exception("Konekcija na bazu nije moguca!\nPoruka : " + e.Message);
+                System.Windows.MessageBox.Show("Konekcija na bazu nije moguca!\nPoruka : " + e.Message, "Greska pri konekciji", System.Windows.MessageBoxButton.OKCancel, System.Windows.MessageBoxImage.Error);
             }
         }
     }
